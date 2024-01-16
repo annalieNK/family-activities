@@ -12,6 +12,11 @@ extension Bundle {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle.")
         }
+        
+        // store the file in the app's Documents Directory
+//        guard let url = documentsDirectoryURL?.appendingPathComponent(file).appendingPathExtension("json") else {
+//            fatalError("Failed to locate \(file) in bundle.")
+//        }
 
         guard let data = try? Data(contentsOf: url) else {
             fatalError("Failed to load \(file) from bundle.")
@@ -32,4 +37,9 @@ extension Bundle {
 
         return loaded
     }
+    
+    var documentsDirectoryURL: URL? {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    }
 }
+
