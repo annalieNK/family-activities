@@ -6,17 +6,39 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Activity: Codable, Identifiable {
-    let id: Int
-    let title: String
-    let type: String
-    let image: String
+@Model
+class Activity: Codable {
+    enum CodingKeys: CodingKey {
+        case id, name, email
+    }
     
-//    var image: String {
-//        "activity\(id)"
-//    }
+    let id: UUID
+    var name: String
+    var email: String
     
-    static let allActivities: [Activity] = Bundle.main.decode("activities.json")
-    static let example = allActivities[0]
+    static let example = Activity(id: UUID(), name: "Test Name", email: "Test Type")
+    
+    init(id: UUID, name: String, email: String) {
+        self.id = id
+        self.name = name
+        self.email = email
+    }
+    
+    // conform to Codable
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        email = try container.decode(String.self, forKey: .email)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(email, forKey: .email)
+    }
 }
+

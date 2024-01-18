@@ -5,6 +5,7 @@
 //  Created by Annalie Kruseman on 1/10/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct FamilyActivitiesApp: App {
         WindowGroup {
             TabPageView()
         }
+        .modelContainer(for: Activity.self)
     }
 }

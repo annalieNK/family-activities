@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34879EA02B59B33C00FFDCF0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34879E9F2B59B33C00FFDCF0 /* DetailView.swift */; };
 		34EAC7832B4F24D300002B91 /* FamilyActivitiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */; };
 		34EAC7852B4F24D300002B91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7842B4F24D300002B91 /* ContentView.swift */; };
 		34EAC7872B4F24D500002B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34EAC7862B4F24D500002B91 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34879E9F2B59B33C00FFDCF0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		34EAC77F2B4F24D300002B91 /* FamilyActivities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyActivities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivitiesApp.swift; sourceTree = "<group>"; };
 		34EAC7842B4F24D300002B91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				34EAC7912B4F281900002B91 /* HomeView.swift */,
 				34EAC7972B4F2E8800002B91 /* PersonalView.swift */,
 				34EAC7952B4F2DE500002B91 /* RecommendationListView.swift */,
+				34879E9F2B59B33C00FFDCF0 /* DetailView.swift */,
 				34EAC79F2B4F449200002B91 /* Bundle-Decodable.swift */,
 				34EAC79D2B4F395500002B91 /* Activity.swift */,
 				34EAC7992B4F2EAC00002B91 /* FeedView.swift */,
@@ -167,6 +170,7 @@
 				34EAC79A2B4F2EAC00002B91 /* FeedView.swift in Sources */,
 				34EAC7982B4F2E8800002B91 /* PersonalView.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
+				34879EA02B59B33C00FFDCF0 /* DetailView.swift in Sources */,
 				34EAC7852B4F24D300002B91 /* ContentView.swift in Sources */,
 				34EAC7962B4F2DE500002B91 /* RecommendationListView.swift in Sources */,
 				34EAC7A02B4F449200002B91 /* Bundle-Decodable.swift in Sources */,
