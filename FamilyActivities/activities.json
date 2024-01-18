@@ -2,13 +2,13 @@
 	{
 		"id": 1,
         "name": "SF Zoo",
-        "type": "activity",
+        "email": "activity",
         "image": "sfzoo"
 	},
 	{
         "id": 2,
         "name": "Stinson Beach",
-        "type": "beach",
+        "email": "beach",
         "image": "stinsonbeach"
 	}
 ]
