@@ -18,7 +18,7 @@ struct DetailView: View {
             }
 
             Section("Type") {
-                Text(activity.email)
+                Text(activity.type)
             }
         }
         .listStyle(.grouped)
