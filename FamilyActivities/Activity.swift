@@ -14,13 +14,13 @@ class Activity: Codable {
         case id, name, email
     }
     
-    let id: UUID
+    let id: Int//UUID
     var name: String
     var email: String
     
-    static let example = Activity(id: UUID(), name: "Test Name", email: "Test Type")
+    static let example = Activity(id: Int(), name: "Test Name", email: "Test Type") //UUID()
     
-    init(id: UUID, name: String, email: String) {
+    init(id: Int, name: String, email: String) { //UUID
         self.id = id
         self.name = name
         self.email = email
@@ -29,7 +29,7 @@ class Activity: Codable {
     // conform to Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(UUID.self, forKey: .id)
+        id = try container.decode(Int.self, forKey: .id) //UUID
         name = try container.decode(String.self, forKey: .name)
         email = try container.decode(String.self, forKey: .email)
     }
