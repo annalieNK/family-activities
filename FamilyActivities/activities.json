@@ -1,12 +1,12 @@
 [
 	{
-		"id": 1,
+		"id": "50a48fa3-2c0f-4397-ac50-64da464f9954",
         "title": "SF Zoo",
         "email": "activity",
         "image": "sfzoo"
 	},
 	{
-        "id": 2,
+        "id": "eccdf4b8-c9f6-4eeb-8832-28027eb70155",
         "title": "Stinson Beach",
         "email": "beach",
         "image": "stinsonbeach"
