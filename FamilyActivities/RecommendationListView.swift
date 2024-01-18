@@ -33,9 +33,9 @@ struct RecommendationListView: View {
         guard activities.isEmpty else { return }
         
         do {
-            // https://github.com/annalieNK/family-activities/blob/SwiftData/FamilyActivities/activities.json
+            // https://raw.githubusercontent.com/annalieNK/family-activities/SwiftData/FamilyActivities/activities.json
             // https://www.hackingwithswift.com/samples/friendface.json
-            let url = URL(string: "https://github.com/annalieNK/family-activities/blob/SwiftData/FamilyActivities/activities.json")!
+            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/SwiftData/FamilyActivities/activities.json")!
             let (data, _) = try await URLSession.shared.data(from: url)
             
             let decoder = JSONDecoder()
