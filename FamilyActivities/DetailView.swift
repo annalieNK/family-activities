@@ -17,8 +17,8 @@ struct DetailView: View {
                     .padding(.vertical)
             }
 
-            Section("Contact details") {
-                Text("email: \(activity.email)")
+            Section("Type") {
+                Text(activity.email)
             }
         }
         .listStyle(.grouped)
