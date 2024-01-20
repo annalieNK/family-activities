@@ -20,17 +20,16 @@ struct PersonalView: View {
             PersonalListingView()
                 .navigationTitle("Personal View")
                 .navigationDestination(for: Personal.self, destination: EditPersonalView.init)
-                .toolbar {
-                    Button("Add Samples", action: addData)
-                }
+//                .toolbar {
+//                    Button("Add Samples", action: addData)
+//                }
         }
     }
     
-    func addData() {
-        let noe = Personal(name: "Noe", type: "neighborhood")
-        
-        modelContext.insert(noe)
-    }
+//    func addData() {
+//        let noe = Personal(name: "Noe", type: "neighborhood")
+//        modelContext.insert(noe)
+//    }
 }
 
 #Preview {
