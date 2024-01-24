@@ -10,14 +10,14 @@ import SwiftUI
 
 struct PersonalListingView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Personal.name) private var personals: [Personal]
+    @Query(sort: \PersonalItem.name) private var personalItems: [PersonalItem]
     
     var body: some View {
         List {
-            ForEach(personals) { personal in
-                NavigationLink(value: personal) {
+            ForEach(personalItems) { item in
+                NavigationLink(value: item) {
                     VStack(alignment: .leading) {
-                        Text(personal.name)
+                        Text(item.name)
                     }
                 }
             }
@@ -27,7 +27,7 @@ struct PersonalListingView: View {
     
     func deleteItems(_ indexSet: IndexSet) {
         for index in indexSet {
-            let item = personals[index]
+            let item = personalItems[index]
             modelContext.delete(item)
         }
     }

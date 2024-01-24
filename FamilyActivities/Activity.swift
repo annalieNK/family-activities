@@ -17,7 +17,7 @@ class Activity: Codable {
     let id: Int//UUID
     var name: String
     var type: String
-    
+        
     static let example = Activity(id: Int(), name: "Test Name", type: "Test Type") //UUID()
     
     init(id: Int, name: String, type: String) { //UUID

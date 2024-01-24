@@ -13,7 +13,7 @@ struct DetailView: View {
     
     let activity: Activity
     
-    @State private var path = [Personal]()
+    @State private var path = [PersonalItem]()
 
     var body: some View {
         List {
@@ -36,7 +36,7 @@ struct DetailView: View {
     
     // create a function to save this item to the Personal SwiftData model
     func saveToPersonal() {
-        let savedActivity = Personal(name: activity.name, type: activity.type) //Personal()
+        let savedActivity = PersonalItem(name: activity.name) //Personal()
         modelContext.insert(savedActivity)
         path = [savedActivity]
         // add save function
