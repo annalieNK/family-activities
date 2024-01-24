@@ -29,7 +29,6 @@ struct DetailView: View {
         .listStyle(.grouped)
         .navigationTitle(activity.name)
         .navigationBarTitleDisplayMode(.inline)
-        //
         .toolbar {
             Button("Save to personal items", action: saveToPersonal)
         }
@@ -41,6 +40,8 @@ struct DetailView: View {
         modelContext.insert(savedActivity)
         path = [savedActivity]
         // add save function
+        try? modelContext.save()
+        
     }
 }
 

@@ -21,6 +21,14 @@ struct PersonalListingView: View {
                     }
                 }
             }
+            .onDelete(perform: deleteItems)
+        }
+    }
+    
+    func deleteItems(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let item = personals[index]
+            modelContext.delete(item)
         }
     }
 }

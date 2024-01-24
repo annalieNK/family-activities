@@ -12,9 +12,11 @@ import SwiftData
 class Personal {
     var name: String
     var type: String
+    //var date: Date
     
-    init(name: String, type: String) {
+    init(name: String = "", type: String = "") { //date: Date = .now
         self.name = name
         self.type = type
+        //self.date = date
     }
 }

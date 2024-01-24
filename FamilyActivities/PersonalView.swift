@@ -12,7 +12,6 @@ struct PersonalView: View {
     @Environment(\.modelContext) var modelContext
     
     @State private var path = [Personal]()
-    
     @State private var sortOrder = SortDescriptor(\Personal.name)
     
     var body: some View {
@@ -20,16 +19,23 @@ struct PersonalView: View {
             PersonalListingView()
                 .navigationTitle("Personal View")
                 .navigationDestination(for: Personal.self, destination: EditPersonalView.init)
-//                .toolbar {
-//                    Button("Add Samples", action: addData)
-//                }
+                .toolbar {
+                    Button("Add Item", systemImage: "plus", action: addItem)
+                }
         }
     }
     
-//    func addData() {
+//    func addItem() {
 //        let noe = Personal(name: "Noe", type: "neighborhood")
 //        modelContext.insert(noe)
 //    }
+    
+    // add item
+    func addItem() {
+        let item = Personal()
+        modelContext.insert(item)
+        path = [item]
+    }
 }
 
 #Preview {
