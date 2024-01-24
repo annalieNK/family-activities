@@ -15,7 +15,6 @@ struct EditPersonalView: View {
         Form {
             TextField("Name", text: $personal.name)
             TextField("Type", text: $personal.type, axis: .vertical)
-            //DatePicker("Date", selection: $personal.date)
         }
         .navigationTitle("Edit Personal")
         .navigationBarTitleDisplayMode(.inline)
