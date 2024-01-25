@@ -14,7 +14,6 @@ class Personal {
     var type: String
     var link: String
     @Relationship(deleteRule: .cascade) var visitedDates = [PersonalItemDate]()
-    //@Relationship(deleteRule: .cascade) var sights = [Sight]()
     
     init(name: String = "", type: String = "", link: String = "") {
         self.name = name

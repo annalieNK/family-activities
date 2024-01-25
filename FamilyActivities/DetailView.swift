@@ -26,6 +26,8 @@ struct DetailView: View {
             Section("Type") {
                 Text(activity.type)
             }
+            
+            // Add an embeded link (e.g. to the Park Services)
         }
         .listStyle(.grouped)
         .navigationTitle(activity.name)

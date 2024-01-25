@@ -12,7 +12,7 @@ import SwiftUI
 struct FamilyActivitiesApp: App {
     var body: some Scene {
         WindowGroup {
-            TabPageView()
+            TabPageView(viewModel: ViewController("https://www.nps.gov/alca/index.htm"))
         }
         .modelContainer(for: [Activity.self, Personal.self])
     }

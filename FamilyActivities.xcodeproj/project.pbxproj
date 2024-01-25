@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3456F9AB2B62D488006368F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456F9AA2B62D488006368F0 /* ViewController.swift */; };
 		3469A8402B5A3A1E006220E4 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469A83F2B5A3A1D006220E4 /* Personal.swift */; };
 		3469A8422B5B1952006220E4 /* PersonalListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469A8412B5B1952006220E4 /* PersonalListingView.swift */; };
 		3469A8442B5B1A90006220E4 /* EditPersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469A8432B5B1A90006220E4 /* EditPersonalView.swift */; };
 		34714E8F2B61E0DD0022D8E5 /* PersonalItemDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34714E8E2B61E0DD0022D8E5 /* PersonalItemDate.swift */; };
-		34714E912B61E55A0022D8E5 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34714E902B61E55A0022D8E5 /* Sight.swift */; };
 		34879EA02B59B33C00FFDCF0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34879E9F2B59B33C00FFDCF0 /* DetailView.swift */; };
 		34EAC7832B4F24D300002B91 /* FamilyActivitiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */; };
 		34EAC7852B4F24D300002B91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7842B4F24D300002B91 /* ContentView.swift */; };
@@ -28,11 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3456F9AA2B62D488006368F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3469A83F2B5A3A1D006220E4 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
 		3469A8412B5B1952006220E4 /* PersonalListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalListingView.swift; sourceTree = "<group>"; };
 		3469A8432B5B1A90006220E4 /* EditPersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalView.swift; sourceTree = "<group>"; };
 		34714E8E2B61E0DD0022D8E5 /* PersonalItemDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalItemDate.swift; sourceTree = "<group>"; };
-		34714E902B61E55A0022D8E5 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		34879E9F2B59B33C00FFDCF0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		34EAC77F2B4F24D300002B91 /* FamilyActivities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyActivities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivitiesApp.swift; sourceTree = "<group>"; };
@@ -84,14 +84,14 @@
 				34EAC7842B4F24D300002B91 /* ContentView.swift */,
 				34EAC7932B4F2C4A00002B91 /* TabPageView.swift */,
 				34EAC7912B4F281900002B91 /* HomeView.swift */,
-				34EAC7972B4F2E8800002B91 /* PersonalView.swift */,
-				3469A8432B5B1A90006220E4 /* EditPersonalView.swift */,
-				34714E902B61E55A0022D8E5 /* Sight.swift */,
-				3469A8412B5B1952006220E4 /* PersonalListingView.swift */,
 				34EAC7952B4F2DE500002B91 /* RecommendationListView.swift */,
+				3456F9AA2B62D488006368F0 /* ViewController.swift */,
 				34879E9F2B59B33C00FFDCF0 /* DetailView.swift */,
-				34EAC79F2B4F449200002B91 /* Bundle-Decodable.swift */,
+				34EAC7972B4F2E8800002B91 /* PersonalView.swift */,
+				3469A8412B5B1952006220E4 /* PersonalListingView.swift */,
+				3469A8432B5B1A90006220E4 /* EditPersonalView.swift */,
 				34EAC7992B4F2EAC00002B91 /* FeedView.swift */,
+				34EAC79F2B4F449200002B91 /* Bundle-Decodable.swift */,
 				34EAC79D2B4F395500002B91 /* Activity.swift */,
 				3469A83F2B5A3A1D006220E4 /* Personal.swift */,
 				34714E8E2B61E0DD0022D8E5 /* PersonalItemDate.swift */,
@@ -182,10 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3456F9AB2B62D488006368F0 /* ViewController.swift in Sources */,
 				34714E8F2B61E0DD0022D8E5 /* PersonalItemDate.swift in Sources */,
 				34EAC79A2B4F2EAC00002B91 /* FeedView.swift in Sources */,
 				3469A8422B5B1952006220E4 /* PersonalListingView.swift in Sources */,
-				34714E912B61E55A0022D8E5 /* Sight.swift in Sources */,
 				34EAC7982B4F2E8800002B91 /* PersonalView.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
 				3469A8402B5A3A1E006220E4 /* Personal.swift in Sources */,

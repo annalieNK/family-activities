@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabPageView: View {
+    @ObservedObject var viewModel: ViewController
+    
     var body: some View {
         TabView {
             HomeView()
@@ -22,7 +24,7 @@ struct TabPageView: View {
                 .tabItem {
                     Image(systemName: "heart")
                 }
-            FeedView()
+            FeedView(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "ellipsis")
                 }
@@ -31,5 +33,5 @@ struct TabPageView: View {
 }
 
 #Preview {
-    TabPageView()
+    TabPageView(viewModel: ViewController("https://www.nps.gov/alca/index.htm"))
 }
