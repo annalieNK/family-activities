@@ -18,18 +18,18 @@ struct LinkRow: UIViewRepresentable {
         
         let provider = LPMetadataProvider()
         provider.startFetchingMetadata(for: previewURL) { (metadata, error) in
-            if let md = metadata {
+            if let metadata = metadata {
                 DispatchQueue.main.async {
-                    view.metadata = md
+                    view.metadata = metadata
                     view.sizeToFit()
                     self.redraw.toggle()
                 }
             }
             else if error != nil
             {
-                let md = LPLinkMetadata()
-                md.title = "Custom title"
-                view.metadata = md
+                let metadata = LPLinkMetadata()
+                metadata.title = "Custom title"
+                view.metadata = metadata
                 view.sizeToFit()
                 self.redraw.toggle()
             }
