@@ -19,7 +19,7 @@ struct FeedView: View {
     
     var body: some View {
         List(links) { l in
-            LinkRow(previewURL: URL(string: l.string)!, redraw: self.$redrawPreview)
+            LinkRow(previewURL: URL(string: l.string)!)//, redraw: self.$redrawPreview)
         }
         .frame(width: 350, height: 375, alignment: .leading)
         //.frame(maxWidth: .infinity, maxHeight: 100)
