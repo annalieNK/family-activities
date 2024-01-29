@@ -1,22 +1,22 @@
 [
-	{
-		"id": 1,
+    {
+        "id": 1,
         "name": "SF Zoo",
         "type": "activity",
         "image": "sfzoo",
         "links": [
-                "https://www.youtube.com",
-                "https://www.youtube.com"
+            "cillum",
+            "consequat"
         ]
-	},
-	{
+    },
+    {
         "id": 2,
         "name": "Stinson Beach",
         "type": "beach",
         "image": "stinsonbeach",
         "links": [
-                "https://www.youtube.com",
-                "https://www.youtube.com"
+            "irure",
+            "labore"
         ]
-	}
+    }
 ]
