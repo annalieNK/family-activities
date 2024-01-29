@@ -14,7 +14,7 @@ struct TabPageView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }
-            RecommendationListView()
+            ActivityView()
                 .tabItem {
                     Image(systemName: "map")
                 }

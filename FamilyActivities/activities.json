@@ -3,12 +3,20 @@
 		"id": 1,
         "name": "SF Zoo",
         "type": "activity",
-        "image": "sfzoo"
+        "image": "sfzoo",
+        "links": [
+                "https://www.youtube.com",
+                "https://www.youtube.com"
+        ]
 	},
 	{
         "id": 2,
         "name": "Stinson Beach",
         "type": "beach",
-        "image": "stinsonbeach"
+        "image": "stinsonbeach",
+        "links": [
+                "https://www.youtube.com",
+                "https://www.youtube.com"
+        ]
 	}
 ]

@@ -5,89 +5,41 @@
 //  Created by Annalie Kruseman on 1/25/24.
 //
 
-import Foundation
-import LinkPresentation
-import SwiftUI
+//import Foundation
+//import LinkPresentation
+//import SwiftUI
 //import UniformTypeIdentifiers
-
-struct LinkRow: UIViewRepresentable {
-    var previewURL: URL
-    //@Binding var redraw: Bool
-    
-    func makeUIView(context: Context) -> LPLinkView {
-        
-        let view = LPLinkView(url: previewURL)
-        //let view = LPLinkView()
-        
-        let provider = LPMetadataProvider()
-        
-        provider.startFetchingMetadata(for: previewURL) { (metadata, error) in
-            guard let metadata = metadata, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                view.metadata = metadata
-                //self.view.addSubview(view)
-                view.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
-                //view.center = self?.view.center ?? .zero
-            }
-            
-            
-//            if let metadata = metadata {
-//                DispatchQueue.main.async {
-//                    view.metadata = metadata
-//                    view.sizeToFit()
-//                    self.redraw.toggle()
-//                }
+//
+//class ViewController: UIViewController {
+//    let urlString = "https://www.nps.gov/alca/index.htm"
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        fetchPreview()
+//    }
+//
+//    func fetchPreview() {
+//        guard let url = URL(string: urlString) else {
+//            return
+//        }
+//        let linkPreview = LPLinkView()
+//        let provider = LPMetadataProvider()
+//        provider.startFetchingMetadata(for: url) { [weak self] metaData, error in
+//            guard let metaData = metaData, error == nil else {
+//                return
 //            }
-//            else if error != nil
-//            {
-//                let metadata = LPLinkMetadata()
-//                metadata.title = "Custom title"
-//                view.metadata = metadata
-//                view.sizeToFit()
-//                self.redraw.toggle()
+//
+//            print(metaData.title ?? "No Title")
+//
+//            DispatchQueue.main.async {
+//                linkPreview.metadata = metaData
+//                self?.view.addSubview(linkPreview)
+//                linkPreview.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
+//                linkPreview.center = self?.view.center ?? .zero
 //            }
-        }
-        return view
-    }
-
-    func updateUIView(_ uiView: LPLinkView, context: Context) {
-        // New instance for each update.
-    }
-}
-
-class ViewController: UIViewController {
-    let urlString = "https://www.nps.gov/alca/index.htm"
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        fetchPreview()
-    }
-
-    func fetchPreview() {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        let linkPreview = LPLinkView()
-        let provider = LPMetadataProvider()
-        provider.startFetchingMetadata(for: url) { [weak self] metaData, error in
-            guard let metaData = metaData, error == nil else {
-                return
-            }
-
-            print(metaData.title ?? "No Title")
-
-            DispatchQueue.main.async {
-                linkPreview.metadata = metaData
-                self?.view.addSubview(linkPreview)
-                linkPreview.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
-                linkPreview.center = self?.view.center ?? .zero
-            }
-        }
-    }
-}
+//        }
+//    }
+//}
 
 //final class ViewController: ObservableObject {
 //    

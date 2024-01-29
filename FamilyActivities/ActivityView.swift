@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct RecommendationListView: View {
+struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
     
@@ -30,6 +30,7 @@ struct RecommendationListView: View {
     }
     
     func fetchUsers() async {
+        // Don't re-fetch data if we already have it.
         guard activities.isEmpty else { return }
         
         do {
@@ -57,5 +58,5 @@ struct RecommendationListView: View {
 }
 
 #Preview {
-    RecommendationListView()
+    ActivityView()
 }

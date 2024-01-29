@@ -15,19 +15,25 @@ struct DetailView: View {
     
     @State private var link = ""
     @State private var path = [Personal]()
-
+    
     var body: some View {
         List {
             Section("About") {
                 Text(activity.name)
                     .padding(.vertical)
             }
-
+            
             Section("Type") {
                 Text(activity.type)
             }
             
             // Add an embeded link (e.g. to the Park Services)
+            Section("Activity Links") {
+                ForEach(activity.links, id: \.self) { link in
+                    Text(link)
+                }
+            }
+            
         }
         .listStyle(.grouped)
         .navigationTitle(activity.name)

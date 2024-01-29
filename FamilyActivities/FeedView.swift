@@ -14,7 +14,7 @@ struct StringLink: Identifiable {
 }
 
 struct FeedView: View {
-    @State var redrawPreview = false
+    //@State var redrawPreview = false
     let links: [StringLink] = [StringLink(string: "https://www.youtube.com"), StringLink(string: "https://www.youtube.com")]
     
     var body: some View {
