@@ -36,7 +36,7 @@ struct ActivityView: View {
         do {
             // https://raw.githubusercontent.com/annalieNK/family-activities/SwiftData/FamilyActivities/activities.json
             // https://www.hackingwithswift.com/samples/friendface.json
-            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/SwiftData/FamilyActivities/activities.json")!
+            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/adding_rich_links_v2/FamilyActivities/activities.json")!
             let (data, _) = try await URLSession.shared.data(from: url)
             
             let decoder = JSONDecoder()
