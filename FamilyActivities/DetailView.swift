@@ -28,9 +28,20 @@ struct DetailView: View {
             }
             
             // Add an embeded link (e.g. to the Park Services)
-            Section("Activity Links") {
+            Section("Activity tags") {
                 ForEach(activity.links, id: \.self) { link in
                     Text(link)
+                }
+                
+//                List(activity.links) { link in
+//                    LinkRow(previewURL: URL(string: link)!)
+//                }
+//                .frame(width: 350, height: 375, alignment: .leading)
+            }
+            
+            Section("Activity Links") {
+                ForEach(activity.links, id: \.self) { link in
+                    LinkRow(previewURL: URL(string: link)!)
                 }
             }
             
