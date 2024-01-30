@@ -14,6 +14,6 @@ struct FamilyActivitiesApp: App {
         WindowGroup {
             TabPageView()
         }
-        .modelContainer(for: [Activity.self, Personal.self])
+        .modelContainer(for: [Activity.self, Personal.self, Recommendation.self])
     }
 }

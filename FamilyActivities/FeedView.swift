@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FeedView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Recommendation.text) private var recommendations: [Recommendation]
+    @Query(sort: \Recommendation.name) private var recommendations: [Recommendation]
     
     var body: some View {
         NavigationStack {

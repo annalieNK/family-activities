@@ -11,21 +11,21 @@ import SwiftData
 @Model
 class Recommendation: Codable { //Identifiable
     enum CodingKeys: CodingKey {
-        case id, name, text, activities
+        case id, name, text//, activities
     }
     
     let id: Int//UUID
     var name: String
     var text: String
-    @Relationship(inverse: \Activity.recommendations) var activities: [Activity]
+    //@Relationship(inverse: \Activity.recommendations) var activities: [Activity]
     
-    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activities: []) //UUID()
+    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text")//, activities: []) //UUID()
     
-    init(id: Int, name: String, text: String, activities: [Activity]) { //UUID
+    init(id: Int, name: String, text: String) {//}, activities: [Activity]) { //UUID
         self.id = id
         self.name = name
         self.text = text
-        self.activities = activities
+        //self.activities = activities
     }
     
     // conform to Codable
@@ -34,7 +34,7 @@ class Recommendation: Codable { //Identifiable
         id = try container.decode(Int.self, forKey: .id) //UUID
         name = try container.decode(String.self, forKey: .name)
         text = try container.decode(String.self, forKey: .text)
-        activities = try container.decode([Activity].self, forKey: .activities)
+        //activities = try container.decode([Activity].self, forKey: .activities)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -42,6 +42,6 @@ class Recommendation: Codable { //Identifiable
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(text, forKey: .text)
-        try container.encode(activities, forKey: .activities)
+        //try container.encode(activities, forKey: .activities)
     }
 }
