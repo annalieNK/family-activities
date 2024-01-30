@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Recommendation 1",
+        "text": "First post about weekend tinerary of activities to do as a family comes here. With references to the activities in a Detail View.",
+        "activities": [
+            "SF Zoo",
+            "Stinson Beach"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Recommendation 2",
+        "text": "Second post about weekend itinerary of activities to do as a family comes here. With references to the activities in a Detail View.",
+        "activities": [
+            "Stinson Beach",
+            "SF Zoo"
+        ]
+    }
+]

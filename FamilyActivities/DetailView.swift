@@ -27,21 +27,17 @@ struct DetailView: View {
                 Text(activity.type)
             }
             
-            // Add an embeded link (e.g. to the Park Services)
-            Section("Activity tags") {
-                ForEach(activity.links, id: \.self) { link in
-                    Text(link)
-                }
-                
-//                List(activity.links) { link in
-//                    LinkRow(previewURL: URL(string: link)!)
-//                }
-//                .frame(width: 350, height: 375, alignment: .leading)
-            }
+            // Add an embeded links (e.g. to the Park Services)
             
             Section("Activity Links") {
-                ForEach(activity.links, id: \.self) { link in
-                    LinkRow(previewURL: URL(string: link)!)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(activity.links, id: \.self) { link in
+                            LinkRow(previewURL: URL(string: link)!)
+                            //FileLinkView(viewModel: ViewController(link))
+                                .frame(width: 350, height: 375, alignment: .leading)
+                        }
+                    }
                 }
             }
             

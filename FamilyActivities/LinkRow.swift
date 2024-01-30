@@ -15,8 +15,8 @@ struct LinkRow: UIViewRepresentable {
     
     func makeUIView(context: Context) -> LPLinkView {
         
-        let view = LPLinkView(url: previewURL)
-        //let view = LPLinkView()
+        //let view = LPLinkView(url: previewURL) // display the url while the data is still being fetched
+        let view = LPLinkView()
         
         let provider = LPMetadataProvider()
         
@@ -26,6 +26,7 @@ struct LinkRow: UIViewRepresentable {
             }
             
             DispatchQueue.main.async {
+                
                 view.metadata = metadata
                 //self.view.addSubview(view)
                 view.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
