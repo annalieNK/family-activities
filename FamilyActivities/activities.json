@@ -1,5 +1,5 @@
 {
-    {
+    "SFZoo": {
         "id": "SFZoo",
         "name": "SF Zoo",
         "type": "activity",
@@ -9,7 +9,7 @@
             "https://www.youtube.com"
         ]
     },
-    {
+    "StinsonBeach": {
         "id": "StinsonBeach",
         "name": "Stinson Beach",
         "type": "beach",
