@@ -34,8 +34,6 @@ struct ActivityView: View {
         guard activities.isEmpty else { return }
         
         do {
-            // https://raw.githubusercontent.com/annalieNK/family-activities/SwiftData/FamilyActivities/activities.json
-            // https://www.hackingwithswift.com/samples/friendface.json
             let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/adding_rich_links_v2/FamilyActivities/activities.json")!
             let (data, _) = try await URLSession.shared.data(from: url)
             

@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "SFZoo",
         "name": "SF Zoo",
         "type": "activity",
         "image": "sfzoo",
@@ -10,7 +10,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": "StinsonBeach",
         "name": "Stinson Beach",
         "type": "beach",
         "image": "stinsonbeach",

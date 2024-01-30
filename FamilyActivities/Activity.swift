@@ -14,16 +14,15 @@ class Activity: Codable { //Identifiable
         case id, name, type, links//, recommendations
     }
     
-    let id: Int//UUID
+    let id: String //Int//UUID
     var name: String
     var type: String
     var links: [String]
-    
     //@Relationship var recommendations: [Recommendation]
     
-    static let example = Activity(id: Int(), name: "Test Name", type: "Test Type", links: ["swift", "apple"])//, recommendations: []) //UUID()
+    static let example = Activity(id: String(), name: "Test Name", type: "Test Type", links: ["swift", "apple"])//, recommendations: []) //Int() // UUID()
     
-    init(id: Int, name: String, type: String, links: [String]) {//}, recommendations: [Recommendation]) { //UUID
+    init(id: String, name: String, type: String, links: [String]) {//}, recommendations: [Recommendation]) { //UUID
         self.id = id
         self.name = name
         self.type = type
@@ -34,7 +33,7 @@ class Activity: Codable { //Identifiable
     // conform to Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(Int.self, forKey: .id) //UUID
+        id = try container.decode(String.self, forKey: .id) //UUID //Int
         name = try container.decode(String.self, forKey: .name)
         type = try container.decode(String.self, forKey: .type)
         links = try container.decode([String].self, forKey: .links)
