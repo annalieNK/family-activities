@@ -31,7 +31,7 @@ struct RecommendationDetailView: View {
                 Section("Friends") {
                     List(recommendation.friends) { friend in
                         NavigationLink {
-                            Text(friend.text)
+                            Text(friend.someText)
                         } label: {
                             Text(friend.name)
                         }
