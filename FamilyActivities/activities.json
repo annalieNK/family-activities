@@ -1,7 +1,7 @@
-{
-    "SFZoo": {
+[
+    {
         "id": "SFZoo",
-        "name": "SF Zoo",
+        "name": "SFZoo",
         "type": "activity",
         "image": "sfzoo",
         "links": [
@@ -9,9 +9,9 @@
             "https://www.youtube.com"
         ],
     },
-    "StinsonBeach": {
+    {
         "id": "StinsonBeach",
-        "name": "Stinson Beach",
+        "name": "StinsonBeach",
         "type": "beach",
         "image": "stinsonbeach",
         "links": [
@@ -19,4 +19,4 @@
             "https://www.youtube.com"
         ]
     }
-}
+]

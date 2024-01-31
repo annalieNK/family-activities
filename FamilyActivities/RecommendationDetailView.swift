@@ -12,18 +12,9 @@ import SwiftUI
 
 struct RecommendationDetailView: View {
     @Environment(\.modelContext) var modelContext
-    
-    struct ActivityName {
-        let type: String
-        let activity: Activity
-    }
-    
+
     let recommendation: Recommendation
-    
-    let activityNames: [ActivityName]
-    
-    @State private var link = ""
-    
+            
     var body: some View {
         Form {
             Section("About") {
@@ -36,28 +27,13 @@ struct RecommendationDetailView: View {
                     Text(activity)
                 }
             }
-            
-            //ActivitiesScroll(activityNames: activityNames)
-            
         }
         .listStyle(.grouped)
         .navigationTitle(recommendation.name)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
-    init(recommendation: Recommendation, activities: [String: Activity]) {
-        self.recommendation = recommendation
-        
-        self.activityNames = recommendation.activityNames.map { member in
-            if let activity = activities[member.name] {
-                return ActivityName(type: member.type, activity: activity)
-            } else {
-                fatalError("Missing \(member.name)")
-            }
-        }
-    }
 }
 
-//#Preview {
-//    RecommendationDetailView(recommendation: recommendations[0], activities: activities[0])
-//}
+#Preview {
+    RecommendationDetailView(recommendation: .example)
+}

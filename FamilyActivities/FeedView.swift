@@ -11,9 +11,7 @@ import SwiftUI
 struct FeedView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Recommendation.name) private var recommendations: [Recommendation]
-    
-    var activities: [String: Activity]
-    
+        
     var body: some View {
         NavigationStack {
             List(recommendations) { recommendation in
@@ -23,7 +21,7 @@ struct FeedView: View {
             }
             .navigationTitle("Recommendations")
             .navigationDestination(for: Recommendation.self) { recommendation in
-                RecommendationDetailView(recommendation: recommendation, activities: activities)
+                //RecommendationDetailView(recommendation: recommendation)
             }
             .task {
                 await fetchUsers()
@@ -57,6 +55,6 @@ struct FeedView: View {
     }
 }
 
-//#Preview {
-//    FeedView()
-//}
+#Preview {
+    FeedView()
+}

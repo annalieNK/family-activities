@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class Activity: Codable { //Identifiable
     enum CodingKeys: CodingKey {
-        case id, name, type, links//, recommendations
+        case id, name, type, links
     }
     
     let id: String //Int//UUID
