@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct DetailView: View {
+struct ActivityDetailView: View {
     @Environment(\.modelContext) var modelContext
     
     let activity: Activity
@@ -17,7 +17,7 @@ struct DetailView: View {
     @State private var path = [Personal]()
     
     var body: some View {
-        List {
+        Form {
             Section("About") {
                 Text(activity.name)
                     .padding(.vertical)
@@ -62,5 +62,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(activity: .example)
+    ActivityDetailView(activity: .example)
 }

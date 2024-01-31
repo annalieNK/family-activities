@@ -15,14 +15,14 @@ struct FeedView: View {
     var body: some View {
         NavigationStack {
             List(recommendations) { recommendation in
-//                NavigationLink(value: activity) {
+                NavigationLink(value: recommendation) {
                     Text(recommendation.name)
-//                }
+                }
             }
             .navigationTitle("Recommendations")
-//            .navigationDestination(for: Activity.self) { activity in
-//                DetailView(activity: activity)
-//            }
+            .navigationDestination(for: Recommendation.self) { recommendation in
+                //RecommendationDetailView(recommendation: recommendation)
+            }
             .task {
                 await fetchUsers()
             }

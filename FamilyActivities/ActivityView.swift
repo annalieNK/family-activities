@@ -19,9 +19,9 @@ struct ActivityView: View {
                     Text(activity.name)
                 }
             }
-            .navigationTitle("Recommendations")
+            .navigationTitle("Activities")
             .navigationDestination(for: Activity.self) { activity in
-                DetailView(activity: activity)
+                ActivityDetailView(activity: activity)
             }
             .task {
                 await fetchUsers()
