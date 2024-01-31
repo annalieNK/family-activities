@@ -14,6 +14,7 @@ struct RecommendationDetailView: View {
     @Environment(\.modelContext) var modelContext
     
     struct ActivityName {
+        let type: String
         let activity: Activity
     }
     
@@ -30,7 +31,7 @@ struct RecommendationDetailView: View {
                     .padding(.vertical)
             }
                         
-            Section("Activity Refrences") {
+            Section("Activity References") {
                 ForEach(recommendation.activities, id: \.self) { activity in
                     Text(activity)
                 }
@@ -44,17 +45,17 @@ struct RecommendationDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-//    init(recommendation: Recommendation, activities: [String: Activity]) {
-//        self.recommendation = recommendation
-//        
-//        self.activityNames = recommendation.activityNames.map { member in
-//            if let activity = activities[member.name] {
-//                return ActivityName(activity: activity)
-//            } else {
-//                fatalError("Missing \(member.name)")
-//            }
-//        }
-//    }
+    init(recommendation: Recommendation, activities: [String: Activity]) {
+        self.recommendation = recommendation
+        
+        self.activityNames = recommendation.activityNames.map { member in
+            if let activity = activities[member.name] {
+                return ActivityName(type: member.type, activity: activity)
+            } else {
+                fatalError("Missing \(member.name)")
+            }
+        }
+    }
 }
 
 //#Preview {

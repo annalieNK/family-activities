@@ -5,10 +5,12 @@
         "text": "First post about weekend tinerary of activities to do as a family comes here. With references to the activities in a Detail View.",
         "activityNames": [
             {
-                "name": "SFZoo"
+                "name": "SFZoo",
+                "type": "zoo"
             },
             {
-                "name": "StinsonBeach"
+                "name": "StinsonBeach",
+                "type": "beach"
             }
         ]
     },
@@ -16,12 +18,14 @@
         "id": 2,
         "name": "Recommendation 2",
         "text": "Second post about weekend itinerary of activities to do as a family comes here. With references to the activities in a Detail View.",
-        "activities": [
+        "activityNames": [
             {
-                "name": "StinsonBeach"
+                "name": "StinsonBeach",
+                "type": "beach"
             },
             {
-                "name": "SFZoo"
+                "name": "SFZoo",
+                "type": "zoo"
             }
         ]
     }

@@ -10,14 +10,20 @@ import SwiftData
 
 @Model
 class Recommendation: Codable { //Identifiable
+    struct ActivitiesType: Codable {
+        let name: String
+        let type: String
+    }
+    
     enum CodingKeys: CodingKey {
-        case id, name, text, activities
+        case id, name, text, activities, activityNames
     }
     
     let id: Int//UUID
     var name: String
     var text: String
     var activities: [String]
+    var activityNames: [ActivitiesType]
     //var activities: [Activity]
     
 //    var activityTypes: [Activity] {
@@ -26,13 +32,14 @@ class Recommendation: Codable { //Identifiable
 //        }
     //@Relationship(inverse: \Activity.recommendations) var activities: [Activity]
     
-    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activities: [])//, activities: []) //UUID()
+    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activities: [], activityNames: [])//, activities: []) //UUID()
     
-    init(id: Int, name: String, text: String, activities: [String]) { //UUID
+    init(id: Int, name: String, text: String, activities: [String], activityNames: [ActivitiesType]) { //UUID
         self.id = id
         self.name = name
         self.text = text
         self.activities = activities
+        self.activityNames = activityNames
     }
     
     // conform to Codable
@@ -42,6 +49,7 @@ class Recommendation: Codable { //Identifiable
         name = try container.decode(String.self, forKey: .name)
         text = try container.decode(String.self, forKey: .text)
         activities = try container.decode([String].self, forKey: .activities)
+        activityNames = try container.decode([ActivitiesType].self, forKey: .activityNames)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -50,5 +58,6 @@ class Recommendation: Codable { //Identifiable
         try container.encode(name, forKey: .name)
         try container.encode(text, forKey: .text)
         try container.encode(activities, forKey: .activities)
+        try container.encode(activityNames, forKey: .activityNames)
     }
 }
