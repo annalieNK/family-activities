@@ -22,7 +22,7 @@ struct TabPageView: View {
                 .tabItem {
                     Image(systemName: "heart")
                 }
-            FeedView()
+            RecommendationView()
                 .tabItem {
                     Image(systemName: "ellipsis")
                 }

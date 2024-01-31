@@ -23,8 +23,8 @@ struct RecommendationDetailView: View {
             }
                         
             Section("Activity References") {
-                ForEach(recommendation.activities, id: \.self) { activity in
-                    Text(activity)
+                ForEach(recommendation.activities) { activity in
+                    Text(activity.name)
                 }
             }
         }

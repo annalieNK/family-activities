@@ -4,8 +4,26 @@
         "name": "Recommendation 1",
         "text": "First post about weekend tinerary of activities to do as a family comes here. With references to the activities in a Detail View.",
         "activities": [
-            "SFZoo",
-            "StinsonBeach"
+            {
+                "id": "SFZoo",
+                "name": "SFZoo",
+                "type": "activity",
+                "image": "sfzoo",
+                "links": [
+                    "https://www.youtube.com",
+                    "https://www.youtube.com"
+                ],
+            },
+            {
+                "id": "StinsonBeach",
+                "name": "StinsonBeach",
+                "type": "beach",
+                "image": "stinsonbeach",
+                "links": [
+                    "https://www.youtube.com",
+                    "https://www.youtube.com"
+                ]
+            }
         ]
     },
     {
@@ -13,8 +31,16 @@
         "name": "Recommendation 2",
         "text": "Second post about weekend itinerary of activities to do as a family comes here. With references to the activities in a Detail View.",
         "activities": [
-            "StinsonBeach",
-            "SFZoo",
+            {
+                "id": "SFZoo",
+                "name": "SFZoo",
+                "type": "activity",
+                "image": "sfzoo",
+                "links": [
+                    "https://www.youtube.com",
+                    "https://www.youtube.com"
+                ],
+            }
         ]
     }
 ]

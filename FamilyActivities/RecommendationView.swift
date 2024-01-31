@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct FeedView: View {
+struct RecommendationView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Recommendation.name) private var recommendations: [Recommendation]
         
@@ -21,7 +21,8 @@ struct FeedView: View {
             }
             .navigationTitle("Recommendations")
             .navigationDestination(for: Recommendation.self) { recommendation in
-                //RecommendationDetailView(recommendation: recommendation)
+                //Text(recommendation.name)
+                RecommendationDetailView(recommendation: recommendation)
             }
             .task {
                 await fetchUsers()
@@ -56,5 +57,5 @@ struct FeedView: View {
 }
 
 #Preview {
-    FeedView()
+    RecommendationView()
 }
