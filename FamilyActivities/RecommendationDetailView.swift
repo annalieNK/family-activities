@@ -22,9 +22,15 @@ struct RecommendationDetailView: View {
                     .padding(.vertical)
             }
                         
-            Section("Activity References") {
-                ForEach(recommendation.activities) { activity in
-                    Text(activity.name)
+            Section("Activities") {
+                ForEach(recommendation.activities, id: \.self) { tag in
+                    Text(tag)
+                }
+            }
+            
+            Section("Friends") {
+                ForEach(recommendation.friends) { friend in
+                    Text(friend.name)
                 }
             }
         }
