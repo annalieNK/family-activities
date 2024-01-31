@@ -10,11 +10,13 @@
         "friends": [
             {
                 "id": "SFZoo",
-                "name": "SFZoo"
+                "name": "SFZoo",
+                "text": "This is some text about the SF Zoo"
             },
             {
                 "id": "StinsonBeach",
                 "name": "StinsonBeach"
+                "text": "This is some text about Stinson Beach"
             },
         ]
     },
@@ -30,10 +32,12 @@
             {
                 "id": "StinsonBeach",
                 "name": "StinsonBeach"
+                "text": "This is some text about Stinson Beach"
             },
             {
                 "id": "SFZoo",
                 "name": "SFZoo"
+                "text": "This is some text about the SF Zoo"
             },
         ]
     }

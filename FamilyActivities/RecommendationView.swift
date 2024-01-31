@@ -21,7 +21,6 @@ struct RecommendationView: View {
             }
             .navigationTitle("Recommendations")
             .navigationDestination(for: Recommendation.self) { recommendation in
-                //Text(recommendation.name)
                 RecommendationDetailView(recommendation: recommendation)
             }
             .task {
