@@ -15,7 +15,7 @@
             },
             {
                 "id": "StinsonBeach",
-                "name": "StinsonBeach"
+                "name": "StinsonBeach",
                 "text": "This is some text about Stinson Beach"
             },
         ]
@@ -31,12 +31,12 @@
         "friends": [
             {
                 "id": "StinsonBeach",
-                "name": "StinsonBeach"
+                "name": "StinsonBeach",
                 "text": "This is some text about Stinson Beach"
             },
             {
                 "id": "SFZoo",
-                "name": "SFZoo"
+                "name": "SFZoo",
                 "text": "This is some text about the SF Zoo"
             },
         ]
