@@ -13,16 +13,23 @@ struct RecommendationView: View {
     @Query(sort: \Recommendation.name) private var recommendations: [Recommendation]
         
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
+//            List(recommendations) { recommendation in
+//                NavigationLink(value: recommendation) {
+//                    Text(recommendation.name)
+//                }
+//            }
+//            .navigationDestination(for: Recommendation.self) { recommendation in
+//                RecommendationDetailView(recommendation: recommendation)
+//                //GroupDetailView(recommendation: recommendation)
+//            }
+        NavigationView {
             List(recommendations) { recommendation in
-                NavigationLink(value: recommendation) {
+                NavigationLink(destination: GroupDetailView(recommendation: recommendation)) {
                     Text(recommendation.name)
                 }
             }
             .navigationTitle("Recommendations")
-            .navigationDestination(for: Recommendation.self) { recommendation in
-                RecommendationDetailView(recommendation: recommendation)
-            }
             .task {
                 await fetchUsers()
             }

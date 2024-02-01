@@ -17,7 +17,7 @@ struct ActivityDetailView: View {
     @State private var path = [Personal]()
     
     var body: some View {
-        Form {
+        List {
             Section("About") {
                 Text(activity.name)
                     .padding(.vertical)
