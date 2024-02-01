@@ -12,14 +12,14 @@ import SwiftData
 class Recommendation: Codable {
     
     enum CodingKeys: CodingKey {
-        case id, name, text, activities, friends
+        case id, name, text, activityNames, activities
     }
     
     let id: Int//UUID
     var name: String
     var text: String
-    var activities: [String]
-    var friends: [Friend]
+    var activityNames: [String]
+    var activities: [Activity]
     
 //    var activityTypes: [Activity] {
 //            // map each facility to its name
@@ -27,14 +27,14 @@ class Recommendation: Codable {
 //        }
     //@Relationship(inverse: \Activity.recommendations) var activities: [Activity]
     
-    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activities: [], friends: []) //UUID()
+    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activityNames: [], activities: []) //UUID()
     
-    init(id: Int, name: String, text: String, activities: [String], friends: [Friend]) { //UUID
+    init(id: Int, name: String, text: String, activityNames: [String], activities: [Activity]) { //UUID
         self.id = id
         self.name = name
         self.text = text
+        self.activityNames = activityNames
         self.activities = activities
-        self.friends = friends
     }
     
     // conform to Codable
@@ -43,8 +43,8 @@ class Recommendation: Codable {
         id = try container.decode(Int.self, forKey: .id) //UUID
         name = try container.decode(String.self, forKey: .name)
         text = try container.decode(String.self, forKey: .text)
-        activities = try container.decode([String].self, forKey: .activities)
-        friends = try container.decode([Friend].self, forKey: .friends)
+        activityNames = try container.decode([String].self, forKey: .activityNames)
+        activities = try container.decode([Activity].self, forKey: .activities)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -52,7 +52,7 @@ class Recommendation: Codable {
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(text, forKey: .text)
+        try container.encode(activityNames, forKey: .activityNames)
         try container.encode(activities, forKey: .activities)
-        try container.encode(friends, forKey: .friends)
     }
 }
