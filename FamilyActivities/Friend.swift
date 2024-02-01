@@ -11,30 +11,30 @@ import SwiftData
 @Model
 class Friend: Codable {
     enum CodingKeys: CodingKey {
-        case id, name, someText
+        case id, name, type
     }
 
     let id: String
     var name: String
-    var someText: String
+    var type: String
 
-    init(id: String, name: String, someText: String) {
+    init(id: String, name: String, type: String) {
         self.id = id
         self.name = name
-        self.someText = someText
+        self.type = type
     }
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        someText = try container.decode(String.self, forKey: .someText)
+        type = try container.decode(String.self, forKey: .type)
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
-        try container.encode(someText, forKey: .someText)
+        try container.encode(type, forKey: .type)
     }
 }

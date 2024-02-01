@@ -7,7 +7,7 @@
             "SFZoo",
             "StinsonBeach"
         ],
-        "friends": [
+        "activitiesList": [
             {
                 "id": "SFZoo",
                 "name": "SFZoo",
@@ -38,7 +38,7 @@
             "StinsonBeach",
             "SFZoo"
         ],
-        "friends": [
+        "activitiesList": [
             {
                 "id": "StinsonBeach",
                 "name": "StinsonBeach",
