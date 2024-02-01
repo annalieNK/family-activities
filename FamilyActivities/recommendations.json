@@ -18,10 +18,6 @@
                 "name": "StinsonBeach",
                 "someText": "This is some text about Stinson Beach"
             }
-        ],
-        "items": [
-            "SFZoo",
-            "StinsonBeach"
         ]
     },
     {
@@ -43,10 +39,6 @@
                 "name": "SFZoo",
                 "someText": "This is some text about the SF Zoo"
             }
-        ],
-        "items": [
-            "StinsonBeach",
-            "SFZoo"
         ]
     }
 ]
