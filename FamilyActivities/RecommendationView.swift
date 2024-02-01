@@ -23,13 +23,29 @@ struct RecommendationView: View {
 //                RecommendationDetailView(recommendation: recommendation)
 //                //GroupDetailView(recommendation: recommendation)
 //            }
-        NavigationView {
+        
+//        NavigationView {
+//            List(recommendations) { recommendation in
+//                NavigationLink(destination: RecommendationDetailView(recommendation: recommendation)) { //GroupDetailView
+//                    Text(recommendation.name)
+//                }
+//            }
+//            .navigationTitle("Recommendations")
+//            .task {
+//                await fetchUsers()
+//            }
+//        }
+        
+        NavigationStack {
             List(recommendations) { recommendation in
-                NavigationLink(destination: GroupDetailView(recommendation: recommendation)) {
+                NavigationLink(value: recommendation) {
                     Text(recommendation.name)
                 }
             }
-            .navigationTitle("Recommendations")
+            .navigationTitle("Activities")
+            .navigationDestination(for: Recommendation.self) { recommendation in
+                RecommendationDetailView(recommendation: recommendation)
+            }
             .task {
                 await fetchUsers()
             }

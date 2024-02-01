@@ -22,28 +22,12 @@ struct RecommendationDetailView: View {
                         .padding(.vertical)
                 }
                 
-//                Section("Activities") {
-//                    List(recommendation.activities, id: \.self) { item in
-//                        Text(item)
-//                    }
-//                }
-                
                 Section("Activities") {
                     List(recommendation.activities, id: \.self) { item in
                         NavigationLink {
                             Text(item)
                         } label: {
                             Text(item)
-                        }
-                    }
-                }
-                
-                Section("Items") {
-                    List(recommendation.items, id: \.self) { item in
-                        NavigationLink {
-                            Text(item.name)
-                        } label: {
-                            Text(item.name)
                         }
                     }
                 }
