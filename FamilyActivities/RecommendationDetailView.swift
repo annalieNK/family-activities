@@ -23,11 +23,12 @@ struct RecommendationDetailView: View {
                 }
                 
                 Section("Activities") {
-                    List(recommendation.activitiesStruct, id: \.self) { activity in //id: \.self
+                    List(recommendation.friends, id: \.self) { friend in //id: \.self
                         NavigationLink {
-                            ActivityDetailView(activity: activity)
+                            //ActivityDetailView(activity: activity)
+                            Text(friend.someText)
                         } label: {
-                            Text(activity.name)
+                            Text(friend.name)
                         }
                     }
                 }
