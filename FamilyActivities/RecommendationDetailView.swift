@@ -22,16 +22,17 @@ struct RecommendationDetailView: View {
                         .padding(.vertical)
                 }
                 
-                Section("Activities") {
-                    List(recommendation.activitiesList, id: \.self) { friend in //id: \.self
-                        NavigationLink {
-                            ActivityDetailView(activity: friend)
-                            //Text(friend.type)
-                        } label: {
-                            Text(friend.name)
-                        }
-                    }
-                }
+//                Section("Activities") {
+//                    List(recommendation.activitiesList, id: \.self) { activity in //id: \.self
+//                        NavigationLink {
+//                            RecommendationActivityDetailView(activity: activity)
+//                            //ActivityDetailView(activity: activity)
+//                            //Text(friend.type)
+//                        } label: {
+//                            Text(activity.name)
+//                        }
+//                    }
+//                }
             }
             .listStyle(.grouped)
             .navigationTitle(recommendation.name)

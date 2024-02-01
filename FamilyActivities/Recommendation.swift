@@ -19,7 +19,7 @@ class Recommendation: Codable {
     var name: String
     var text: String
     var activityNames: [String]
-    var activitiesList: [Activity]
+    var activitiesList: [RecommendationActivity]
     
 //    var activityTypes: [Activity] {
 //            // map each facility to its name
@@ -29,7 +29,7 @@ class Recommendation: Codable {
     
     static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activityNames: [], activitiesList: []) //UUID()
     
-    init(id: Int, name: String, text: String, activityNames: [String], activitiesList: [Activity]) { //UUID
+    init(id: Int, name: String, text: String, activityNames: [String], activitiesList: [RecommendationActivity]) { //UUID
         self.id = id
         self.name = name
         self.text = text
@@ -44,7 +44,7 @@ class Recommendation: Codable {
         name = try container.decode(String.self, forKey: .name)
         text = try container.decode(String.self, forKey: .text)
         activityNames = try container.decode([String].self, forKey: .activityNames)
-        activitiesList = try container.decode([Activity].self, forKey: .activitiesList)
+        activitiesList = try container.decode([RecommendationActivity].self, forKey: .activitiesList)
     }
     
     func encode(to encoder: Encoder) throws {
