@@ -24,12 +24,12 @@ struct ActivityView: View {
                 ActivityDetailView(activity: activity)
             }
             .task {
-                await fetchUsers()
+                await fetchActivities()
             }
         }
     }
     
-    func fetchUsers() async {
+    func fetchActivities() async {
         // Don't re-fetch data if we already have it.
         guard activities.isEmpty else { return }
         

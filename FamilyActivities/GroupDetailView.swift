@@ -13,9 +13,9 @@
 //    let recommendation: Recommendation
 //    
 //    var body: some View {
-//        List(recommendation.items) { item in
-//            NavigationLink(destination: ActivityDetailView(activity: item)) {
-//                Text(item.name)
+//        List(recommendation.activities) { activity in
+//            NavigationLink(destination: ItemDetailView(activity: activity)) {
+//                Text(activity.name)
 //            }
 //        }
 //        .navigationTitle(recommendation.name)

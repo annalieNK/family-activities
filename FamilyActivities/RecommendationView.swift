@@ -47,12 +47,12 @@ struct RecommendationView: View {
                 RecommendationDetailView(recommendation: recommendation)
             }
             .task {
-                await fetchUsers()
+                await fetchRecommendations()
             }
         }
     }
     
-    func fetchUsers() async {
+    func fetchRecommendations() async {
         // Don't re-fetch data if we already have it.
         guard recommendations.isEmpty else { return }
         
