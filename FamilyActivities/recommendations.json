@@ -7,7 +7,7 @@
             "SFZoo",
             "StinsonBeach"
         ],
-        "activities": [
+        "activitiesStruct": [
             {
                 "id": "SFZoo",
                 "name": "SFZoo",
@@ -38,7 +38,7 @@
             "StinsonBeach",
             "SFZoo"
         ],
-        "activities": [
+        "activitiesStruct": [
             {
                 "id": "StinsonBeach",
                 "name": "StinsonBeach",

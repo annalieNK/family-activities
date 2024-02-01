@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Activity: Codable { //Identifiable
+class Activity: Codable, Identifiable {
     enum CodingKeys: CodingKey {
         case id, name, type, links
     }

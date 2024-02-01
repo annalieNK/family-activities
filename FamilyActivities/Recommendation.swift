@@ -12,14 +12,14 @@ import SwiftData
 class Recommendation: Codable {
     
     enum CodingKeys: CodingKey {
-        case id, name, text, activityNames, activities
+        case id, name, text, activityNames, activitiesStruct
     }
     
     let id: Int//UUID
     var name: String
     var text: String
     var activityNames: [String]
-    var activities: [Activity]
+    var activitiesStruct: [Activity]
     
 //    var activityTypes: [Activity] {
 //            // map each facility to its name
@@ -27,14 +27,14 @@ class Recommendation: Codable {
 //        }
     //@Relationship(inverse: \Activity.recommendations) var activities: [Activity]
     
-    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activityNames: [], activities: []) //UUID()
+    static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activityNames: [], activitiesStruct: []) //UUID()
     
-    init(id: Int, name: String, text: String, activityNames: [String], activities: [Activity]) { //UUID
+    init(id: Int, name: String, text: String, activityNames: [String], activitiesStruct: [Activity]) { //UUID
         self.id = id
         self.name = name
         self.text = text
         self.activityNames = activityNames
-        self.activities = activities
+        self.activitiesStruct = activitiesStruct
     }
     
     // conform to Codable
@@ -44,7 +44,7 @@ class Recommendation: Codable {
         name = try container.decode(String.self, forKey: .name)
         text = try container.decode(String.self, forKey: .text)
         activityNames = try container.decode([String].self, forKey: .activityNames)
-        activities = try container.decode([Activity].self, forKey: .activities)
+        activitiesStruct = try container.decode([Activity].self, forKey: .activitiesStruct)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -53,6 +53,6 @@ class Recommendation: Codable {
         try container.encode(name, forKey: .name)
         try container.encode(text, forKey: .text)
         try container.encode(activityNames, forKey: .activityNames)
-        try container.encode(activities, forKey: .activities)
+        try container.encode(activitiesStruct, forKey: .activitiesStruct)
     }
 }
