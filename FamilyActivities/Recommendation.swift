@@ -15,14 +15,14 @@ class Recommendation: Codable {
         case id, crew, descript }
     
     struct CrewRole: Codable {
-            let name: String
-            let role: String
-        }
+        let name: String
+        let role: String
+    }
     
     let id: Int
     let crew: [CrewRole]
     var descript: String
-
+    
     static let example = Recommendation(id: Int(), crew: [], descript: "Text Name")
     
     init(id: Int, crew: [CrewRole], descript: String) {

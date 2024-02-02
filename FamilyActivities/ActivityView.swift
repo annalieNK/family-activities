@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Activity.name) private var activities: [Activity]
+//    @Query(sort: \Activity.name) private var activities: [Activity]
+    @Query var activities: [Activity]
     
     var body: some View {
         NavigationStack {

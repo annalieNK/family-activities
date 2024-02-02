@@ -53,20 +53,20 @@ struct RecommendationDetailView: View {
     }
     
     init(recommendation: Recommendation, activities: [String: Activity]) {
-            self.recommendation = recommendation
-            
-            self.crew = recommendation.crew.map { member in
-                if let activity = activities[member.name] {
-                    return CrewMember(role: member.role, activity: activity)
-                } else {
-                    fatalError("Missing \(member.name)")
-                }
+        self.recommendation = recommendation
+        
+        self.crew = recommendation.crew.map { member in
+            if let activity = activities[member.name] {
+                return CrewMember(role: member.role, activity: activity)
+            } else {
+                fatalError("Missing \(member.name)")
             }
         }
+    }
 }
 
-#Preview {
-    @Query var recommendations: [Recommendation]
-    @Query var activities: [String: Activity]
-    RecommendationDetailView(recommendation: recommendations[0], activities: activities)
-}
+//#Preview {
+//    @Query var recommendations: [Recommendation]
+//    @Query var activities: [String: Activity]
+//    RecommendationDetailView(recommendation: recommendations[0], activities: activities)
+//}

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct RecommendationView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Recommendation.descript) private var recommendations: [Recommendation]
+    //@Query(sort: \Recommendation.descript) private var recommendations: [Recommendation]
+    @Query var recommendations: [Recommendation]
     @Query var activities: [String: Activity]
     
     var body: some View {
@@ -95,6 +96,11 @@ struct RecommendationView: View {
     }
 }
 
-#Preview {
-    RecommendationView()
+struct RecommendationView_Previews: PreviewProvider {
+    static var previews: some View {
+        RecommendationView()
+    }
 }
+//#Preview {
+//    RecommendationView()
+//}
