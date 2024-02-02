@@ -26,9 +26,7 @@ struct RecommendationActivityDetailView: View {
             Section("Type") {
                 Text(recommendationActivity.type)
             }
-            
-            // Add an embeded links (e.g. to the Park Services)
-            
+                        
             Section("Activity Links") {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -40,24 +38,10 @@ struct RecommendationActivityDetailView: View {
                     }
                 }
             }
-            
         }
         .listStyle(.grouped)
         .navigationTitle(recommendationActivity.name)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            Button("Save to personal items", action: saveToPersonal)
-        }
-    }
-    
-    // create a function to save this item to the Personal SwiftData model
-    func saveToPersonal() {
-        let savedActivity = Personal(name: recommendationActivity.name, type: recommendationActivity.type, link: link)
-        modelContext.insert(savedActivity)
-        path = [savedActivity]
-        // add save function
-        try? modelContext.save()
-        
     }
 }
 

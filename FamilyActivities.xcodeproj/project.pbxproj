@@ -18,7 +18,6 @@
 		3471ED582B69A97E0007205A /* RecommendationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED572B69A97E0007205A /* RecommendationDetailView.swift */; };
 		3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED592B69A99F0007205A /* ActivityDetailView.swift */; };
 		3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED5B2B6AC4A80007205A /* RecommendationView.swift */; };
-		3471ED5E2B6ACF580007205A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED5D2B6ACF570007205A /* Friend.swift */; };
 		3478A5EF2B682E97009D7E64 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478A5EE2B682E97009D7E64 /* ActivityView.swift */; };
 		3495C7CF2B68761C008862BA /* FileLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495C7CE2B68761B008862BA /* FileLinkView.swift */; };
 		3495C7D32B68ACC5008862BA /* recommendations.json in Resources */ = {isa = PBXBuildFile; fileRef = 3495C7D22B68ACC5008862BA /* recommendations.json */; };
@@ -47,7 +46,6 @@
 		3471ED572B69A97E0007205A /* RecommendationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailView.swift; sourceTree = "<group>"; };
 		3471ED592B69A99F0007205A /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
 		3471ED5B2B6AC4A80007205A /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
-		3471ED5D2B6ACF570007205A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		3478A5EE2B682E97009D7E64 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		3495C7CE2B68761B008862BA /* FileLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLinkView.swift; sourceTree = "<group>"; };
 		3495C7D22B68ACC5008862BA /* recommendations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recommendations.json; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				3495C7D62B68AD36008862BA /* Recommendation.swift */,
 				340009E22B6C3FDD008E8EB8 /* RecommendationActivity.swift */,
 				3469A83F2B5A3A1D006220E4 /* Personal.swift */,
-				3471ED5D2B6ACF570007205A /* Friend.swift */,
 				34EAC79B2B4F381800002B91 /* activities.json */,
 				3495C7D22B68ACC5008862BA /* recommendations.json */,
 				34EAC7842B4F24D300002B91 /* ContentView.swift */,
@@ -215,7 +212,6 @@
 				340009E12B6C3F22008E8EB8 /* RecommendationActivityDetailView.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
 				3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */,
-				3471ED5E2B6ACF580007205A /* Friend.swift in Sources */,
 				3469A8402B5A3A1E006220E4 /* Personal.swift in Sources */,
 				3471ED582B69A97E0007205A /* RecommendationDetailView.swift in Sources */,
 				3478A5EF2B682E97009D7E64 /* ActivityView.swift in Sources */,

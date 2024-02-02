@@ -16,7 +16,6 @@ struct RecommendationDetailView: View {
     let recommendation: Recommendation
     
     var body: some View {
-        //        NavigationView {
         Form {
             Section("About") {
                 Text(recommendation.text)
@@ -45,7 +44,6 @@ struct RecommendationDetailView: View {
         .listStyle(.grouped)
         .navigationTitle(recommendation.name)
         .navigationBarTitleDisplayMode(.inline)
-    //        }
 }
 
 }
