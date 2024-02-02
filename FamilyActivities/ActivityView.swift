@@ -34,7 +34,7 @@ struct ActivityView: View {
         guard activities.isEmpty else { return }
         
         do {
-            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/adding_rich_links_v2/FamilyActivities/activities.json")!
+            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/map_datamodel/FamilyActivities/activities.json")!
             let (data, _) = try await URLSession.shared.data(from: url)
             
             let decoder = JSONDecoder()

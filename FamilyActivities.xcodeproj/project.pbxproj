@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		340009E12B6C3F22008E8EB8 /* RecommendationActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340009E02B6C3F22008E8EB8 /* RecommendationActivityDetailView.swift */; };
 		340009E32B6C3FDD008E8EB8 /* RecommendationActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340009E22B6C3FDD008E8EB8 /* RecommendationActivity.swift */; };
+		3440A0822B6CB30300E3F35D /* CrewScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440A0812B6CB30300E3F35D /* CrewScroll.swift */; };
 		3456F9AB2B62D488006368F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456F9AA2B62D488006368F0 /* ViewController.swift */; };
 		3456F9AD2B636DAB006368F0 /* LinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456F9AC2B636DAB006368F0 /* LinkRow.swift */; };
 		3469A8402B5A3A1E006220E4 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469A83F2B5A3A1D006220E4 /* Personal.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		340009E02B6C3F22008E8EB8 /* RecommendationActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationActivityDetailView.swift; sourceTree = "<group>"; };
 		340009E22B6C3FDD008E8EB8 /* RecommendationActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationActivity.swift; sourceTree = "<group>"; };
+		3440A0812B6CB30300E3F35D /* CrewScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewScroll.swift; sourceTree = "<group>"; };
 		3456F9AA2B62D488006368F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3456F9AC2B636DAB006368F0 /* LinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRow.swift; sourceTree = "<group>"; };
 		3469A83F2B5A3A1D006220E4 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				3469A8432B5B1A90006220E4 /* EditPersonalView.swift */,
 				3471ED5B2B6AC4A80007205A /* RecommendationView.swift */,
 				3471ED572B69A97E0007205A /* RecommendationDetailView.swift */,
+				3440A0812B6CB30300E3F35D /* CrewScroll.swift */,
 				340009E02B6C3F22008E8EB8 /* RecommendationActivityDetailView.swift */,
 				34714E8E2B61E0DD0022D8E5 /* PersonalItemDate.swift */,
 				3456F9AC2B636DAB006368F0 /* LinkRow.swift */,
@@ -207,6 +210,7 @@
 				3495C7D72B68AD36008862BA /* Recommendation.swift in Sources */,
 				3456F9AB2B62D488006368F0 /* ViewController.swift in Sources */,
 				34714E8F2B61E0DD0022D8E5 /* PersonalItemDate.swift in Sources */,
+				3440A0822B6CB30300E3F35D /* CrewScroll.swift in Sources */,
 				3469A8422B5B1952006220E4 /* PersonalListingView.swift in Sources */,
 				34EAC7982B4F2E8800002B91 /* PersonalView.swift in Sources */,
 				340009E12B6C3F22008E8EB8 /* RecommendationActivityDetailView.swift in Sources */,
