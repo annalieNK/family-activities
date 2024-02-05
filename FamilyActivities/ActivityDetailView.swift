@@ -28,7 +28,6 @@ struct ActivityDetailView: View {
             }
             
             // Add an embeded links (e.g. to the Park Services)
-            
             Section("Activity Links") {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabPageView: View {    
+struct TabPageView: View {
     var body: some View {
         TabView {
             HomeView()

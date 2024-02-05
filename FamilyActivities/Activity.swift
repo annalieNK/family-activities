@@ -14,30 +14,27 @@ class Activity: Codable, Identifiable {
         case id, name, type, links
     }
     
-    let id: String //Int//UUID
+    let id: String
     var name: String
     var type: String
     var links: [String]
-    //@Relationship var recommendations: [Recommendation]
     
-    static let example = Activity(id: String(), name: "Test Name", type: "Test Type", links: ["swift", "apple"])//, recommendations: []) //Int() // UUID()
+    static let example = Activity(id: String(), name: "Test Name", type: "Test Type", links: ["swift", "apple"])
     
-    init(id: String, name: String, type: String, links: [String]) {//}, recommendations: [Recommendation]) { //UUID
+    init(id: String, name: String, type: String, links: [String]) {
         self.id = id
         self.name = name
         self.type = type
         self.links = links
-        //self.recommendations = recommendations
     }
     
     // conform to Codable
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey: .id) //UUID //Int
+        id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         type = try container.decode(String.self, forKey: .type)
         links = try container.decode([String].self, forKey: .links)
-        //recommendations = try container.decode([Recommendation].self, forKey: .recommendations)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -46,7 +43,6 @@ class Activity: Codable, Identifiable {
         try container.encode(name, forKey: .name)
         try container.encode(type, forKey: .type)
         try container.encode(links, forKey: .links)
-        //try container.encode(recommendations, forKey: .recommendations)
     }
 }
 

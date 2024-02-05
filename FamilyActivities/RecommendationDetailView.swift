@@ -12,9 +12,10 @@ import SwiftUI
 
 struct RecommendationDetailView: View {
     @Environment(\.modelContext) var modelContext
+    @Query var activities: [Activity]
     
     let recommendation: Recommendation
-    
+        
     var body: some View {
         Form {
             Section("About") {
@@ -23,29 +24,20 @@ struct RecommendationDetailView: View {
             }
             
             Section("Activities") {
-//                List(recommendation.activitiesList, id: \.self) { activity in //id: \.self
-//                    NavigationLink(value: activity) {
-//                        RecommendationActivityDetailView(recommendationActivity: activity)
-//                        //ActivityDetailView(activity: activity)
-//                        //Text(activity.type)
-//                    } label: {
-//                    Text(activity.name)
-//                }
-                List(recommendation.activitiesList, id: \.self) { activity in
-                    NavigationLink(value: activity) {
-                        Text(activity.name)
+                List(recommendation.activityNames, id: \.self) { activityID in
+                    if let activity = activities.first(where: { $0.id == activityID }) {
+                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                            Text(activity.name)
+                        }
                     }
                 }
-                .navigationDestination(for: RecommendationActivity.self) { activity in
-                    RecommendationActivityDetailView(recommendationActivity: activity)
             }
         }
-    }
         .listStyle(.grouped)
         .navigationTitle(recommendation.name)
         .navigationBarTitleDisplayMode(.inline)
-}
-
+    }
+    
 }
 
 #Preview {

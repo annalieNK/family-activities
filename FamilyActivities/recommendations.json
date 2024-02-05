@@ -6,28 +6,6 @@
         "activityNames": [
             "SFZoo",
             "StinsonBeach"
-        ],
-        "activitiesList": [
-            {
-                "id": "SFZoo",
-                "name": "SFZoo",
-                "type": "activity",
-                "image": "sfzoo",
-                "links": [
-                    "https://www.youtube.com",
-                    "https://www.youtube.com"
-                ]
-            },
-            {
-                "id": "StinsonBeach",
-                "name": "StinsonBeach",
-                "type": "beach",
-                "image": "stinsonbeach",
-                "links": [
-                    "https://www.youtube.com",
-                    "https://www.youtube.com"
-                ]
-            }
         ]
     },
     {
@@ -37,28 +15,6 @@
         "activityNames": [
             "StinsonBeach",
             "SFZoo"
-        ],
-        "activitiesList": [
-            {
-                "id": "StinsonBeach",
-                "name": "StinsonBeach",
-                "type": "beach",
-                "image": "stinsonbeach",
-                "links": [
-                    "https://www.youtube.com",
-                    "https://www.youtube.com"
-                ]
-            },
-            {
-                "id": "SFZoo",
-                "name": "SFZoo",
-                "type": "activity",
-                "image": "sfzoo",
-                "links": [
-                    "https://www.youtube.com",
-                    "https://www.youtube.com"
-                ]
-            }
         ]
     }
 ]

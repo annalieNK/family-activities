@@ -10,6 +10,7 @@ import SwiftUI
 
 @main
 struct FamilyActivitiesApp: App {
+    
     var body: some Scene {
         WindowGroup {
             TabPageView()
