@@ -76,6 +76,31 @@ struct RecommendationView: View {
             print("Download failed")
         }
     }
+    
+//    func fetchActivities() async {
+//        // Don't re-fetch data if we already have it.
+//        guard activities.isEmpty else { return }
+//        
+//        do {
+//            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/adding_rich_links_v2/FamilyActivities/activities.json")!
+//            let (data, _) = try await URLSession.shared.data(from: url)
+//            
+//            let decoder = JSONDecoder()
+//            decoder.dateDecodingStrategy = .iso8601
+//            
+//            let downloadedActivities = try decoder.decode([Activity].self, from: data)
+//            // load data all at once and save
+//            let insertContext = ModelContext(modelContext.container)
+//            
+//            for activity in downloadedActivities {
+//                insertContext.insert(activity) //modelContext
+//            }
+//            
+//            try insertContext.save() //the local data gets written to disk
+//        } catch {
+//            print("Download failed")
+//        }
+//    }
 }
 
 #Preview {

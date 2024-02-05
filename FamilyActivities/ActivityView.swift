@@ -11,7 +11,7 @@ import SwiftUI
 struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
-    
+        
     var body: some View {
         NavigationStack {
             List(activities) { activity in
@@ -55,6 +55,6 @@ struct ActivityView: View {
     }
 }
 
-#Preview {
-    ActivityView()
-}
+//#Preview {
+//    ActivityView()
+//}
