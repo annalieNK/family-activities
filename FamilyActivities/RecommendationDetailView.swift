@@ -5,8 +5,6 @@
 //  Created by Annalie Kruseman on 1/30/24.
 //
 
-import SwiftUI
-
 import SwiftData
 import SwiftUI
 
@@ -17,10 +15,10 @@ struct RecommendationDetailView: View {
     let recommendation: Recommendation
     
     var body: some View {
-        List(recommendation.activityNames, id: \.self) { activity in
-            if let item = activities.first(where: { $0.id == activity }) {
-                NavigationLink(destination: ActivityDetailView(activity: item)) {
-                    Text(item.name)
+        List(recommendation.activityNames, id: \.self) { activityID in
+            if let activity = activities.first(where: { $0.id == activityID }) {
+                NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                    Text(activity.name)
                 }
             }
         }
