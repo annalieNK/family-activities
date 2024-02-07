@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PersonalListView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Personal.name) private var personals: [Personal]
+    @Query(sort: \Personal.date) private var personals: [Personal]
     
     var body: some View {
         List {

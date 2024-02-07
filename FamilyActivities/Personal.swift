@@ -10,15 +10,21 @@ import SwiftData
 
 @Model
 class Personal {
-    var id: UUID//String
+    var id: UUID
     var name: String
     var type: String
     var link: String
     @Relationship(deleteRule: .cascade) var visitedItems = [PersonalListItem]()
     var date: Date//?
     
+    var shortDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM yyyy"
+        return formatter.string(from: date)
+    }
+    
     init(name: String = "", type: String = "", link: String = "", date: Date = .now) {//}, date: Date) { //id: String = ""
-        self.id = UUID()//id
+        self.id = UUID()
         self.name = name
         self.type = type
         self.link = link
