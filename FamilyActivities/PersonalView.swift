@@ -14,9 +14,28 @@ struct PersonalView: View {
     @State private var path = [Personal]()
     @State private var sortOrder = SortDescriptor(\Personal.name)
     
+    @State private var showingCalendar = false //@AppStorage("showingGrid")
+    
     var body: some View {
         NavigationStack(path: $path) {
-            PersonalListingView()
+            Group {
+                if showingCalendar {
+                    PersonalCalendarView()
+                } else {
+                    PersonalListView()
+                }
+            }
+                .toolbar {
+                    Button {
+                        showingCalendar.toggle()
+                    } label: {
+                        if showingCalendar {
+                            Label("Show Personal View", systemImage: "person.fill")
+                        } else {
+                            Label("Show Calendar View", systemImage: "calendar")
+                        }
+                    }
+                }
                 .navigationTitle("Personal View")
                 .navigationDestination(for: Personal.self, destination: EditPersonalView.init)
                 .toolbar {
@@ -25,12 +44,6 @@ struct PersonalView: View {
         }
     }
     
-//    func addItem() {
-//        let noe = Personal(name: "Noe", type: "neighborhood")
-//        modelContext.insert(noe)
-//    }
-    
-    // add item
     func addItem() {
         let item = Personal()
         modelContext.insert(item)

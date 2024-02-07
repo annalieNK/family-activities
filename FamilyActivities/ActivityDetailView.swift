@@ -51,7 +51,7 @@ struct ActivityDetailView: View {
     
     // create a function to save this item to the Personal SwiftData model
     func saveToPersonal() {
-        let savedActivity = Personal(name: activity.name, type: activity.type, link: link) //Personal()
+        let savedActivity = Personal(name: activity.name, type: activity.type, link: link) //Personal() //id: activity.id,
         modelContext.insert(savedActivity)
         path = [savedActivity]
         // add save function

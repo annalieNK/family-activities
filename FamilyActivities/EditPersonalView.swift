@@ -11,7 +11,7 @@ import SwiftUI
 struct EditPersonalView: View {
     @Bindable var personal: Personal // make it editable
     
-    @State private var newDate = ""
+    @State private var newItem = ""
     
     var body: some View {
         Form {
@@ -19,29 +19,35 @@ struct EditPersonalView: View {
             TextField("Type", text: $personal.type, axis: .vertical)
             TextField("Link", text: $personal.link)
             
-            Section("Dates Visited") {
-                ForEach(personal.visitedDates) { visitedDate in
-                    Text(visitedDate.name)
+            Section("Items Visited") {
+                ForEach(personal.visitedItems) { visitedItem in
+                    Text(visitedItem.name)
                 }
                 
                 HStack {
-                    TextField("Add a new sight in \(personal.name)", text: $newDate)
-                    
+                    TextField("Add a new sight in ", text: $newItem) //\(personal.name)
                     Button("Add", action: addItem)
                 }
             }
+            
+            Section("Add month to visit") {
+                DatePicker("", selection: $personal.date, displayedComponents: .date)
+                    .labelsHidden()
+                    .datePickerStyle(WheelDatePickerStyle())
+            }
+
         }
         .navigationTitle("Edit Personal")
         .navigationBarTitleDisplayMode(.inline)
     }
     
     func addItem() {
-        guard newDate.isEmpty == false else { return }
+        guard newItem.isEmpty == false else { return }
         
         withAnimation {
-            let visitedDate = PersonalItemDate(name: newDate)
-            personal.visitedDates.append(visitedDate)
-            newDate = ""
+            let visitedItem = PersonalListItem(name: newItem)
+            personal.visitedItems.append(visitedItem)
+            newItem = ""
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct PersonalListingView: View {
+struct PersonalListView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Personal.name) private var personals: [Personal]
     
@@ -34,5 +34,5 @@ struct PersonalListingView: View {
 }
 
 #Preview {
-    PersonalListingView()
+    PersonalListView()
 }

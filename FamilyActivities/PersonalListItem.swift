@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class PersonalItemDate {
+class PersonalListItem {
     var name: String
     
     init(name: String = "") {
