@@ -23,10 +23,12 @@ struct PersonalCalendarView: View {
     var body: some View {
         List {
             ForEach(groupedItems.sorted(by: { $1.key > $0.key }), id: \.key) { month, items in
-            //ForEach(groupedItems, id: \.0) { month, items in
-                Section(header: Text(convertDateFormat(month)!)) {
-                    ForEach(items, id: \.id) { item in
-                        Text("\(item.name)")
+            //ForEach(groupedItems, id: \.0) { month, items in]
+                if month != "12 4000" {
+                    Section(header: Text(convertDateFormat(month)!)) { //sectionHeader(for: month)
+                        ForEach(items, id: \.id) { item in
+                            Text("\(item.name)")
+                        }
                     }
                 }
             }
@@ -56,6 +58,15 @@ struct PersonalCalendarView: View {
         } else {
             // Return nil if the parsing fails
             return nil
+        }
+    }
+        
+    // change section header for Date.distantFuture AND change date format
+    private func sectionHeader(for month: String) -> Text {
+        if month == "12 4000" {
+            return Text("Not planned activities")
+        } else {
+            return Text(convertDateFormat(month)!)//Text(month)
         }
     }
 }

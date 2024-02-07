@@ -23,7 +23,7 @@ class Personal {
         return formatter.string(from: date)
     }
     
-    init(name: String = "", type: String = "", link: String = "", date: Date = .now) {//}, date: Date) { //id: String = ""
+    init(name: String = "", type: String = "", link: String = "", date: Date = .distantFuture) {//}, date: Date) { //id: String = ""
         self.id = UUID()
         self.name = name
         self.type = type
