@@ -9,12 +9,11 @@ import Foundation
 import SwiftData
 
 @Model
-class Personal {
+class PersonalRecommendation {
     var id: UUID
     var name: String
-    var type: String
-    var link: String
-    @Relationship(deleteRule: .cascade) var visitedItems = [PersonalListItem]()
+    var text: String
+    var activityNames: [String]
     var date: Date//?
     
     var shortDate: String {
@@ -23,11 +22,13 @@ class Personal {
         return formatter.string(from: date)
     }
     
-    init(name: String = "", type: String = "", link: String = "", date: Date = .distantFuture) {//}, date: Date) { //id: String = ""
+    static let example = PersonalRecommendation(name: "Test name", text: "Test text", activityNames: [], date: Date.now)
+    
+    init(name: String = "", text: String = "", activityNames: [String], date: Date = .distantFuture) {//}, date: Date) { //id: String = ""
         self.id = UUID()
         self.name = name
-        self.type = type
-        self.link = link
+        self.text = text
+        self.activityNames = activityNames
         self.date = date
     }
 }

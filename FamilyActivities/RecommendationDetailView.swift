@@ -15,7 +15,9 @@ struct RecommendationDetailView: View {
     @Query var activities: [Activity]
     
     let recommendation: Recommendation
-        
+    
+    @State private var path = [PersonalRecommendation]()
+            
     var body: some View {
         Form {
             Section("About") {
@@ -36,8 +38,18 @@ struct RecommendationDetailView: View {
         .listStyle(.grouped)
         .navigationTitle(recommendation.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button("Save to personal items", action: saveToPersonalRecommendation)
+        }
     }
     
+    func saveToPersonalRecommendation() {
+        let savedRecommendation = PersonalRecommendation(name: recommendation.name, activityNames: recommendation.activityNames) 
+        modelContext.insert(savedRecommendation)
+        path = [savedRecommendation]
+        try? modelContext.save()
+        
+    }
 }
 
 #Preview {

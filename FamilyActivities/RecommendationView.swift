@@ -19,7 +19,7 @@ struct RecommendationView: View {
                     Text(recommendation.name)
                 }
             }
-            .navigationTitle("Activities")
+            .navigationTitle("Recommendations")
             .navigationDestination(for: Recommendation.self) { recommendation in
                 RecommendationDetailView(recommendation: recommendation)
             }

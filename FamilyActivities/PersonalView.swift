@@ -11,8 +11,11 @@ import SwiftUI
 struct PersonalView: View {
     @Environment(\.modelContext) var modelContext
     
-    @State private var path = [Personal]()
-    @State private var sortOrder = SortDescriptor(\Personal.name)
+//    @State private var activityNames = [String]()
+//    @State private var path = [PersonalActivity]()
+    @State private var path = [PersonalRecommendation]()
+//    @State private var sortOrder = SortDescriptor(\PersonalActivity.name)
+    @State private var sortOrder = SortDescriptor(\PersonalRecommendation.name)
     
     @State private var showingCalendar = false //@AppStorage("showingGrid")
     
@@ -22,7 +25,8 @@ struct PersonalView: View {
                 if showingCalendar {
                     PersonalCalendarView()
                 } else {
-                    PersonalListView()
+                    //PersonalActivityListView()
+                    PersonalRecommendationListView()
                 }
             }
                 .toolbar {
@@ -37,18 +41,18 @@ struct PersonalView: View {
                     }
                 }
                 .navigationTitle("Personal View")
-                .navigationDestination(for: Personal.self, destination: EditPersonalView.init)
-                .toolbar {
-                    Button("Add Item", systemImage: "plus", action: addItem)
-                }
+//                .toolbar {
+//                    Button("Add Item", systemImage: "plus", action: addItem)
+//                }
         }
     }
     
-    func addItem() {
-        let item = Personal()
-        modelContext.insert(item)
-        path = [item]
-    }
+//    func addItem() {
+//        let item = PersonalActivity()
+//        //let item = PersonalRecommendation()
+//        modelContext.insert(item)
+//        path = [item]
+//    }
 }
 
 #Preview {

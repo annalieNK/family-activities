@@ -10,10 +10,10 @@ import SwiftUI
 
 struct PersonalCalendarView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Personal.date) private var personals: [Personal]
+    @Query(sort: \PersonalActivity.date) private var personalActivities: [PersonalActivity]
     
-    var groupedItems: [String: [Personal]] { //[(String, [Personal])] {
-        Dictionary(grouping: personals) { item in
+    var groupedItems: [String: [PersonalActivity]] { //[(String, [Personal])] {
+        Dictionary(grouping: personalActivities) { item in
             //item.shortDate
             formatDate(item.date, format: "MM yyyy") //MM sorts by month number, whereas MMMM sorts alphabettically
         }

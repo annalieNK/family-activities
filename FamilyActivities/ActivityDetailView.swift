@@ -14,7 +14,7 @@ struct ActivityDetailView: View {
     let activity: Activity
     
     @State private var link = ""
-    @State private var path = [Personal]()
+    @State private var path = [PersonalActivity]()
     
     var body: some View {
         List {
@@ -45,16 +45,15 @@ struct ActivityDetailView: View {
         .navigationTitle(activity.name)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            Button("Save to personal items", action: saveToPersonal)
+            Button("Save to personal items", action: saveToPersonalActivity)
         }
     }
     
     // create a function to save this item to the Personal SwiftData model
-    func saveToPersonal() {
-        let savedActivity = Personal(name: activity.name, type: activity.type, link: link) //Personal() //id: activity.id,
+    func saveToPersonalActivity() {
+        let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link) //Personal() //id: activity.id,
         modelContext.insert(savedActivity)
         path = [savedActivity]
-        // add save function
         try? modelContext.save()
         
     }
