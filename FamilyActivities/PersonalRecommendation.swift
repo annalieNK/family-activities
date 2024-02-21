@@ -14,6 +14,7 @@ class PersonalRecommendation {
     var name: String
     var text: String
     var activityNames: [String]
+    @Relationship(deleteRule: .cascade) var addedActivities = [PersonalListItem]()
     var date: Date//?
     
     var shortDate: String {

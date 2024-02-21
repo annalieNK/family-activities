@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct PersonalRecommendationDetailView: View {
-//    @Query var activities: [Activity]
+    @Query var activities: [Activity]
     
     @Bindable var personalRecommendation: PersonalRecommendation // make it editable
     
@@ -17,20 +17,51 @@ struct PersonalRecommendationDetailView: View {
     
     var body: some View {
         Form {
-            TextField("Name", text: $personalRecommendation.name)
+            Section("Name") {
+                TextField("Name", text: $personalRecommendation.name)
+                    .padding(.vertical)
+            }
             
-//            Section("Activities") {
-//                List(personal.activityNames, id: \.self) { activityID in
-//                    if let activity = activities.first(where: { $0.id == activityID }) {
-//                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
-//                            Text(personal.name)//Text(activity.name)
-//                        }
-//                    }
+            Section("Activities") {
+                List(personalRecommendation.activityNames, id: \.self) { activityID in
+                    if let activity = activities.first(where: { $0.id == activityID }) {
+                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                            Text(activity.name)
+                        }
+                    }
+                }
+            }
+            
+            Section("Add Activities") {
+//                List(personalRecommendation.addedActivities) { addedActivity in
+//                    Text(addedActivity.name)
 //                }
-//            }
+                List(personalRecommendation.addedActivities) { activityID in
+                    if let activity = activities.first(where: { $0.name == activityID.name }) {
+                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                            Text(activity.name)
+                        }
+                    }
+                }
+                
+                HStack {
+                    TextField("Add a new item in ", text: $newItem)
+                    Button("Add", action: addItem)
+                }
+            }
         }
         .navigationTitle("\(personalRecommendation.name)")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func addItem() {
+        guard newItem.isEmpty == false else { return }
+        
+        withAnimation {
+            let addedActivity = PersonalListItem(name: newItem)
+            personalRecommendation.addedActivities.append(addedActivity)
+            newItem = ""
+        }
     }
 }
 

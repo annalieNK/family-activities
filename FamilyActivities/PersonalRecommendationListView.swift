@@ -12,20 +12,26 @@ struct PersonalRecommendationListView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \PersonalRecommendation.date) private var personalRecommendations: [PersonalRecommendation]
     
+    @State private var path = [PersonalRecommendation]()
+    
     var body: some View {
-        List {
-            ForEach(personalRecommendations) { personal in
-                NavigationLink(value: personal) {
-                    VStack(alignment: .leading) {
-                        Text(personal.name)
+        NavigationStack(path: $path) {
+            VStack {
+                List {
+                    ForEach(personalRecommendations) { personal in
+                        NavigationLink(value: personal) {
+                            VStack(alignment: .leading) {
+                                Text(personal.name)
+                            }
+                        }
                     }
+                    .onDelete(perform: deleteItems)
                 }
+                .navigationDestination(for: PersonalRecommendation.self) { personal in PersonalRecommendationDetailView(personalRecommendation: personal)}
+                
+                Button("Add Itinerary", systemImage: "plus", action: addItem)
             }
-            .onDelete(perform: deleteItems)
         }
-        .navigationDestination(for: PersonalRecommendation.self, destination: PersonalRecommendationDetailView.init)
-//        .navigationDestination(for: Personal.self) { personal in
-//            PersonalDetailView(personal: personal)}
     }
     
     func deleteItems(_ indexSet: IndexSet) {
@@ -33,6 +39,12 @@ struct PersonalRecommendationListView: View {
             let item = personalRecommendations[index]
             modelContext.delete(item)
         }
+    }
+    
+    func addItem() {
+        let item = PersonalRecommendation(activityNames: [])
+        modelContext.insert(item)
+        path = [item]
     }
 }
 

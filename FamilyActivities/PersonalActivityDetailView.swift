@@ -19,23 +19,13 @@ struct PersonalActivityDetailView: View {
             TextField("Type", text: $personalActivity.type, axis: .vertical)
             TextField("Link", text: $personalActivity.link)
             
-//            Section("Activities") {
-//                List(personal.activityNames, id: \.self) { activityID in
-//                    if let activity = activities.first(where: { $0.id == activityID }) {
-//                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
-//                            Text(personal.name)//Text(activity.name)
-//                        }
-//                    }
-//                }
-//            }
-            
             Section("Items Visited") {
                 ForEach(personalActivity.visitedItems) { visitedItem in
                     Text(visitedItem.name)
                 }
                 
                 HStack {
-                    TextField("Add a new item in ", text: $newItem) //\(personal.name)
+                    TextField("Add a new item in ", text: $newItem)
                     Button("Add", action: addItem)
                 }
             }

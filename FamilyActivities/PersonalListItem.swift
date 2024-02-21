@@ -9,10 +9,14 @@ import Foundation
 import SwiftData
 
 @Model
-class PersonalListItem {
+class PersonalListItem { //: Equatable
     var name: String
     
     init(name: String = "") {
         self.name = name
     }
+    
+//    static func ==(lhs: PersonalListItem, rhs: PersonalListItem) -> Bool {
+//        lhs.id == rhs.id
+//    }
 }
