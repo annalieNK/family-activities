@@ -19,7 +19,6 @@ struct PersonalRecommendationDetailView: View {
         Form {
             Section("Name") {
                 TextField("Name", text: $personalRecommendation.name)
-                    .padding(.vertical)
             }
             
             Section("Activities") {
