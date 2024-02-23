@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct TestView3: View {
-    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.7
+    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.7 //0.85
     @State private var dragOffset: CGFloat = 0
     @State private var items = Array(1...10) // Sample list items
+    @State private var selectedItemIndex: Int? = nil
     
     var body: some View {
         ZStack {
             // Secondary View
             VStack {
-                Spacer()
-                Text("Secondary View")
+                Text("\(items.count) items")
                     .foregroundColor(.white)
                     .font(.title)
                 
+                if let selectedItemIndex = selectedItemIndex {
+                    Text("Item: \(items[selectedItemIndex])")
+                        .foregroundColor(.white)
+                }
                 List(items, id: \.self) { item in
                     Text("Item \(item)")
                 }
@@ -49,8 +53,17 @@ struct TestView3: View {
             .animation(.spring())
             
             // Primary View
-            Color.blue.edgesIgnoringSafeArea(.all)
-                .zIndex(-1) // Ensure the primary view is below the secondary view
+            VStack {
+                List(items, id: \.self) { item in
+                    Button(action: {
+                        self.selectedItemIndex = items.firstIndex(of: item)
+                    }) {
+                        Text("Item \(item)")
+                    }
+                }
+                .listStyle(PlainListStyle())
+            }
+            .zIndex(-1) // Ensure the primary view is below the secondary view
         }
     }
 }
