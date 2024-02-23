@@ -12,20 +12,68 @@ struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
     
+    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.7 //0.85
+    @State private var dragOffset: CGFloat = 0
+    @State private var selectedItemIndex: Int? = nil
+    
     var body: some View {
-        NavigationStack {
-            List(activities) { activity in
-                NavigationLink(value: activity) {
-                    Text(activity.name)
+        ZStack {
+            // Secondary View
+            VStack {
+                Text("\(activities.count)")
+                
+                //                if let selectedItemIndex = selectedItemIndex {
+                //                    Text("Item: \(activities[selectedItemIndex])")
+                //                }
+                NavigationStack {
+                    List(activities) { activity in
+                        NavigationLink(value: activity) {
+                            Text(activity.name)
+                        }
+                    }
+                    .navigationDestination(for: Activity.self) { activity in
+                        ActivityDetailView(activity: activity)
+                    }
+                    .task {
+                        await fetchActivities()
+                    }
                 }
             }
-            .navigationTitle("Activities")
-            .navigationDestination(for: Activity.self) { activity in
-                ActivityDetailView(activity: activity)
+            .frame(maxWidth: .infinity)
+            .background(Color.green)
+            .offset(y: offset)
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        self.dragOffset = value.translation.height
+                    }
+                    .onEnded { value in
+                        if self.dragOffset < -300 {
+                            withAnimation {
+                                self.offset = 0
+                            }
+                        } else {
+                            withAnimation {
+                                self.offset = UIScreen.main.bounds.height * 0.7
+                            }
+                        }
+                    }
+            )
+            .animation(.spring())
+            
+            // Primary View
+            VStack {
+                NavigationStack {
+                    List(activities) { activity in
+                        Text(activity.name)
+                    }
+                    .navigationTitle("Activities")
+                    .task {
+                        await fetchActivities()
+                    }
+                }
             }
-            .task {
-                await fetchActivities()
-            }
+            .zIndex(-1) // Ensure the primary view is below the secondary view
         }
     }
     
