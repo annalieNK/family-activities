@@ -12,70 +12,82 @@ struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
     
-    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.7 //0.85
+    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.8
     @State private var dragOffset: CGFloat = 0
     @State private var selectedItemIndex: Int? = nil
     
     var body: some View {
         ZStack {
-            // Secondary View
-            VStack {
-                Text("\(activities.count)")
-                
-                //                if let selectedItemIndex = selectedItemIndex {
-                //                    Text("Item: \(activities[selectedItemIndex])")
-                //                }
-                NavigationStack {
-                    List(activities) { activity in
-                        NavigationLink(value: activity) {
-                            Text(activity.name)
-                        }
-                    }
-                    .navigationDestination(for: Activity.self) { activity in
-                        ActivityDetailView(activity: activity)
-                    }
-                    .task {
-                        await fetchActivities()
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .background(Color.green)
-            .offset(y: offset)
-            .gesture(
-                DragGesture()
-                    .onChanged { value in
-                        self.dragOffset = value.translation.height
-                    }
-                    .onEnded { value in
-                        if self.dragOffset < -300 {
-                            withAnimation {
-                                self.offset = 0
-                            }
-                        } else {
-                            withAnimation {
-                                self.offset = UIScreen.main.bounds.height * 0.7
-                            }
-                        }
-                    }
-            )
-            .animation(.spring())
-            
             // Primary View
-            VStack {
-                NavigationStack {
-                    List(activities) { activity in
+            NavigationStack {
+                List(activities) { activity in
+                    Button(action: {
+                        self.selectedItemIndex = activities.firstIndex(of: activity)
+                    }) {
                         Text(activity.name)
                     }
-                    .navigationTitle("Activities")
-                    .task {
-                        await fetchActivities()
-                    }
+                }
+                .navigationTitle("Activities")
+                .task {
+                    await fetchActivities()
                 }
             }
             .zIndex(-1) // Ensure the primary view is below the secondary view
+            
+            // Separate Small View
+            if let selectedItemIndex = selectedItemIndex {
+                VStack {
+                    //Text("Selected Item: \(activities[selectedItemIndex])")
+                    Text("display a detail view")
+                }
+                .offset(y: offset == 0 ? 0 : 0) //300
+                
+                // Secondary View
+                ActivityListView()
+                    .frame(maxWidth: .infinity)
+                    .offset(y: offset)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.dragOffset = value.translation.height
+                            }
+                            .onEnded { value in
+                                if self.dragOffset < -300 {
+                                    withAnimation {
+                                        self.offset = 0
+                                    }
+                                } else {
+                                    withAnimation {
+                                        self.offset = UIScreen.main.bounds.height * 0.8
+                                    }
+                                }
+                            }
+                    )
+            } else {
+                // Secondary View
+                ActivityListView()
+                    .offset(y: offset)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.dragOffset = value.translation.height
+                            }
+                            .onEnded { value in
+                                if self.dragOffset < -300 {
+                                    withAnimation {
+                                        self.offset = 0
+                                    }
+                                } else {
+                                    withAnimation {
+                                        self.offset = UIScreen.main.bounds.height * 0.8
+                                    }
+                                }
+                            }
+                    )
+            }
         }
     }
+    
     
     func fetchActivities() async {
         // Don't re-fetch data if we already have it.
