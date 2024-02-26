@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestView3: View {
-    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.85 //0.7
+    @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.7//0.85 //0.7
     @State private var dragOffset: CGFloat = 0
     @State private var items = Array(1...10) // Sample list items
     @State private var selectedItemIndex: Int? = nil
@@ -38,7 +38,7 @@ struct TestView3: View {
                 .padding()
                 .background(Color.blue)
                 .cornerRadius(10)
-                .offset(y: offset == 0 ? 0 : 300) // Adjust as needed
+                .offset(y: offset == 0 ? 0 : 0) // Adjust as needed //300
                 
                 // Secondary View
                 VStack {
@@ -66,7 +66,7 @@ struct TestView3: View {
                                 }
                             } else {
                                 withAnimation {
-                                    self.offset = UIScreen.main.bounds.height * 0.85 //0.7
+                                    self.offset = UIScreen.main.bounds.height * 0.7//0.85 //0.7
                                 }
                             }
                         }
@@ -99,7 +99,7 @@ struct TestView3: View {
                                 }
                             } else {
                                 withAnimation {
-                                    self.offset = UIScreen.main.bounds.height * 0.85 //0.7
+                                    self.offset = UIScreen.main.bounds.height * 0.7//0.85 //0.7
                                 }
                             }
                         }
