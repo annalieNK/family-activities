@@ -27,6 +27,10 @@ struct ActivityDetailView: View {
                 Text(activity.type)
             }
             
+            Section("Coordinates") {
+                Text("\(activity.latitude), \(activity.longitude)")
+            }
+            
             // Add an embeded links (e.g. to the Park Services)
             Section("Activity Links") {
                 ScrollView(.horizontal, showsIndicators: false) {

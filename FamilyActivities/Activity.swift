@@ -7,25 +7,34 @@
 
 import Foundation
 import SwiftData
+import MapKit
 
 @Model
-class Activity: Codable, Identifiable {
+class Activity: Codable, Identifiable, Equatable {
     enum CodingKeys: CodingKey {
-        case id, name, type, links
+        case id, name, type, links, latitude, longitude
     }
     
     let id: String
     var name: String
     var type: String
     var links: [String]
+    let latitude: Double
+    let longitude: Double
     
-    static let example = Activity(id: String(), name: "Test Name", type: "Test Type", links: ["swift", "apple"])
+    var coordinate: CLLocationCoordinate2D {
+            CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
     
-    init(id: String, name: String, type: String, links: [String]) {
+    static let example = Activity(id: String(), name: "Test Name", type: "Test Type", links: ["swift", "apple"], latitude: 37.77, longitude: -122.42)
+    
+    init(id: String, name: String, type: String, links: [String], latitude: Double, longitude: Double) {
         self.id = id
         self.name = name
         self.type = type
         self.links = links
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     // conform to Codable
@@ -35,6 +44,8 @@ class Activity: Codable, Identifiable {
         name = try container.decode(String.self, forKey: .name)
         type = try container.decode(String.self, forKey: .type)
         links = try container.decode([String].self, forKey: .links)
+        latitude = try container.decode(Double.self, forKey: .latitude)
+        longitude = try container.decode(Double.self, forKey: .longitude)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -43,6 +54,17 @@ class Activity: Codable, Identifiable {
         try container.encode(name, forKey: .name)
         try container.encode(type, forKey: .type)
         try container.encode(links, forKey: .links)
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
+    }
+    
+    // write a comparison function to make sure locations are unique (according to the Identifiable and Equatable protocols)
+    static func ==(lhs: Activity, rhs: Activity) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    static func <(lhs: Activity, rhs: Activity) -> Bool {
+        lhs.name < rhs.name
     }
 }
 

@@ -8,6 +8,8 @@
             "https://www.youtube.com",
             "https://www.youtube.com"
         ],
+        "latitude": 37.73,
+        "longitude": -122.50
     },
     {
         "id": "StinsonBeach",
@@ -17,6 +19,8 @@
         "links": [
             "https://www.youtube.com",
             "https://www.youtube.com"
-        ]
+        ],
+        "latitude": 37.90,
+        "longitude": -122.64
     }
 ]

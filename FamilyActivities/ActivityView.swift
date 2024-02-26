@@ -37,8 +37,7 @@ struct ActivityView: View {
             // Separate Small View
             if let selectedItemIndex = selectedItemIndex {
                 VStack {
-                    //Text("Selected Item: \(activities[selectedItemIndex])")
-                    Text("display a detail view")
+                    Text(activities[selectedItemIndex].name)
                 }
                 .offset(y: offset == 0 ? 0 : 0) //300
                 
@@ -94,7 +93,7 @@ struct ActivityView: View {
         guard activities.isEmpty else { return }
         
         do {
-            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/adding_rich_links_v2/FamilyActivities/activities.json")!
+            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/map-views/FamilyActivities/activities.json")!
             let (data, _) = try await URLSession.shared.data(from: url)
             
             let decoder = JSONDecoder()
