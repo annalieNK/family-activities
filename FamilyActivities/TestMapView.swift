@@ -15,7 +15,7 @@ struct TestMapView: View {
     
     var body: some View {
         ZStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Map View")
         }
     }
 }
