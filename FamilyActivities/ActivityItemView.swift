@@ -11,27 +11,28 @@ import SwiftUI
 struct ActivityItemView: View {
     @Environment(\.modelContext) var modelContext
     
-    let activities: [Activity]
-    //@Query(sort: \Activity.name) private var activities: [Activity]
+    let activity: Activity
     
     var body: some View {
-        //Text(activity.name)
-        
-        VStack {
-            NavigationStack {
-                List(activities) { activity in
-                    NavigationLink(value: activity) {
-                        Text(activity.name)
+        ScrollView(.horizontal) {
+            HStack {
+                NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                    HStack {
+                        Image(systemName: "figure.2.and.child.holdinghands")
+                        
+                        VStack(alignment: .leading) {
+                            Text(activity.name)
+                            
+                            Text(activity.type)
+                        }
                     }
-                }
-                .navigationDestination(for: Activity.self) { activity in
-                    ActivityDetailView(activity: activity)
                 }
             }
         }
+        .background(.white)
     }
 }
 
-//#Preview {
-//    ActivityItemView()
-//}
+#Preview {
+    ActivityItemView(activity: .example)
+}

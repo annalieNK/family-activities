@@ -5,6 +5,7 @@
 //  Created by Annalie Kruseman on 1/10/24.
 //
 
+import MapKit
 import SwiftData
 import SwiftUI
 

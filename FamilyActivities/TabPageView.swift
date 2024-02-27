@@ -10,10 +10,10 @@ import SwiftUI
 struct TabPageView: View {
     var body: some View {
         TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
+//            HomeView()
+//                .tabItem {
+//                    Image(systemName: "house")
+//                }
             ActivityView()
                 .tabItem {
                     Image(systemName: "list.bullet")
