@@ -12,33 +12,36 @@ import SwiftUI
 struct TestMapView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
-        
+    
     @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.8
     @State private var dragOffset: CGFloat = 0
     @State private var selectedItemIndex: Int? = nil
     
-//    @State private var position = MapCameraPosition.region(
-//        MKCoordinateRegion(
-//            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
-//            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-//        )
-//    )
+    @State private var isDetailActive = false
+    @State private var selectedItem: Activity? = nil
+    @State private var isListVisible: Bool = false
+    @State private var isTapGestureEnabled: Bool = true
+    
+    //    @State private var position = MapCameraPosition.region(
+    //        MKCoordinateRegion(
+    //            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
+    //            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+    //        )
+    //    )
     
     var body: some View {
         ZStack {
             Map { //Map(position: $position)
                 ForEach(activities) { activity in
-                    //Marker(activity.name, coordinate: activity.coordinate)
                     Annotation(activity.name, coordinate: activity.coordinate) {
                         Image(systemName: "mappin.circle.fill") //Text(activity.name)
                             .onTapGesture {
                                 self.selectedItemIndex = activities.firstIndex(of: activity)
+                                self.selectedItem = activity
+                                self.isDetailActive = true
+                                self.isListVisible = true
+                                self.isTapGestureEnabled = false
                             }
-//                        Button(action: {
-//                            self.selectedItemIndex = activities.firstIndex(of: activity)
-//                        }) {
-//                            Image(systemName: "mappin.circle.fill")//Text(activity.name)
-//                        }
                     }
                     .annotationTitles(.hidden)
                 }
@@ -46,11 +49,24 @@ struct TestMapView: View {
             .zIndex(-1)
             
             // Activity Item View
-            if let selectedItemIndex = selectedItemIndex {
-                VStack {
-                    Text(activities[selectedItemIndex].name)
+            //            if let selectedItemIndex = selectedItemIndex {
+            //                Text(activities[selectedItemIndex].name)
+            //            if isListVisible {
+            //                ActivityItemView(activities: [selectedItem!])
+            if let selectedItem = selectedItem {
+                //                List {
+                //                    Text(selectedItem.name)
+                //                }
+                NavigationStack {
+                    List {
+                        NavigationLink(value: selectedItem) {
+                            Text(selectedItem.name)
+                        }
+                    }
+                    .navigationDestination(for: Activity.self) { selectedItem in
+                        ActivityDetailView(activity: selectedItem)
+                    }
                 }
-                .offset(y: offset == 0 ? 0 : 0) //300
                 
                 // Activity List View
                 ActivityListView()
@@ -99,7 +115,11 @@ struct TestMapView: View {
         .gesture(
             TapGesture()
                 .onEnded { value in
-                    self.selectedItemIndex = nil
+                    if self.isTapGestureEnabled {
+                        self.selectedItemIndex = nil
+                        self.selectedItem = nil
+                    }
+                    self.isTapGestureEnabled = true // Enable tap gesture again
                 }
         )
     }
