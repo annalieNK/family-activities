@@ -35,6 +35,7 @@ struct TestMapView: View {
                                 .onTapGesture {
                                     self.selectedItem = activity
                                 }
+                                //.zIndex(1)
                         }
                         .annotationTitles(.hidden)
                     }
@@ -47,7 +48,7 @@ struct TestMapView: View {
                         .frame(height: 200)
                 } else {
                     // Activity List View
-                    ActivityListView()
+                        ActivityListView()
                         .offset(y: offset)
                         .gesture(
                             DragGesture()
