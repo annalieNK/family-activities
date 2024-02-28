@@ -30,6 +30,10 @@ struct TabPageView: View {
 //                .tabItem {
 //                    Image(systemName: "map")
 //                }
+//            TestMapView2()
+//                .tabItem {
+//                    Image(systemName: "map")
+//                }
         }
     }
 }

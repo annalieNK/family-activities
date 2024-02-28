@@ -35,9 +35,11 @@
 		34EAC78B2B4F24D500002B91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34EAC78A2B4F24D500002B91 /* Preview Assets.xcassets */; };
 		34EAC7922B4F281900002B91 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7912B4F281900002B91 /* HomeView.swift */; };
 		34EAC7942B4F2C4A00002B91 /* TabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7932B4F2C4A00002B91 /* TabPageView.swift */; };
-		34EAC7982B4F2E8800002B91 /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7972B4F2E8800002B91 /* PersonalView.swift */; };
+		34EAC7982B4F2E8800002B91 /* PersonalView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7972B4F2E8800002B91 /* PersonalView2.swift */; };
 		34EAC79C2B4F381800002B91 /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 34EAC79B2B4F381800002B91 /* activities.json */; };
 		34EAC79E2B4F395500002B91 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC79D2B4F395500002B91 /* Activity.swift */; };
+		34F442B22B8FB93100C99DB2 /* TestMapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F442B12B8FB93100C99DB2 /* TestMapView2.swift */; };
+		34F442B42B8FD90900C99DB2 /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F442B32B8FD90900C99DB2 /* PersonalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,9 +73,11 @@
 		34EAC78A2B4F24D500002B91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34EAC7912B4F281900002B91 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		34EAC7932B4F2C4A00002B91 /* TabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageView.swift; sourceTree = "<group>"; };
-		34EAC7972B4F2E8800002B91 /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
+		34EAC7972B4F2E8800002B91 /* PersonalView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView2.swift; sourceTree = "<group>"; };
 		34EAC79B2B4F381800002B91 /* activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activities.json; path = FamilyActivities/activities.json; sourceTree = SOURCE_ROOT; };
 		34EAC79D2B4F395500002B91 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		34F442B12B8FB93100C99DB2 /* TestMapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMapView2.swift; sourceTree = "<group>"; };
+		34F442B32B8FD90900C99DB2 /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,13 +122,11 @@
 				34EAC7932B4F2C4A00002B91 /* TabPageView.swift */,
 				34EAC7912B4F281900002B91 /* HomeView.swift */,
 				3478A5EE2B682E97009D7E64 /* ActivityView.swift */,
-				34877F072B8D239800C7883F /* TestMapView.swift */,
 				34877F092B8D7FE600C7883F /* ActivityItemView.swift */,
 				34877F032B8D1FBB00C7883F /* ActivityListView.swift */,
 				3471ED592B69A99F0007205A /* ActivityDetailView.swift */,
-				34EAC7972B4F2E8800002B91 /* PersonalView.swift */,
-				34D3365B2B866BDF0059D223 /* TestView.swift */,
-				34B71F682B87F77C00394B90 /* TestView3.swift */,
+				34EAC7972B4F2E8800002B91 /* PersonalView2.swift */,
+				34F442B32B8FD90900C99DB2 /* PersonalView.swift */,
 				34D3365D2B8677D60059D223 /* ListView.swift */,
 				34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */,
 				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
@@ -133,6 +135,10 @@
 				34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */,
 				3471ED5B2B6AC4A80007205A /* RecommendationView.swift */,
 				3471ED572B69A97E0007205A /* RecommendationDetailView.swift */,
+				34877F072B8D239800C7883F /* TestMapView.swift */,
+				34F442B12B8FB93100C99DB2 /* TestMapView2.swift */,
+				34D3365B2B866BDF0059D223 /* TestView.swift */,
+				34B71F682B87F77C00394B90 /* TestView3.swift */,
 				3456F9AC2B636DAB006368F0 /* LinkRow.swift */,
 				3495C7CE2B68761B008862BA /* FileLinkView.swift */,
 				34EAC7862B4F24D500002B91 /* Assets.xcassets */,
@@ -224,7 +230,7 @@
 			files = (
 				3495C7D72B68AD36008862BA /* Recommendation.swift in Sources */,
 				34714E8F2B61E0DD0022D8E5 /* PersonalListItem.swift in Sources */,
-				34EAC7982B4F2E8800002B91 /* PersonalView.swift in Sources */,
+				34EAC7982B4F2E8800002B91 /* PersonalView2.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
 				34D336562B8555190059D223 /* PersonalRecommendation.swift in Sources */,
 				3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */,
@@ -238,6 +244,7 @@
 				34877F082B8D239800C7883F /* TestMapView.swift in Sources */,
 				34877F0A2B8D7FE600C7883F /* ActivityItemView.swift in Sources */,
 				3495C7CF2B68761C008862BA /* FileLinkView.swift in Sources */,
+				34F442B22B8FB93100C99DB2 /* TestMapView2.swift in Sources */,
 				34EAC79E2B4F395500002B91 /* Activity.swift in Sources */,
 				34D336582B855F970059D223 /* PersonalRecommendationListView.swift in Sources */,
 				34008FCB2B85519800EA77D9 /* PersonalActivityDetailView.swift in Sources */,
@@ -247,6 +254,7 @@
 				34D3365C2B866BDF0059D223 /* TestView.swift in Sources */,
 				34008FC72B854EE000EA77D9 /* PersonalActivity.swift in Sources */,
 				34EAC7832B4F24D300002B91 /* FamilyActivitiesApp.swift in Sources */,
+				34F442B42B8FD90900C99DB2 /* PersonalView.swift in Sources */,
 				34877F042B8D1FBB00C7883F /* ActivityListView.swift in Sources */,
 				34008FC92B85510E00EA77D9 /* PersonalActivityListView.swift in Sources */,
 			);

@@ -18,17 +18,24 @@ struct TestMapView: View {
     
     @State private var selectedItem: Activity? = nil
     
-    //    @State private var position = MapCameraPosition.region(
-    //        MKCoordinateRegion(
-    //            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
-    //            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-    //        )
-    //    )
+    @State private var position = MapCameraPosition.region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
+            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        )
+    )
+    
+   // @State private var position = MapCameraPosition.automatic
+  
+    
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    
+    @State private var visibleRegion: MKCoordinateRegion?
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                Map { //Map(position: $position)
+                Map(position: $position) { //Map(position: $position) //initialPosition: .region(region)
                     ForEach(activities) { activity in
                         Annotation(activity.name, coordinate: activity.coordinate) {
                             Image(systemName: "mappin.circle.fill")
@@ -36,36 +43,38 @@ struct TestMapView: View {
                                     self.selectedItem = activity
                                 }
                         }
-                        .annotationTitles(.hidden)
                     }
                 }
+                //                .onMapCameraChange { context in
+                //                    visibleRegion = context.region
+                //                }
                 .zIndex(-1)
+                //.safeAreaInset(edge: .bottom) {
                 
-                // Activity Item View
                 if let selectedItem = selectedItem {
                     ActivityItemView(activity: selectedItem)
                         .frame(height: 200)
                 } else {
-                    // Activity List View
-                        ActivityListView()
-                        .offset(y: offset)
-                        .gesture(
-                            DragGesture()
-                                .onChanged { value in
-                                    self.dragOffset = value.translation.height
-                                }
-                                .onEnded { value in
-                                    if self.dragOffset < -300 {
-                                        withAnimation {
-                                            self.offset = 0
-                                        }
-                                    } else {
-                                        withAnimation {
-                                            self.offset = UIScreen.main.bounds.height * 0.8
-                                        }
+                    ActivityListView()
+                    .background(.white)
+                    .offset(y: offset)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.dragOffset = value.translation.height
+                            }
+                            .onEnded { value in
+                                if self.dragOffset < -300 {
+                                    withAnimation {
+                                        self.offset = 0
+                                    }
+                                } else {
+                                    withAnimation {
+                                        self.offset = UIScreen.main.bounds.height * 0.8
                                     }
                                 }
-                        )
+                            }
+                    )
                 }
             }
             .gesture(

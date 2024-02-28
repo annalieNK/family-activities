@@ -18,28 +18,29 @@ struct ActivityView: View {
     
     @State private var selectedItem: Activity? = nil
     
-    //    @State private var position = MapCameraPosition.region(
-    //        MKCoordinateRegion(
-    //            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
-    //            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-    //        )
-    //    )
+    @State private var position = MapCameraPosition.region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
+            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        )
+    )
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                Map { //Map(position: $position)
-                    ForEach(activities) { activity in
-                        Annotation(activity.name, coordinate: activity.coordinate) {
-                            Image(systemName: "mappin.circle.fill")
-                                .onTapGesture {
-                                    self.selectedItem = activity
-                                }
-                        }
-                        .annotationTitles(.hidden)
+            Map { //Map(position: $position)
+                ForEach(activities) { activity in
+                    Annotation(activity.name, coordinate: activity.coordinate) {
+                        Image(systemName: "mappin.circle.fill")
+                            .onTapGesture {
+                                self.selectedItem = activity
+                            }
                     }
+                    .annotationTitles(.hidden)
                 }
-                .zIndex(-1)
+            }
+            .zIndex(-1)
+            //.safeAreaInset(edge: .bottom) {
                 
                 // Activity Item View
                 if let selectedItem = selectedItem {
@@ -47,7 +48,7 @@ struct ActivityView: View {
                         .frame(height: 200)
                 } else {
                     // Activity List View
-                        ActivityListView()
+                    ActivityListView()
                         .offset(y: offset)
                         .gesture(
                             DragGesture()
