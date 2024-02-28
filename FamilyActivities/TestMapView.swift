@@ -31,16 +31,15 @@ struct TestMapView: View {
                 Map { //Map(position: $position)
                     ForEach(activities) { activity in
                         Annotation(activity.name, coordinate: activity.coordinate) {
-                            Image(systemName: "mappin.circle.fill") //Text(activity.name)
+                            Image(systemName: "mappin.circle.fill")
                                 .onTapGesture {
                                     self.selectedItem = activity
                                 }
-                                //.zIndex(1)
                         }
                         .annotationTitles(.hidden)
                     }
                 }
-                //.zIndex(-1)
+                .zIndex(-1)
                 
                 // Activity Item View
                 if let selectedItem = selectedItem {

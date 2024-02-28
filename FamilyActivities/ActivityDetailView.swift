@@ -17,33 +17,41 @@ struct ActivityDetailView: View {
     @State private var path = [PersonalActivity]()
     
     var body: some View {
-        List {
-            Section("About") {
-                Text(activity.name)
-                    .padding(.vertical)
-            }
-            
-            Section("Type") {
-                Text(activity.type)
-            }
-            
-            Section("Coordinates") {
-                Text("\(activity.latitude), \(activity.longitude)")
-            }
-            
-            // Add an embeded links (e.g. to the Park Services)
-            Section("Activity Links") {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(activity.links, id: \.self) { link in
-                            LinkRow(previewURL: URL(string: link)!)
-                            //FileLinkView(viewModel: ViewController(link))
-                                .frame(width: 350, height: 375, alignment: .leading)
+        //GeometryReader { geometry in
+            ScrollView {
+                VStack { //List
+                    Image(activity.id)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 350, height: 350)
+                    
+                    Section("About") {
+                        Text(activity.name)
+                            .padding(.vertical)
+                    }
+                    
+                    Section("Type") {
+                        Text(activity.type)
+                    }
+                    
+                    Section("Coordinates") {
+                        Text("\(activity.latitude), \(activity.longitude)")
+                    }
+                    
+                    // Add an embeded links (e.g. to the Park Services)
+                    Section("Activity Links") {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(activity.links, id: \.self) { link in
+                                    LinkRow(previewURL: URL(string: link)!)
+                                    //FileLinkView(viewModel: ViewController(link))
+                                        .frame(width: 350, height: 375, alignment: .leading)
+                                }
+                            }
                         }
                     }
                 }
-            }
-            
+//            }
         }
         .listStyle(.grouped)
         .navigationTitle(activity.name)

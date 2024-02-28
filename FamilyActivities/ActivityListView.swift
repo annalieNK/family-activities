@@ -31,6 +31,7 @@ struct ActivityListView: View {
                 }
             }
         }
+        .background(.white)
     }
     
     func fetchActivities() async {

@@ -18,7 +18,10 @@ struct ActivityItemView: View {
             HStack {
                 NavigationLink(destination: ActivityDetailView(activity: activity)) {
                     HStack {
-                        Image(systemName: "figure.2.and.child.holdinghands")
+                        Image(activity.id)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
                         
                         VStack(alignment: .leading) {
                             Text(activity.name)
