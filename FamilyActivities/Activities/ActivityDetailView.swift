@@ -5,6 +5,7 @@
 //  Created by Annalie Kruseman on 1/18/24.
 //
 
+import MapKit
 import SwiftData
 import SwiftUI
 
@@ -16,47 +17,39 @@ struct ActivityDetailView: View {
     @State private var link = ""
     
     @State private var path = [PersonalActivity]()
-    
+            
     var body: some View {
         //GeometryReader { geometry in
-            ScrollView {
-                VStack { //List
-                    Image(activity.id)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 350, height: 350)
-                    
-                    Section("About") {
-                        Text(activity.name)
-                            .padding(.vertical)
-                    }
-                    
-                    Section("Type") {
-                        Text(activity.type)
-                    }
-                    
-                    Section("Coordinates") {
-                        Text("\(activity.latitude), \(activity.longitude)")
-                    }
-                    
-                    // Add an embeded links (e.g. to the Park Services)
-                    Section("Activity Links") {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(activity.links, id: \.self) { link in
-                                    LinkRow(previewURL: URL(string: link)!)
-                                    //FileLinkView(viewModel: ViewController(link))
-                                        .frame(width: 350, height: 375, alignment: .leading)
-                                }
-                            }
-                        }
+        ScrollView {
+            VStack {
+                Text(activity.name)
+                Text(activity.type)
+                
+                Image(activity.id)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 350, height: 200)
+                
+                Map(initialPosition: .region(MKCoordinateRegion(center: activity.coordinate, span: (MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))))) {
+                    Annotation(activity.name, coordinate: activity.coordinate) {
+                        Image(systemName: "mappin.circle.fill")
                     }
                 }
-//            }
+                .frame(width: 350, height: 200)
+                                                
+                // Add an embeded links (e.g. to the Park Services)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack { //(spacing: 20)
+                        ForEach(activity.links, id: \.self) { link in
+                            LinkRow(previewURL: URL(string: link)!)
+                            //FileLinkView(viewModel: ViewController(link))
+                                .frame(width: 100, height: 100, alignment: .leading)
+                        }
+                    }
+                    //.padding(.horizontal)
+                }
+            }
         }
-        .listStyle(.grouped)
-        .navigationTitle(activity.name)
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button("Save to personal items", action: saveToPersonalActivity)
         }

@@ -16,17 +16,16 @@ struct RecommendationDetailView: View {
     let recommendation: Recommendation
     
     @State private var path = [PersonalRecommendation]()
-            
+    
     var body: some View {
         //Form {
-        NavigationView {
-            VStack {
-                Section("About") {
+//        ScrollView {
+            NavigationView {
+                VStack {
+                    Text(recommendation.name)
+                    Spacer()
                     Text(recommendation.text)
-                        .padding(.vertical)
-                }
-                
-                Section("Activities") {
+                    
                     List(recommendation.activityNames, id: \.self) { activityID in
                         if let activity = activities.first(where: { $0.id == activityID }) {
                             NavigationLink(destination: ActivityDetailView(activity: activity)) {
@@ -34,29 +33,28 @@ struct RecommendationDetailView: View {
                             }
                         }
                     }
-                }
-                
-                Map {
-                    ForEach(recommendation.activityNames, id: \.self) { activityID in
-                        if let activity = activities.first(where: { $0.id == activityID}) {
-                            Annotation(activity.name, coordinate: activity.coordinate) {
-                                Image(systemName: "mappin.circle.fill")
+                    
+                    Map {
+                        ForEach(recommendation.activityNames, id: \.self) { activityID in
+                            if let activity = activities.first(where: { $0.id == activityID}) {
+                                Annotation(activity.name, coordinate: activity.coordinate) {
+                                    Image(systemName: "mappin.circle.fill")
+                                }
                             }
                         }
                     }
+                    .frame(width: 350, height: 200)
                 }
             }
-        }
+//        }
         .listStyle(.grouped)
-        .navigationTitle(recommendation.name)
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button("Save to personal items", action: saveToPersonalRecommendation)
         }
     }
     
     func saveToPersonalRecommendation() {
-        let savedRecommendation = PersonalRecommendation(name: recommendation.name, activityNames: recommendation.activityNames) 
+        let savedRecommendation = PersonalRecommendation(name: recommendation.name, activityNames: recommendation.activityNames)
         modelContext.insert(savedRecommendation)
         path = [savedRecommendation]
         try? modelContext.save()
