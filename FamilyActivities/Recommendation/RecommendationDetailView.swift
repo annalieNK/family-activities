@@ -5,8 +5,7 @@
 //  Created by Annalie Kruseman on 1/30/24.
 //
 
-import SwiftUI
-
+import MapKit
 import SwiftData
 import SwiftUI
 
@@ -19,17 +18,30 @@ struct RecommendationDetailView: View {
     @State private var path = [PersonalRecommendation]()
             
     var body: some View {
-        Form {
-            Section("About") {
-                Text(recommendation.text)
-                    .padding(.vertical)
-            }
-            
-            Section("Activities") {
-                List(recommendation.activityNames, id: \.self) { activityID in
-                    if let activity = activities.first(where: { $0.id == activityID }) {
-                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
-                            Text(activity.name)
+        //Form {
+        NavigationView {
+            VStack {
+                Section("About") {
+                    Text(recommendation.text)
+                        .padding(.vertical)
+                }
+                
+                Section("Activities") {
+                    List(recommendation.activityNames, id: \.self) { activityID in
+                        if let activity = activities.first(where: { $0.id == activityID }) {
+                            NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                                Text(activity.name)
+                            }
+                        }
+                    }
+                }
+                
+                Map {
+                    ForEach(recommendation.activityNames, id: \.self) { activityID in
+                        if let activity = activities.first(where: { $0.id == activityID}) {
+                            Annotation(activity.name, coordinate: activity.coordinate) {
+                                Image(systemName: "mappin.circle.fill")
+                            }
                         }
                     }
                 }

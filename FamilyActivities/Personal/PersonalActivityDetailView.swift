@@ -22,7 +22,7 @@ struct PersonalActivityDetailView: View {
             Section("Coordinates") {
                 Text("\(personalActivity.latitude), \(personalActivity.longitude)")
             }
-            
+                        
             Section("Items Visited") {
                 ForEach(personalActivity.visitedItems) { visitedItem in
                     Text(visitedItem.name)
@@ -41,7 +41,7 @@ struct PersonalActivityDetailView: View {
             }
 
         }
-        .navigationTitle("Edit Personal")
+        .navigationTitle(personalActivity.name)
         .navigationBarTitleDisplayMode(.inline)
     }
     
