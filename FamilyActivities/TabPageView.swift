@@ -16,7 +16,7 @@ struct TabPageView: View {
 //                }
             ActivityView()
                 .tabItem {
-                    Image(systemName: "list.bullet")
+                    Image(systemName: "map")
                 }
             PersonalView()
                 .tabItem {

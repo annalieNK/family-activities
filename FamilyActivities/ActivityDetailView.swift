@@ -14,6 +14,7 @@ struct ActivityDetailView: View {
     let activity: Activity
     
     @State private var link = ""
+    
     @State private var path = [PersonalActivity]()
     
     var body: some View {
@@ -63,7 +64,7 @@ struct ActivityDetailView: View {
     
     // create a function to save this item to the Personal SwiftData model
     func saveToPersonalActivity() {
-        let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link) //Personal() //id: activity.id,
+        let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link, latitude: activity.latitude, longitude: activity.longitude) //, latitude: activity.latitude, longitude: activity.longitude
         modelContext.insert(savedActivity)
         path = [savedActivity]
         try? modelContext.save()

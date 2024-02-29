@@ -24,6 +24,7 @@
 		3495C7D32B68ACC5008862BA /* recommendations.json in Resources */ = {isa = PBXBuildFile; fileRef = 3495C7D22B68ACC5008862BA /* recommendations.json */; };
 		3495C7D72B68AD36008862BA /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495C7D62B68AD36008862BA /* Recommendation.swift */; };
 		34B71F692B87F77C00394B90 /* TestView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B71F682B87F77C00394B90 /* TestView3.swift */; };
+		34C30AFA2B90063300851FBF /* PersonalActivityItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */; };
 		34D336562B8555190059D223 /* PersonalRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D336552B8555190059D223 /* PersonalRecommendation.swift */; };
 		34D336582B855F970059D223 /* PersonalRecommendationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D336572B855F970059D223 /* PersonalRecommendationListView.swift */; };
 		34D3365A2B8560010059D223 /* PersonalRecommendationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */; };
@@ -60,6 +61,7 @@
 		3495C7D22B68ACC5008862BA /* recommendations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recommendations.json; sourceTree = "<group>"; };
 		3495C7D62B68AD36008862BA /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		34B71F682B87F77C00394B90 /* TestView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView3.swift; sourceTree = "<group>"; };
+		34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalActivityItemView.swift; sourceTree = "<group>"; };
 		34D336552B8555190059D223 /* PersonalRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecommendation.swift; sourceTree = "<group>"; };
 		34D336572B855F970059D223 /* PersonalRecommendationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecommendationListView.swift; sourceTree = "<group>"; };
 		34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecommendationDetailView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				34EAC7912B4F281900002B91 /* HomeView.swift */,
 				3478A5EE2B682E97009D7E64 /* ActivityView.swift */,
 				34877F092B8D7FE600C7883F /* ActivityItemView.swift */,
+				34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */,
 				34877F032B8D1FBB00C7883F /* ActivityListView.swift */,
 				3471ED592B69A99F0007205A /* ActivityDetailView.swift */,
 				34EAC7972B4F2E8800002B91 /* PersonalView2.swift */,
@@ -250,6 +253,7 @@
 				34008FCB2B85519800EA77D9 /* PersonalActivityDetailView.swift in Sources */,
 				3456F9AD2B636DAB006368F0 /* LinkRow.swift in Sources */,
 				3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */,
+				34C30AFA2B90063300851FBF /* PersonalActivityItemView.swift in Sources */,
 				34D3365A2B8560010059D223 /* PersonalRecommendationDetailView.swift in Sources */,
 				34D3365C2B866BDF0059D223 /* TestView.swift in Sources */,
 				34008FC72B854EE000EA77D9 /* PersonalActivity.swift in Sources */,

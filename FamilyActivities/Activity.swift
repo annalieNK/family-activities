@@ -10,7 +10,7 @@ import SwiftData
 import MapKit
 
 @Model
-class Activity: Codable, Identifiable, Equatable {
+class Activity: Codable, Identifiable, Equatable, ObservableObject {
     enum CodingKeys: CodingKey {
         case id, name, type, links, latitude, longitude
     }

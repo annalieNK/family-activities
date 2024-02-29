@@ -19,6 +19,10 @@ struct PersonalActivityDetailView: View {
             TextField("Type", text: $personalActivity.type, axis: .vertical)
             TextField("Link", text: $personalActivity.link)
             
+            Section("Coordinates") {
+                Text("\(personalActivity.latitude), \(personalActivity.longitude)")
+            }
+            
             Section("Items Visited") {
                 ForEach(personalActivity.visitedItems) { visitedItem in
                     Text(visitedItem.name)

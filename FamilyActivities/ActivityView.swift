@@ -28,19 +28,19 @@ struct ActivityView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-            Map { //Map(position: $position)
-                ForEach(activities) { activity in
-                    Annotation(activity.name, coordinate: activity.coordinate) {
-                        Image(systemName: "mappin.circle.fill")
-                            .onTapGesture {
-                                self.selectedItem = activity
-                            }
+                Map { //Map(position: $position)
+                    ForEach(activities) { activity in
+                        Annotation(activity.name, coordinate: activity.coordinate) {
+                            Image(systemName: "mappin.circle.fill")
+                                .onTapGesture {
+                                    self.selectedItem = activity
+                                }
+                        }
+                        .annotationTitles(.hidden)
                     }
-                    .annotationTitles(.hidden)
                 }
-            }
-            .zIndex(-1)
-            //.safeAreaInset(edge: .bottom) {
+                .zIndex(-1)
+                //.safeAreaInset(edge: .bottom) {
                 
                 // Activity Item View
                 if let selectedItem = selectedItem {

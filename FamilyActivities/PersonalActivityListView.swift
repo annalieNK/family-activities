@@ -5,6 +5,7 @@
 //  Created by Annalie Kruseman on 1/19/24.
 //
 
+import MapKit
 import SwiftData
 import SwiftUI
 
@@ -13,8 +14,11 @@ struct PersonalActivityListView: View {
     @Query(sort: \PersonalActivity.date) private var personalActivities: [PersonalActivity]
     
     @State private var path = [PersonalActivity]()
+    
+    @State private var selectedItem: PersonalActivity? = nil
 
     var body: some View {
+        
         NavigationStack(path: $path) {
             VStack {
                 List {
