@@ -24,6 +24,7 @@ struct ActivityDetailView: View {
             VStack {
                 Text(activity.name)
                 Text(activity.type)
+                Text("Boolean value: \(activity.isSaved ? "True" : "False")")
                 
                 Image(activity.id)
                     .resizable()
@@ -51,13 +52,22 @@ struct ActivityDetailView: View {
             }
         }
         .toolbar {
-            Button("Save to personal items", action: saveToPersonalActivity)
+            //Button("Save to personal items", action: saveToPersonalActivity)
+            Button(action: {
+                // Toggle the boolean value of the item
+                self.activity.isSaved.toggle()
+                try? modelContext.save()
+            }) {
+                Text("Toggle Button")
+            }
         }
+        
     }
     
     // create a function to save this item to the Personal SwiftData model
     func saveToPersonalActivity() {
-        let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link, latitude: activity.latitude, longitude: activity.longitude) //, latitude: activity.latitude, longitude: activity.longitude
+        //let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link, latitude: activity.latitude, longitude: activity.longitude)
+        let savedActivity = PersonalActivity(link: link)
         modelContext.insert(savedActivity)
         path = [savedActivity]
         try? modelContext.save()

@@ -23,11 +23,11 @@ struct PersonalActivityItemView: View {
 //                            .scaledToFit()
 //                            .frame(width: 200, height: 200)
                         
-                        VStack(alignment: .leading) {
-                            Text(personalActivity.name)
-                            
-                            Text(personalActivity.type)
-                        }
+//                        VStack(alignment: .leading) {
+//                            Text(personalActivity.name)
+//                            
+//                            Text(personalActivity.type)
+//                        }
                     }
                 }
             }

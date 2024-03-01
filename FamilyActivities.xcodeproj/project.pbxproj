@@ -111,10 +111,10 @@
 			children = (
 				34F442B32B8FD90900C99DB2 /* PersonalView.swift */,
 				34D3365D2B8677D60059D223 /* ListView.swift */,
-				34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */,
 				34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */,
-				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
+				34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */,
 				34008FCA2B85519800EA77D9 /* PersonalActivityDetailView.swift */,
+				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
 				34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */,
 				3470DE882B72EE71005AE9F4 /* PersonalCalendarView.swift */,
 			);

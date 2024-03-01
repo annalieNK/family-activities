@@ -26,6 +26,9 @@ class Activity: Codable, Identifiable, Equatable, ObservableObject {
             CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }
     
+    // prevent this property to be changed outside this file (through the use of the toggle function)
+    var isSaved = false //fileprivate(set) var isSaved = false
+    
     static let example = Activity(id: String(), name: "Test Name", type: "Test Type", links: ["swift", "apple"], latitude: 37.77, longitude: -122.42)
     
     init(id: String, name: String, type: String, links: [String], latitude: Double, longitude: Double) {
