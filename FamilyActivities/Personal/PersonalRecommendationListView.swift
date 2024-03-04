@@ -10,42 +10,40 @@ import SwiftUI
 
 struct PersonalRecommendationListView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \PersonalRecommendation.date) private var personalRecommendations: [PersonalRecommendation]
-    
-    @State private var path = [PersonalRecommendation]()
-    
+    @Query(sort: \Recommendation.name) private var recommendations: [Recommendation]
+        
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             VStack {
                 List {
-                    ForEach(personalRecommendations) { personal in
-                        NavigationLink(value: personal) {
+                    ForEach(recommendations.filter { $0.isSaved }) { recommendation in
+                        NavigationLink(value: recommendation) {
                             VStack(alignment: .leading) {
-                                Text(personal.name)
+                                Text(recommendation.name)
                             }
                         }
                     }
                     .onDelete(perform: deleteItems)
                 }
-                .navigationDestination(for: PersonalRecommendation.self) { personal in PersonalRecommendationDetailView(personalRecommendation: personal)}
+                .navigationDestination(for: Recommendation.self) { recommendation in RecommendationDetailView(recommendation: recommendation)}
                 
-                Button("Add Itinerary", systemImage: "plus", action: addItem)
+                //Button("Add Itinerary", systemImage: "plus", action: addItem)
             }
         }
     }
     
     func deleteItems(_ indexSet: IndexSet) {
         for index in indexSet {
-            let item = personalRecommendations[index]
+            let item = recommendations[index]
             modelContext.delete(item)
         }
     }
     
-    func addItem() {
-        let item = PersonalRecommendation(activityNames: [])
-        modelContext.insert(item)
-        path = [item]
-    }
+//    func addItem() {
+//        let item = PersonalRecommendation(activityNames: [])
+//        modelContext.insert(item)
+//        path = [item]
+//    }
 }
 
 #Preview {

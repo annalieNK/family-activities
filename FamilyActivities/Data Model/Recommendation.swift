@@ -20,6 +20,8 @@ class Recommendation: Codable {
     var text: String
     var activityNames: [String]
     
+    var isSaved = false //fileprivate(set) var isSaved = false
+    
     static let example = Recommendation(id: Int(), name: "Text Name", text: "Test Text", activityNames: [])
     
     init(id: Int, name: String, text: String, activityNames: [String]) {

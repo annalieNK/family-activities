@@ -24,7 +24,7 @@ struct ActivityDetailView: View {
             VStack {
                 Text(activity.name)
                 Text(activity.type)
-                Text("Boolean value: \(activity.isSaved ? "True" : "False")")
+                Text("Saved to Personal: \(activity.isSaved ? "True" : "False")")
                 
                 Image(activity.id)
                     .resizable()
@@ -58,7 +58,7 @@ struct ActivityDetailView: View {
                 self.activity.isSaved.toggle()
                 try? modelContext.save()
             }) {
-                Text("Toggle Button")
+                Text("Save")
             }
         }
         

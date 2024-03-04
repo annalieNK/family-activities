@@ -34,7 +34,7 @@ struct RecommendationView: View {
         guard recommendations.isEmpty else { return }
         
         do {
-            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/map-views/FamilyActivities/recommendations.json")!
+            let url = URL(string: "https://raw.githubusercontent.com/annalieNK/family-activities/map-views/FamilyActivities/Files/recommendations.json")!
             let (data, _) = try await URLSession.shared.data(from: url)
             
             let decoder = JSONDecoder()
