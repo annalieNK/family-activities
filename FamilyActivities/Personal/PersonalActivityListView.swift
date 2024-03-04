@@ -44,9 +44,9 @@ struct PersonalActivityListView: View {
     }
     
     func addItem() {
-        let newActivity = AddedActivity()
-        modelContext.insert(newActivity)
-        path = [newActivity]
+//        let newActivity = AddedActivity()
+//        modelContext.insert(newActivity)
+//        path = [newActivity]
     }
 }
 
