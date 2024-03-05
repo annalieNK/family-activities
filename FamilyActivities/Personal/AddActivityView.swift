@@ -27,7 +27,6 @@ struct AddActivityView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: AddedActivity.self, configurations: config)
-        let example = AddedActivity(name: "Test Name", type: "Test Type", links: ["swift", "apple"], latitude: 37.77, longitude: -122.42)
         return AddActivityView(addedActivity: .example)
             .modelContainer(container)
     } catch {

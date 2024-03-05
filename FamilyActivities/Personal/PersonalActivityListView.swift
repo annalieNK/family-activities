@@ -12,26 +12,38 @@ import SwiftUI
 struct PersonalActivityListView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
+    @Query(sort: \AddedActivity.name) private var addedActivities: [AddedActivity]
     
     @State private var path = [AddedActivity]()
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(activities.filter { $0.isSaved }) { activity in
-                    NavigationLink(value: activity) {
-                        VStack(alignment: .leading) {
-                            Text(activity.name)
+        NavigationStack { //(path: $path)
+            VStack {
+                List {
+                    ForEach(activities.filter { $0.isSaved }) { activity in
+                        NavigationLink(value: activity) {
+                            VStack(alignment: .leading) {
+                                Text(activity.name)
+                            }
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .navigationDestination(for: Activity.self) { activity in
+                    ActivityDetailView(activity: activity)
+                }
+                
+                List {
+                    ForEach(addedActivities) { addedActivity in
+                        NavigationLink(value: addedActivity) {
+                            Text(addedActivity.name)
                         }
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .navigationDestination(for: Activity.self) { activity in
-                ActivityDetailView(activity: activity)
+                .navigationDestination(for: AddedActivity.self, destination: AddActivityView.init)
             }
             .toolbar {
-                Button("Add Item", systemImage: "plus", action: addItem)
+                Button("Add Item", systemImage: "plus", action: addActivity)
             }
         }
     }
@@ -43,10 +55,10 @@ struct PersonalActivityListView: View {
         }
     }
     
-    func addItem() {
-//        let newActivity = AddedActivity()
-//        modelContext.insert(newActivity)
-//        path = [newActivity]
+    func addActivity() {
+        let addedActivity = AddedActivity()
+        modelContext.insert(addedActivity)
+        path = [addedActivity]
     }
 }
 
