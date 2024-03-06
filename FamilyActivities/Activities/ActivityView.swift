@@ -28,12 +28,17 @@ struct ActivityView: View {
     
     //@State private var filteredItems: [Activity] = []
     
-    @State private var position = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
+//    @State private var position = MapCameraPosition.region(
+//        MKCoordinateRegion(
+//            center: CLLocationCoordinate2D(latitude: 37.77, longitude: -122.42),
+//            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+//        )
+//    )
+    
+    @State private var position = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
             span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         )
-    )
     
     enum FilterTag {
         case `default`, beach, familyActivity
@@ -86,6 +91,10 @@ struct ActivityView: View {
                     }
                     .zIndex(-1)
                     //.safeAreaInset(edge: .bottom) {
+//                    if let selectedItem = selectedItem {
+//                        ActivityItemView(activity: selectedItem)
+//                            .frame(height: 200)
+//                    }
                     //.searchable(text: $searchText, prompt: "Search for a resort") // Here, or at the bottom? Both locations work.
                     .gesture(
                         TapGesture()
@@ -105,7 +114,7 @@ struct ActivityView: View {
                 Button {
                     showList = true
                 } label: {
-                    Text("\(filteredActivities.count) activities") //filteredActivities
+                    Text("\(filteredActivities.count) activities") //filteredLocations
                 }
                 .sheet(isPresented: $showList) {
                     ActivityListView(searchText: $searchText, selectedType: $selectedType)
@@ -186,6 +195,15 @@ struct ActivityView: View {
             return searchActivity
         } else {
             return searchActivity.filter { $0.type == selectedType }
+        }
+    }
+    
+    var filteredLocations: [Activity] {
+        let mapRect = MKMapView(frame: .zero).visibleMapRect
+        let visibleMapRect = MKMapRect(origin: mapRect.origin, size: mapRect.size)
+        
+        return activities.filter { activity in
+            visibleMapRect.contains(MKMapPoint(activity.coordinate))
         }
     }
     

@@ -5,6 +5,7 @@
 //  Created by Annalie Kruseman on 2/26/24.
 //
 
+import MapKit
 import SwiftData
 import SwiftUI
 
@@ -23,10 +24,10 @@ struct ActivityListView: View {
     
     var body: some View {
         VStack {
-            Text("\(filteredActivities.count) activities") //
+            Text("\(filteredActivities.count) activities") //filteredActivities //filterLocations
             
             NavigationStack {
-                List(filteredActivities) { activity in //activities //filteredActivities
+                List(filteredActivities) { activity in //activities //filterLocations
                     NavigationLink(value: activity) {
                         Text(activity.name)
                     }
@@ -71,6 +72,16 @@ struct ActivityListView: View {
         }
     }
     
+    // Adjust the map region to reflect the list items
+//    var filteredLocations: [Activity] {
+//        let mapRect = MKMapView(frame: .zero).visibleMapRect
+//        let visibleMapRect = MKMapRect(origin: mapRect.origin, size: mapRect.size)
+//        
+//        return activities.filter { activity in
+//            visibleMapRect.contains(MKMapPoint(activity.coordinate))
+//        }
+//    }
+
     func fetchActivities() async {
         // Don't re-fetch data if we already have it.
         guard activities.isEmpty else { return }
