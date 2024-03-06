@@ -15,6 +15,9 @@ struct PersonalActivityListView: View {
     @Query(sort: \AddedActivity.name) private var addedActivities: [AddedActivity]
     
     @State private var path = [AddedActivity]()
+    @State private var showingAddActivity = false
+    
+//    let addedActivity: AddedActivity
     
     var body: some View {
         NavigationStack { //(path: $path)
@@ -41,9 +44,21 @@ struct PersonalActivityListView: View {
                     }
                 }
                 .navigationDestination(for: AddedActivity.self, destination: AddActivityView.init)
+//                .navigationDestination(for: AddedActivity.self) { addedActivity in
+//                    AddActivityView(addedActivity: addedActivity)
+//                }
             }
             .toolbar {
-                Button("Add Item", systemImage: "plus", action: addActivity)
+                //Button("Add Item", systemImage: "plus", action: addActivity)
+                Button {
+                    showingAddActivity = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $showingAddActivity) {
+                //AddActivityView()
+                Text("Add Activity here")
             }
         }
     }

@@ -15,6 +15,7 @@ struct PersonalView: View {
     //@State private var sortOrder = SortDescriptor(\PersonalActivity.name)
     //    @State private var sortOrder = SortDescriptor(\PersonalRecommendation.name)
     
+    
     var body: some View {
         NavigationView {
             List {
