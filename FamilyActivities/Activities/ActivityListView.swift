@@ -23,10 +23,10 @@ struct ActivityListView: View {
     
     var body: some View {
         VStack {
-            Text("\(filteredItems.count) activities") //
+            Text("\(filteredActivities.count) activities") //
             
             NavigationStack {
-                List(filteredItems) { activity in //activities //filteredActivities
+                List(filteredActivities) { activity in //activities //filteredActivities
                     NavigationLink(value: activity) {
                         Text(activity.name)
                     }
@@ -52,18 +52,18 @@ struct ActivityListView: View {
         }
     }
     
-    var filteredActivities: [Activity] {
-        switch filterType {
-        case .default:
-            return searchActivity
-        case .beach:
-            return searchActivity.filter { $0.type == "beach"}
-        case .familyActivity:
-            return searchActivity.filter { $0.type == "family activities"}
-        }
-    }
+//    var filteredActivities: [Activity] {
+//        switch filterType {
+//        case .default:
+//            return searchActivity
+//        case .beach:
+//            return searchActivity.filter { $0.type == "beach"}
+//        case .familyActivity:
+//            return searchActivity.filter { $0.type == "family activities"}
+//        }
+//    }
     
-    var filteredItems: [Activity] {
+    var filteredActivities: [Activity] {
         if selectedType.isEmpty {
             return searchActivity
         } else {
