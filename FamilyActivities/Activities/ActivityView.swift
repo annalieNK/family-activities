@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
+    
     @Query(sort: \Activity.name) private var activities: [Activity]
     
     @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.8
@@ -20,6 +21,12 @@ struct ActivityView: View {
     @State private var filterType = FilterTag.default
     @State private var searchText = ""
     @State private var showList = false
+    
+    @State private var selected: String = ""
+    
+    @State private var selectedType = ""
+    
+    //@State private var filteredItems: [Activity] = []
     
     @State private var position = MapCameraPosition.region(
         MKCoordinateRegion(
@@ -37,14 +44,25 @@ struct ActivityView: View {
             VStack {
                 Button {
                     showFilterOptions = true
+                    //showFilterOptions.toggle()
                 } label: {
                     Text("Type")
                 }
                 .buttonStyle(BorderedButtonStyle())
                 
+                //                if showFilterOptions {
+                //                    Picker("Filter by Type", selection: $selectedType) { // $filterType
+                //                        Text("All").tag("").foregroundColor(.black)
+                //                        ForEach(Set(activities.map { $0.type }).sorted(), id: \.self) { type in
+                //                            Text(type)//.tag(type).foregroundColor(.black)
+                //                        }
+                //                    }
+                //                    .pickerStyle(SegmentedPickerStyle()) // inline
+                //                }
+                
                 ZStack(alignment: .bottom) {
                     Map { //Map(position: $position)
-                        ForEach(filteredActivities) { activity in //activities
+                        ForEach(filteredItems) { activity in //activities
                             Annotation(activity.name, coordinate: activity.coordinate) {
                                 //Image(systemName: "mappin.circle.fill")
                                 VStack {
@@ -89,48 +107,76 @@ struct ActivityView: View {
                 Button {
                     showList = true
                 } label: {
-                    Text("\(filteredActivities.count) activities")
+                    Text("\(filteredItems.count) activities") //filteredActivities
                 }
                 .sheet(isPresented: $showList) {
-                    ActivityListView()
+                    ActivityListView(searchText: $searchText, selectedType: $selectedType)
+                    //Text("Test Sheet View")
                         .presentationDetents([.large]) //[.medium, .large] .fraction(0.95)
                         .presentationDragIndicator(.visible)
-                }                
-                    //                else {
-                    //                    // Activity List View
-                    //                    ActivityListView()
-                    //                        .offset(y: offset)
-                    //                        .gesture(
-                    //                            DragGesture()
-                    //                                .onChanged { value in
-                    //                                    self.dragOffset = value.translation.height
-                    //                                }
-                    //                                .onEnded { value in
-                    //                                    if self.dragOffset < -300 {
-                    //                                        withAnimation {
-                    //                                            self.offset = 0
-                    //                                        }
-                    //                                    } else {
-                    //                                        withAnimation {
-                    //                                            self.offset = UIScreen.main.bounds.height * 0.8
-                    //                                        }
-                    //                                    }
-                    //                                }
-                    //                        )
-                    //                }
+                }
+                //                else {
+                //                    // Activity List View
+                //                    ActivityListView()
+                //                        .offset(y: offset)
+                //                        .gesture(
+                //                            DragGesture()
+                //                                .onChanged { value in
+                //                                    self.dragOffset = value.translation.height
+                //                                }
+                //                                .onEnded { value in
+                //                                    if self.dragOffset < -300 {
+                //                                        withAnimation {
+                //                                            self.offset = 0
+                //                                        }
+                //                                    } else {
+                //                                        withAnimation {
+                //                                            self.offset = UIScreen.main.bounds.height * 0.8
+                //                                        }
+                //                                    }
+                //                                }
+                //                        )
+                //                }
             }
-//            .gesture(
-//                TapGesture()
-//                    .onEnded { value in
-//                        self.selectedItem = nil
-//                        //filterType = FilterTag.default
-//                    }
-//            )
+            //            .gesture(
+            //                TapGesture()
+            //                    .onEnded { value in
+            //                        self.selectedItem = nil
+            //                        //filterType = FilterTag.default
+            //                    }
+            //            )
             .searchable(text: $searchText, prompt: "Search by activity name")
-            .confirmationDialog("Filter activities", isPresented: $showFilterOptions) {
-                Button("All") { filterType = .default }
-                Button("Beach") { filterType = .beach }
-                Button("Family Activity") { filterType = .familyActivity }
+            //            .confirmationDialog("Filter activities", isPresented: $showFilterOptions) {
+            //                Button("All") { filterType = .default }
+            //                Button("Beach") { filterType = .beach }
+            //                Button("Family Activity") { filterType = .familyActivity }
+            //            }
+            .sheet(isPresented: $showFilterOptions) {
+                NavigationView {
+                    Picker("Filter by Type", selection: $selectedType) { // $filterType
+                        //Text("All").tag("").foregroundColor(.black)
+                        ForEach(Set(activities.map { $0.type }).sorted(), id: \.self) { type in
+                            Text(type)//.tag(type).foregroundColor(.black)
+                        }
+                    }
+                    .pickerStyle(.inline) // SegmentedPickerStyle()
+                    .toolbar {
+                        ToolbarItem(placement: .bottomBar) {
+                            HStack {
+                                Button("Clear") {
+                                    selectedType = ""
+                                    showFilterOptions = false
+                                }
+                                Spacer()
+                                Button("Show \(filteredItems.count) activities") {
+                                    showFilterOptions = false
+                                }
+                            }
+                            .padding()
+                        }
+                    }
+                }
+                .presentationDetents([.medium])
             }
         }
     }
@@ -139,7 +185,7 @@ struct ActivityView: View {
         if searchText.isEmpty {
             return activities
         } else {
-            return activities.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return activities.filter { $0.name.localizedCaseInsensitiveContains(searchText) || $0.type.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
@@ -151,6 +197,14 @@ struct ActivityView: View {
             return searchActivity.filter { $0.type == "beach"}
         case .familyActivity:
             return searchActivity.filter { $0.type == "family activities"}
+        }
+    }
+    
+    var filteredItems: [Activity] {
+        if selectedType.isEmpty {
+            return searchActivity
+        } else {
+            return searchActivity.filter { $0.type == selectedType }
         }
     }
     

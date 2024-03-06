@@ -12,12 +12,21 @@ struct ActivityListView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
     
+    @Binding var searchText: String
+    @Binding var selectedType: String
+    
+    @State private var filterType = FilterTag.default
+        
+    enum FilterTag {
+        case `default`, beach, familyActivity
+    }
+    
     var body: some View {
         VStack {
-            Text("\(activities.count) activities")
+            Text("\(filteredItems.count) activities") //
             
             NavigationStack {
-                List(activities) { activity in
+                List(filteredItems) { activity in //activities //filteredActivities
                     NavigationLink(value: activity) {
                         Text(activity.name)
                     }
@@ -29,9 +38,37 @@ struct ActivityListView: View {
                 .task {
                     await fetchActivities()
                 }
+                .searchable(text: $searchText, prompt: "Search")
             }
         }
         .background(.white)
+    }
+    
+    var searchActivity: [Activity] {
+        if searchText.isEmpty {
+            return activities
+        } else {
+            return activities.filter { $0.name.localizedCaseInsensitiveContains(searchText) || $0.type.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+    
+    var filteredActivities: [Activity] {
+        switch filterType {
+        case .default:
+            return searchActivity
+        case .beach:
+            return searchActivity.filter { $0.type == "beach"}
+        case .familyActivity:
+            return searchActivity.filter { $0.type == "family activities"}
+        }
+    }
+    
+    var filteredItems: [Activity] {
+        if selectedType.isEmpty {
+            return searchActivity
+        } else {
+            return searchActivity.filter { $0.type == selectedType }
+        }
     }
     
     func fetchActivities() async {
@@ -60,6 +97,6 @@ struct ActivityListView: View {
     }
 }
 
-#Preview {
-    ActivityListView()
-}
+//#Preview {
+//    ActivityListView()
+//}
