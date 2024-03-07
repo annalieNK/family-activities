@@ -25,7 +25,7 @@ struct PersonalView: View {
                 NavigationLink(destination: PersonalRecommendationListView()) {
                     Text("Itineraries")
                 }
-                NavigationLink(destination: Text("Add journal here")) {
+                NavigationLink(destination: JournalView()) { //Text("Add journal here")
                     Text("Journal")
                 }
             }
