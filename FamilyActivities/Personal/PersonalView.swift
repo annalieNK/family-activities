@@ -10,12 +10,11 @@ import SwiftUI
 
 struct PersonalView: View {
     @Environment(\.modelContext) var modelContext
-    
+        
     //    @State private var path = [PersonalRecommendation]()
     //@State private var sortOrder = SortDescriptor(\PersonalActivity.name)
     //    @State private var sortOrder = SortDescriptor(\PersonalRecommendation.name)
-    
-    
+        
     var body: some View {
         NavigationView {
             List {
@@ -29,7 +28,8 @@ struct PersonalView: View {
                     Text("Journal")
                 }
             }
-            .navigationTitle("Personal View")
+            .navigationBarTitle("PersonalView", displayMode: .inline) //Personal View
+            .navigationBarHidden(true)
         }
     }
 }

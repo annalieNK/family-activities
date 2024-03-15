@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34008FC72B854EE000EA77D9 /* PersonalActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34008FC62B854EE000EA77D9 /* PersonalActivity.swift */; };
 		34008FC92B85510E00EA77D9 /* PersonalActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */; };
-		34008FCB2B85519800EA77D9 /* PersonalActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34008FCA2B85519800EA77D9 /* PersonalActivityDetailView.swift */; };
 		343C2D022B99727F0083F450 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D012B99727E0083F450 /* Journal.swift */; };
 		343C2D042B9972F80083F450 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D032B9972F80083F450 /* Location.swift */; };
 		343C2D072B99741D0083F450 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D062B99741D0083F450 /* JournalView.swift */; };
 		343C2D092B9975440083F450 /* AddJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D082B9975440083F450 /* AddJournalView.swift */; };
 		3456F9AD2B636DAB006368F0 /* LinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456F9AC2B636DAB006368F0 /* LinkRow.swift */; };
-		3470DE892B72EE71005AE9F4 /* PersonalCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470DE882B72EE71005AE9F4 /* PersonalCalendarView.swift */; };
-		34714E8F2B61E0DD0022D8E5 /* PersonalListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34714E8E2B61E0DD0022D8E5 /* PersonalListItem.swift */; };
 		3471ED582B69A97E0007205A /* RecommendationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED572B69A97E0007205A /* RecommendationDetailView.swift */; };
 		3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED592B69A99F0007205A /* ActivityDetailView.swift */; };
 		3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED5B2B6AC4A80007205A /* RecommendationView.swift */; };
@@ -24,17 +20,11 @@
 		348021652B968480009AC8BA /* TestAddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348021642B968480009AC8BA /* TestAddActivityView.swift */; };
 		348021672B9686B6009AC8BA /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348021662B9686B6009AC8BA /* AddActivityView.swift */; };
 		34877F042B8D1FBB00C7883F /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34877F032B8D1FBB00C7883F /* ActivityListView.swift */; };
-		34877F082B8D239800C7883F /* TestMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34877F072B8D239800C7883F /* TestMapView.swift */; };
 		34877F0A2B8D7FE600C7883F /* ActivityItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34877F092B8D7FE600C7883F /* ActivityItemView.swift */; };
-		3495C7CF2B68761C008862BA /* FileLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495C7CE2B68761B008862BA /* FileLinkView.swift */; };
 		3495C7D32B68ACC5008862BA /* recommendations.json in Resources */ = {isa = PBXBuildFile; fileRef = 3495C7D22B68ACC5008862BA /* recommendations.json */; };
 		3495C7D72B68AD36008862BA /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495C7D62B68AD36008862BA /* Recommendation.swift */; };
-		34B71F692B87F77C00394B90 /* TestView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B71F682B87F77C00394B90 /* TestView3.swift */; };
-		34C30AFA2B90063300851FBF /* PersonalActivityItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */; };
 		34CCBDE72B9681C30016F16B /* AddedActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CCBDE62B9681C30016F16B /* AddedActivity.swift */; };
-		34D336562B8555190059D223 /* PersonalRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D336552B8555190059D223 /* PersonalRecommendation.swift */; };
 		34D336582B855F970059D223 /* PersonalRecommendationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D336572B855F970059D223 /* PersonalRecommendationListView.swift */; };
-		34D3365A2B8560010059D223 /* PersonalRecommendationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */; };
 		34D3365C2B866BDF0059D223 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D3365B2B866BDF0059D223 /* TestView.swift */; };
 		34EAC7832B4F24D300002B91 /* FamilyActivitiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */; };
 		34EAC7852B4F24D300002B91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7842B4F24D300002B91 /* ContentView.swift */; };
@@ -45,21 +35,16 @@
 		34EAC7982B4F2E8800002B91 /* PersonalView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC7972B4F2E8800002B91 /* PersonalView2.swift */; };
 		34EAC79C2B4F381800002B91 /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 34EAC79B2B4F381800002B91 /* activities.json */; };
 		34EAC79E2B4F395500002B91 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAC79D2B4F395500002B91 /* Activity.swift */; };
-		34F442B22B8FB93100C99DB2 /* TestMapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F442B12B8FB93100C99DB2 /* TestMapView2.swift */; };
 		34F442B42B8FD90900C99DB2 /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F442B32B8FD90900C99DB2 /* PersonalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		34008FC62B854EE000EA77D9 /* PersonalActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalActivity.swift; sourceTree = "<group>"; };
 		34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalActivityListView.swift; sourceTree = "<group>"; };
-		34008FCA2B85519800EA77D9 /* PersonalActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalActivityDetailView.swift; sourceTree = "<group>"; };
 		343C2D012B99727E0083F450 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		343C2D032B9972F80083F450 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		343C2D062B99741D0083F450 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		343C2D082B9975440083F450 /* AddJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalView.swift; sourceTree = "<group>"; };
 		3456F9AC2B636DAB006368F0 /* LinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRow.swift; sourceTree = "<group>"; };
-		3470DE882B72EE71005AE9F4 /* PersonalCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCalendarView.swift; sourceTree = "<group>"; };
-		34714E8E2B61E0DD0022D8E5 /* PersonalListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalListItem.swift; sourceTree = "<group>"; };
 		3471ED572B69A97E0007205A /* RecommendationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailView.swift; sourceTree = "<group>"; };
 		3471ED592B69A99F0007205A /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
 		3471ED5B2B6AC4A80007205A /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
@@ -67,17 +52,11 @@
 		348021642B968480009AC8BA /* TestAddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddActivityView.swift; sourceTree = "<group>"; };
 		348021662B9686B6009AC8BA /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 		34877F032B8D1FBB00C7883F /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
-		34877F072B8D239800C7883F /* TestMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMapView.swift; sourceTree = "<group>"; };
 		34877F092B8D7FE600C7883F /* ActivityItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItemView.swift; sourceTree = "<group>"; };
-		3495C7CE2B68761B008862BA /* FileLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLinkView.swift; sourceTree = "<group>"; };
 		3495C7D22B68ACC5008862BA /* recommendations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recommendations.json; sourceTree = "<group>"; };
 		3495C7D62B68AD36008862BA /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
-		34B71F682B87F77C00394B90 /* TestView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView3.swift; sourceTree = "<group>"; };
-		34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalActivityItemView.swift; sourceTree = "<group>"; };
 		34CCBDE62B9681C30016F16B /* AddedActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedActivity.swift; sourceTree = "<group>"; };
-		34D336552B8555190059D223 /* PersonalRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecommendation.swift; sourceTree = "<group>"; };
 		34D336572B855F970059D223 /* PersonalRecommendationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecommendationListView.swift; sourceTree = "<group>"; };
-		34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecommendationDetailView.swift; sourceTree = "<group>"; };
 		34D3365B2B866BDF0059D223 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		34EAC77F2B4F24D300002B91 /* FamilyActivities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyActivities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivitiesApp.swift; sourceTree = "<group>"; };
@@ -90,7 +69,6 @@
 		34EAC7972B4F2E8800002B91 /* PersonalView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView2.swift; sourceTree = "<group>"; };
 		34EAC79B2B4F381800002B91 /* activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activities.json; path = FamilyActivities/Files/activities.json; sourceTree = SOURCE_ROOT; };
 		34EAC79D2B4F395500002B91 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		34F442B12B8FB93100C99DB2 /* TestMapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMapView2.swift; sourceTree = "<group>"; };
 		34F442B32B8FD90900C99DB2 /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +100,6 @@
 				34877F032B8D1FBB00C7883F /* ActivityListView.swift */,
 				3471ED592B69A99F0007205A /* ActivityDetailView.swift */,
 				3456F9AC2B636DAB006368F0 /* LinkRow.swift */,
-				3495C7CE2B68761B008862BA /* FileLinkView.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -132,11 +109,7 @@
 			children = (
 				34F442B32B8FD90900C99DB2 /* PersonalView.swift */,
 				34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */,
-				34C30AF92B90063300851FBF /* PersonalActivityItemView.swift */,
-				34008FCA2B85519800EA77D9 /* PersonalActivityDetailView.swift */,
 				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
-				34D336592B8560010059D223 /* PersonalRecommendationDetailView.swift */,
-				3470DE882B72EE71005AE9F4 /* PersonalCalendarView.swift */,
 				348021662B9686B6009AC8BA /* AddActivityView.swift */,
 			);
 			path = Personal;
@@ -158,9 +131,6 @@
 				343C2D032B9972F80083F450 /* Location.swift */,
 				34EAC79D2B4F395500002B91 /* Activity.swift */,
 				3495C7D62B68AD36008862BA /* Recommendation.swift */,
-				34008FC62B854EE000EA77D9 /* PersonalActivity.swift */,
-				34D336552B8555190059D223 /* PersonalRecommendation.swift */,
-				34714E8E2B61E0DD0022D8E5 /* PersonalListItem.swift */,
 				34CCBDE62B9681C30016F16B /* AddedActivity.swift */,
 			);
 			path = "Data Model";
@@ -179,10 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				34EAC7972B4F2E8800002B91 /* PersonalView2.swift */,
-				34877F072B8D239800C7883F /* TestMapView.swift */,
-				34F442B12B8FB93100C99DB2 /* TestMapView2.swift */,
 				34D3365B2B866BDF0059D223 /* TestView.swift */,
-				34B71F682B87F77C00394B90 /* TestView3.swift */,
 				348021642B968480009AC8BA /* TestAddActivityView.swift */,
 			);
 			path = Testing;
@@ -307,34 +274,23 @@
 			files = (
 				3495C7D72B68AD36008862BA /* Recommendation.swift in Sources */,
 				348021672B9686B6009AC8BA /* AddActivityView.swift in Sources */,
-				34714E8F2B61E0DD0022D8E5 /* PersonalListItem.swift in Sources */,
 				348021652B968480009AC8BA /* TestAddActivityView.swift in Sources */,
 				34EAC7982B4F2E8800002B91 /* PersonalView2.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
-				34D336562B8555190059D223 /* PersonalRecommendation.swift in Sources */,
 				3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */,
 				3471ED582B69A97E0007205A /* RecommendationDetailView.swift in Sources */,
-				34B71F692B87F77C00394B90 /* TestView3.swift in Sources */,
 				3478A5EF2B682E97009D7E64 /* ActivityView.swift in Sources */,
 				343C2D072B99741D0083F450 /* JournalView.swift in Sources */,
 				34EAC7852B4F24D300002B91 /* ContentView.swift in Sources */,
-				3470DE892B72EE71005AE9F4 /* PersonalCalendarView.swift in Sources */,
 				34EAC7942B4F2C4A00002B91 /* TabPageView.swift in Sources */,
-				34877F082B8D239800C7883F /* TestMapView.swift in Sources */,
 				34877F0A2B8D7FE600C7883F /* ActivityItemView.swift in Sources */,
-				3495C7CF2B68761C008862BA /* FileLinkView.swift in Sources */,
-				34F442B22B8FB93100C99DB2 /* TestMapView2.swift in Sources */,
 				34EAC79E2B4F395500002B91 /* Activity.swift in Sources */,
 				34CCBDE72B9681C30016F16B /* AddedActivity.swift in Sources */,
 				34D336582B855F970059D223 /* PersonalRecommendationListView.swift in Sources */,
-				34008FCB2B85519800EA77D9 /* PersonalActivityDetailView.swift in Sources */,
 				343C2D042B9972F80083F450 /* Location.swift in Sources */,
 				3456F9AD2B636DAB006368F0 /* LinkRow.swift in Sources */,
 				3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */,
-				34C30AFA2B90063300851FBF /* PersonalActivityItemView.swift in Sources */,
-				34D3365A2B8560010059D223 /* PersonalRecommendationDetailView.swift in Sources */,
 				34D3365C2B866BDF0059D223 /* TestView.swift in Sources */,
-				34008FC72B854EE000EA77D9 /* PersonalActivity.swift in Sources */,
 				34EAC7832B4F24D300002B91 /* FamilyActivitiesApp.swift in Sources */,
 				343C2D022B99727F0083F450 /* Journal.swift in Sources */,
 				34F442B42B8FD90900C99DB2 /* PersonalView.swift in Sources */,

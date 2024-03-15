@@ -70,7 +70,7 @@ class Activity: Codable, Identifiable, Equatable, ObservableObject {
         try container.encode(longitude, forKey: .longitude)
     }
     
-    // write a comparison function to make sure locations are unique (according to the Identifiable and Equatable protocols)
+    // write a comparison function to make sure activities are unique (according to the Identifiable and Equatable protocols)
     static func ==(lhs: Activity, rhs: Activity) -> Bool {
         lhs.id == rhs.id
     }

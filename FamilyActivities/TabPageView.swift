@@ -26,11 +26,7 @@ struct TabPageView: View {
                 .tabItem {
                     Image(systemName: "ellipsis")
                 }
-            TestAddActivityView()
-                .tabItem {
-                    Image(systemName: "map")
-                }
-//            TestMapView2()
+//            TestView()
 //                .tabItem {
 //                    Image(systemName: "map")
 //                }

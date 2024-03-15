@@ -14,9 +14,7 @@ struct RecommendationDetailView: View {
     @Query var activities: [Activity]
     
     let recommendation: Recommendation
-    
-    @State private var path = [PersonalRecommendation]()
-    
+        
     var body: some View {
         //Form {
         //        ScrollView {

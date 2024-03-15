@@ -16,7 +16,7 @@ struct ActivityDetailView: View {
     
     @State private var link = ""
     
-    @State private var path = [PersonalActivity]()
+//    @State private var path = [PersonalActivity]()
             
     var body: some View {
         //GeometryReader { geometry in
@@ -43,11 +43,9 @@ struct ActivityDetailView: View {
                     HStack { //(spacing: 20)
                         ForEach(activity.links, id: \.self) { link in
                             LinkRow(previewURL: URL(string: link)!)
-                            //FileLinkView(viewModel: ViewController(link))
                                 .frame(width: 100, height: 100, alignment: .leading)
                         }
                     }
-                    //.padding(.horizontal)
                 }
             }
         }
@@ -65,14 +63,14 @@ struct ActivityDetailView: View {
     }
     
     // create a function to save this item to the Personal SwiftData model
-    func saveToPersonalActivity() {
-        //let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link, latitude: activity.latitude, longitude: activity.longitude)
-        let savedActivity = PersonalActivity(link: link)
-        modelContext.insert(savedActivity)
-        path = [savedActivity]
-        try? modelContext.save()
-        
-    }
+//    func saveToPersonalActivity() {
+//        //let savedActivity = PersonalActivity(name: activity.name, type: activity.type, link: link, latitude: activity.latitude, longitude: activity.longitude)
+//        let savedActivity = PersonalActivity(link: link)
+//        modelContext.insert(savedActivity)
+//        path = [savedActivity]
+//        try? modelContext.save()
+//        
+//    }
 }
 
 #Preview {
