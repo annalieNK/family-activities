@@ -64,50 +64,72 @@ struct ActivityView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 ZStack(alignment: .bottom) {
-                    Map { //Map(position: $position)
-                        ForEach(filteredActivities) { activity in //activities
-                            Annotation(activity.name, coordinate: activity.coordinate) {
-                                //Image(systemName: "mappin.circle.fill")
-                                VStack {
-                                    ZStack {
-                                        Image(systemName: "circle.fill")
-                                            .font(selectedItem == activity ? .largeTitle : .title)
-                                            .opacity(selectedItem == activity ? 1 : 0.5)
-                                        //.style(for: activity)
-                                        
-                                        Image(systemName: activity.symbol)
-                                            .font(.caption)
-                                            .foregroundColor(.white)
+                    MapReader { proxy in
+                        Map { //Map(position: $position)
+                            ForEach(filteredActivities) { activity in //activities
+                                Annotation(activity.name, coordinate: activity.coordinate) {
+                                    Button(action: {
+                                        selectedItem = activity
+                                        print(selectedItem == nil)
+                                        print(selectedItem!.name)
+                                        print(selectedItem!.coordinate)
+                                    }) {
+                                        VStack {
+                                            ZStack {
+                                                Image(systemName: "circle.fill")
+                                                    .font(selectedItem == activity ? .largeTitle : .title)
+                                                    .opacity(selectedItem == activity ? 1 : 0.5)
+                                                //.style(for: activity)
+                                                Image(systemName: activity.symbol)
+                                                    .font(.caption)
+                                                    .foregroundColor(.white)
+                                            }
+                                        }
                                     }
                                 }
-                                .onTapGesture {
-                                    withAnimation(.easeInOut) {
-                                        self.selectedItem = activity
-                                    }
-                                }
+                                .annotationTitles(.hidden)
                             }
-                            .annotationTitles(.hidden)
                         }
-                    }
-                    .zIndex(-1)
-                    //.safeAreaInset(edge: .bottom) {
-//                    if let selectedItem = selectedItem {
-//                        ActivityItemView(activity: selectedItem)
-//                            .frame(height: 200)
-//                    }
-                    //.searchable(text: $searchText, prompt: "Search for a resort") // Here, or at the bottom? Both locations work.
-                    .gesture(
-                        TapGesture()
-                            .onEnded { value in
-                                self.selectedItem = nil
-                                //filterType = FilterTag.default
+                        .zIndex(-1)
+                        //.safeAreaInset(edge: .bottom) {
+                        //                    if let selectedItem = selectedItem {
+                        //                        ActivityItemView(activity: selectedItem)
+                        //                            .frame(height: 200)
+                        //                    }
+                        //.searchable(text: $searchText, prompt: "Search for a resort") // Here, or at the bottom? Both locations work.
+//                        .gesture(
+//                            TapGesture()
+//                                .onEnded { value in
+//                                    selectedItem = nil
+//                                    print("selectedItem = nil")
+//                                    //filterType = FilterTag.default
+//                                }
+//                        )
+                        .onTapGesture { position in
+//                            if let coordinate = proxy.convert(position, from: .local) {
+//                                print("Tapped at \(coordinate)")
+//                            }
+                            let coordinate = proxy.convert(position, from: .local)
+                            print("\(coordinate!)")
+                            
+                            let tappedOnActivity = activities.contains { activity in
+                                // Check if tap location falls within a certain range of any data point
+                                let distance = CLLocation(latitude: coordinate!.latitude, longitude: coordinate!.longitude).distance(from: CLLocation(latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude))
+                                return distance < 500 // Adjust this threshold as needed
                             }
-                    )
-                    
-                    // Activity Item View
-                    if let selectedItem = selectedItem {
-                        ActivityItemView(activity: selectedItem)
-                            .frame(height: 200)
+                            print(tappedOnActivity)
+                            
+                            if !tappedOnActivity {
+                                selectedItem = nil
+                                print("\(String(describing: selectedItem?.coordinate))")
+                            }
+                        }
+                        
+                        // Activity Item View
+                        if let selectedItem = selectedItem {
+                            ActivityItemView(activity: selectedItem)
+                                .frame(height: 200)
+                        }
                     }
                 }
                 
