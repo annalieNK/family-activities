@@ -47,9 +47,7 @@ struct ActivityListView: View {
             }
             
             Button("Return to map") {
-                withAnimation {
                     self.showlist = false
-                }
             }
         }
         .background(.white)
