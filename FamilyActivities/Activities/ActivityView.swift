@@ -25,7 +25,7 @@ struct ActivityView: View {
     @State private var selected: String = ""
     
     @State private var selectedType = ""
-    
+        
     //@State private var filteredItems: [Activity] = []
     
 //    @State private var position = MapCameraPosition.region(
@@ -63,106 +63,87 @@ struct ActivityView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
-                ZStack(alignment: .bottom) {
-                    MapReader { proxy in
-                        Map { //Map(position: $position)
-                            ForEach(filteredActivities) { activity in //activities
-                                Annotation(activity.name, coordinate: activity.coordinate) {
-                                    Button(action: {
-                                        selectedItem = activity
-                                        print(selectedItem == nil)
-                                        print(selectedItem!.name)
-                                        print(selectedItem!.coordinate)
-                                    }) {
-                                        VStack {
-                                            ZStack {
-                                                Image(systemName: "circle.fill")
-                                                    .font(selectedItem == activity ? .largeTitle : .title)
-                                                    .opacity(selectedItem == activity ? 1 : 0.5)
-                                                //.style(for: activity)
-                                                Image(systemName: activity.symbol)
-                                                    .font(.caption)
-                                                    .foregroundColor(.white)
+                GeometryReader { geometry in
+                    ZStack(alignment: .bottom) {
+                        MapReader { proxy in
+                            Map { //Map(position: $position)
+                                ForEach(filteredActivities) { activity in //activities
+                                    Annotation(activity.name, coordinate: activity.coordinate) {
+                                        Button(action: {
+                                            selectedItem = activity
+                                            print(selectedItem == nil)
+                                            print(selectedItem!.name)
+                                            print(selectedItem!.coordinate)
+                                        }) {
+                                            VStack {
+                                                ZStack {
+                                                    Image(systemName: "circle.fill")
+                                                        .font(selectedItem == activity ? .largeTitle : .title)
+                                                        .opacity(selectedItem == activity ? 1 : 0.5)
+                                                    //.style(for: activity)
+                                                    Image(systemName: activity.symbol)
+                                                        .font(.caption)
+                                                        .foregroundColor(.white)
+                                                }
                                             }
                                         }
                                     }
+                                    .annotationTitles(.hidden)
                                 }
-                                .annotationTitles(.hidden)
                             }
-                        }
-                        .zIndex(-1)
-                        //.safeAreaInset(edge: .bottom) {
-                        //                    if let selectedItem = selectedItem {
-                        //                        ActivityItemView(activity: selectedItem)
-                        //                            .frame(height: 200)
-                        //                    }
-                        //.searchable(text: $searchText, prompt: "Search for a resort") // Here, or at the bottom? Both locations work.
-//                        .gesture(
-//                            TapGesture()
-//                                .onEnded { value in
-//                                    selectedItem = nil
-//                                    print("selectedItem = nil")
-//                                    //filterType = FilterTag.default
-//                                }
-//                        )
-                        .onTapGesture { position in
-//                            if let coordinate = proxy.convert(position, from: .local) {
-//                                print("Tapped at \(coordinate)")
-//                            }
-                            let coordinate = proxy.convert(position, from: .local)
-                            print("\(coordinate!)")
+                            .zIndex(-1)
+                            //                    if let selectedItem = selectedItem {
+                            //                        ActivityItemView(activity: selectedItem)
+                            //                            .frame(height: 200)
+                            //                    }
+                            .searchable(text: $searchText, prompt: "Search for a resort") // Here, or at the bottom? Both locations work.
+                            .onTapGesture { value in
+                                let coordinate = proxy.convert(value, from: .local)
+                                print("\(coordinate!)")
+                                
+                                let tappedOnActivity = activities.contains { activity in
+                                    // Check if tap location falls within a certain range of any data point
+                                    let distance = CLLocation(latitude: coordinate!.latitude, longitude: coordinate!.longitude).distance(from: CLLocation(latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude))
+                                    return distance < 500 // Adjust this threshold as needed
+                                }
+                                print(tappedOnActivity)
+                                
+                                if !tappedOnActivity {
+                                    selectedItem = nil
+                                    print("\(String(describing: selectedItem?.coordinate))")
+                                }
+                            }
                             
-                            let tappedOnActivity = activities.contains { activity in
-                                // Check if tap location falls within a certain range of any data point
-                                let distance = CLLocation(latitude: coordinate!.latitude, longitude: coordinate!.longitude).distance(from: CLLocation(latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude))
-                                return distance < 500 // Adjust this threshold as needed
-                            }
-                            print(tappedOnActivity)
-                            
-                            if !tappedOnActivity {
-                                selectedItem = nil
-                                print("\(String(describing: selectedItem?.coordinate))")
+                            // Activity Item View
+                            if let selectedItem = selectedItem {
+                                ActivityItemView(activity: selectedItem)
+                                    .frame(height: 200)
+                            } else {
+                                Button {
+                                    withAnimation {
+                                        showList = true
+                                    }
+                                } label: {
+                                    Text("\(filteredActivities.count) activities") //filteredLocations
+                                }
                             }
                         }
-                        
-                        // Activity Item View
-                        if let selectedItem = selectedItem {
-                            ActivityItemView(activity: selectedItem)
-                                .frame(height: 200)
-                        }
+                    }
+                    
+                    if showList {
+                        ActivityListView(searchText: $searchText, selectedType: $selectedType, showlist: $showList)
+                            .frame(height: geometry.size.height * 1)
+                            .transition(.move(edge: .bottom))
                     }
                 }
                 
-                Button {
-                    showList = true
-                } label: {
-                    Text("\(filteredActivities.count) activities") //filteredLocations
-                }
-                .sheet(isPresented: $showList) {
-                    ActivityListView(searchText: $searchText, selectedType: $selectedType)
-                        .presentationDetents([.large]) //[.medium, .large] .fraction(0.95)
-                        .presentationDragIndicator(.visible)
-//                        .offset(y: offset)
-//                        .gesture(
-//                            DragGesture()
-//                                .onChanged { value in
-//                                    self.dragOffset = value.translation.height
-//                                }
-//                                .onEnded { value in
-//                                    if self.dragOffset < -300 {
-//                                        withAnimation {
-//                                            self.offset = 0
-//                                        }
-//                                    } else {
-//                                        withAnimation {
-//                                            self.offset = UIScreen.main.bounds.height * 0.8
-//                                        }
-//                                    }
-//                                }
-//                        )
-                }
+//                .sheet(isPresented: $showList) { // popover //fullScreenCover
+//                    ActivityListView(searchText: $searchText, selectedType: $selectedType)
+//                        .presentationDetents([.fraction(0.85)]) //[.medium, .large] [.large]
+//                        .presentationDragIndicator(.visible)
+//                }
             }
-            .searchable(text: $searchText, prompt: "Search by activity name")
+            //.searchable(text: $searchText, prompt: "Search by activity name")
 //            .sheet(isPresented: $showFilterOptions) {
 //                NavigationView {
 //                    Picker("Filter by Type", selection: $selectedType) { // $filterType

@@ -13,11 +13,15 @@ struct ActivityListView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
     
+    @Environment(\.dismiss) var dismiss
+    
     @Binding var searchText: String
     @Binding var selectedType: String
     
+    @Binding var showlist: Bool
+            
     @State private var filterType = FilterTag.default
-        
+            
     enum FilterTag {
         case `default`, beach, familyActivity
     }
@@ -32,14 +36,20 @@ struct ActivityListView: View {
                         Text(activity.name)
                     }
                 }
-                .navigationTitle("Activities")
+                //.navigationTitle("Activities")
                 .navigationDestination(for: Activity.self) { activity in
                     ActivityDetailView(activity: activity)
                 }
                 .task {
                     await fetchActivities()
                 }
-                .searchable(text: $searchText, prompt: "Search")
+                //.searchable(text: $searchText, prompt: "Search")
+            }
+            
+            Button("Return to map") {
+                withAnimation {
+                    self.showlist = false
+                }
             }
         }
         .background(.white)

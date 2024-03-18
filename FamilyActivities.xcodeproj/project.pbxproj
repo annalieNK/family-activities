@@ -174,16 +174,16 @@
 		34EAC7812B4F24D300002B91 /* FamilyActivities */ = {
 			isa = PBXGroup;
 			children = (
-				343C2D052B9973ED0083F450 /* Journal */,
 				34EAC7822B4F24D300002B91 /* FamilyActivitiesApp.swift */,
 				34EAC7842B4F24D300002B91 /* ContentView.swift */,
 				34EAC7932B4F2C4A00002B91 /* TabPageView.swift */,
 				34EAC7912B4F281900002B91 /* HomeView.swift */,
 				34A636842B9113EC00828188 /* Files */,
 				34A636832B9113AF00828188 /* Data Model */,
+				34A636802B91131D00828188 /* Activities */,
 				34A636822B91139000828188 /* Recommendation */,
 				34A636812B91136300828188 /* Personal */,
-				34A636802B91131D00828188 /* Activities */,
+				343C2D052B9973ED0083F450 /* Journal */,
 				34A636852B91141D00828188 /* Testing */,
 				34EAC7862B4F24D500002B91 /* Assets.xcassets */,
 				34EAC7882B4F24D500002B91 /* FamilyActivities.entitlements */,
