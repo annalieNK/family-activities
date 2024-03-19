@@ -12,7 +12,7 @@ import SwiftUI
 struct AddActivityView: View {
     @Bindable var newActivity: NewActivity // make it editable
     
-    @Environment(\.modelContext) var modelContext
+    //@Environment(\.modelContext) var modelContext
     
     @State private var path = [NewActivity]()
     
@@ -31,17 +31,17 @@ struct AddActivityView: View {
                 
             }
             
-            MapReader { proxy in
-                Map(initialPosition: startPosition)
-                    .onTapGesture { position in
-                        if let coordinate = proxy.convert(position, from: .local) {
-                            let newLocation = NewActivity(id: "new", latitude: coordinate.latitude, longitude: coordinate.longitude)
-                            modelContext.insert(newLocation)
-                            path = [newLocation]
-                            print("Tapped at \(coordinate)")
-                        }
-                    }
-            }
+//            MapReader { proxy in
+//                Map(initialPosition: startPosition)
+//                    .onTapGesture { position in
+//                        if let coordinate = proxy.convert(position, from: .local) {
+//                            let newLocation = NewActivity(id: "new", latitude: coordinate.latitude, longitude: coordinate.longitude)
+//                            modelContext.insert(newLocation)
+//                            path = [newLocation]
+//                            print("Tapped at \(coordinate)")
+//                        }
+//                    }
+//            }
         }
     }
 }
