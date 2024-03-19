@@ -1,15 +1,15 @@
 //
-//  AddedActivity.swift
+//  NewActivity.swift
 //  FamilyActivities
 //
-//  Created by Annalie Kruseman on 3/4/24.
+//  Created by Annalie Kruseman on 3/19/24.
 //
 
 import Foundation
 import SwiftData
 
 @Model
-class AddedActivity: Equatable, Identifiable { //: , Codable, Identifiable, ObservableObject
+class NewActivity: Equatable, Identifiable { //: , Codable, Identifiable, ObservableObject
     let id: String
     var name: String
     var type: String
@@ -18,7 +18,7 @@ class AddedActivity: Equatable, Identifiable { //: , Codable, Identifiable, Obse
     var longitude: Double
     //var links: [String]
     
-    static let example = AddedActivity(id: String(), name: "Test Name", type: "Test Type", latitude: 37.77, longitude: -122.42) //, links: ["swift", "apple"]
+    static let example = NewActivity(id: String(), name: "Test Name", type: "Test Type", latitude: 37.77, longitude: -122.42) //, links: ["swift", "apple"]
     
     init(id: String, name: String = "", type: String = "", latitude: Double, longitude: Double) { //, links: [String]
         self.id = id
@@ -30,11 +30,11 @@ class AddedActivity: Equatable, Identifiable { //: , Codable, Identifiable, Obse
     }
     
     // write a comparison function to make sure locations are unique (according to the Identifiable and Equatable protocols)
-    static func ==(lhs: AddedActivity, rhs: AddedActivity) -> Bool {
+    static func ==(lhs: NewActivity, rhs: NewActivity) -> Bool {
         lhs.id == rhs.id
     }
     
-    static func <(lhs: AddedActivity, rhs: AddedActivity) -> Bool {
+    static func <(lhs: NewActivity, rhs: NewActivity) -> Bool {
         lhs.name < rhs.name
     }
 }

@@ -32,7 +32,7 @@ struct ActivityItemView: View {
                 }
 //            }
 //        }
-        .navigationBarTitle("Map View", displayMode: .inline)
+        .navigationBarTitle("", displayMode: .inline) //"Map View"
         .navigationBarHidden(true)
 //        .background(.white)
     }

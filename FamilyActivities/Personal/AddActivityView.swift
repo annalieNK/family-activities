@@ -10,12 +10,11 @@ import SwiftData
 import SwiftUI
 
 struct AddActivityView: View {
-    @Bindable var addedActivity: AddedActivity // make it editable
+    @Bindable var newActivity: NewActivity // make it editable
     
-//    @Environment(\.modelContext) var modelContext
-//    @Query(sort: \AddedActivity.name) private var addedActivities: [AddedActivity]
+    @Environment(\.modelContext) var modelContext
     
-//    @State private var path = [AddedActivity]()
+    @State private var path = [NewActivity]()
     
     let startPosition = MapCameraPosition.region(
         MKCoordinateRegion(
@@ -27,31 +26,23 @@ struct AddActivityView: View {
     var body: some View {
         VStack {
             Form {
-                TextField("Name", text: $addedActivity.name)
-                TextField("Name", text: $addedActivity.type)
+                TextField("Name", text: $newActivity.name)
+                TextField("Name", text: $newActivity.type)
                 
             }
             
-//            MapReader { proxy in
-//                Map(initialPosition: startPosition) {
-//                    ForEach(addedActivities) { location in
-//                        Marker(location.name, coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
-//                    }
-//                }
-//
-//                .onTapGesture { position in
-//                    if let coordinate = proxy.convert(position, from: .local) {
-//                        let newLocation = AddedActivity(id: "new", latitude: coordinate.latitude, longitude: coordinate.longitude)
-//                        modelContext.insert(newLocation)
-//                        path = [newLocation]
-//                        print("Tapped at \(coordinate)")
-//                    }
-//                }
-//            }
+            MapReader { proxy in
+                Map(initialPosition: startPosition)
+                    .onTapGesture { position in
+                        if let coordinate = proxy.convert(position, from: .local) {
+                            let newLocation = NewActivity(id: "new", latitude: coordinate.latitude, longitude: coordinate.longitude)
+                            modelContext.insert(newLocation)
+                            path = [newLocation]
+                            print("Tapped at \(coordinate)")
+                        }
+                    }
+            }
         }
-        
-        .navigationTitle("Add Activity")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -59,8 +50,8 @@ struct AddActivityView: View {
     // make temporarily in memory storage for our data
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: AddedActivity.self, configurations: config)
-        return AddActivityView(addedActivity: .example)
+        let container = try ModelContainer(for: NewActivity.self, configurations: config)
+        return AddActivityView(newActivity: .example)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container.")

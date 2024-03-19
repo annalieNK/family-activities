@@ -39,7 +39,7 @@ struct ActivityListView: View {
                         Text(activity.name)
                     }
                 }
-                .navigationBarTitle("List View", displayMode: .inline)
+                .navigationBarTitle("", displayMode: .inline) //"List View"
                 .navigationBarHidden(true)
                 //.navigationTitle("Activities")
 //                .navigationDestination(for: Activity.self) { activity in

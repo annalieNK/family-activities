@@ -8,43 +8,11 @@
 import SwiftUI
 
 struct TestView: View {
+        
     var body: some View {
-            NavigationView {
-                VStack {
-                    Text("First View")
-                        .font(.title)
-                        .padding()
-                    
-                    // Include NamesListView here
-                    NamesListView()
-                }
-                .navigationBarTitle("Navigation Demo")
-            }
-        }
+        Text("Test")
     }
-
-    struct NamesListView: View {
-        let names = ["John", "Jane", "Bob", "Alice"]
-        
-        var body: some View {
-            List(names, id: \.self) { name in
-                NavigationLink(destination: DetailView(name: name)) {
-                    Text(name)
-                }
-            }
-            .navigationBarTitle("Names List")
-        }
-    }
-
-    struct DetailView: View {
-        let name: String
-        
-        var body: some View {
-            Text("Detail for \(name)")
-                .font(.title)
-                .padding()
-        }
-    }
+}
 
 #Preview {
     TestView()

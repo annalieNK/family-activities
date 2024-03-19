@@ -16,8 +16,11 @@ struct PersonalView: View {
     //    @State private var sortOrder = SortDescriptor(\PersonalRecommendation.name)
         
     var body: some View {
-        NavigationView {
+        NavigationView { //NavigationStack
             List {
+                NavigationLink(destination: NewActivityListView()) {
+                    Text("Added Activities")
+                }
                 NavigationLink(destination: PersonalActivityListView()) {
                     Text("Activities")
                 }
