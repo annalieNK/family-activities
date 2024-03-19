@@ -28,7 +28,7 @@ struct PersonalView: View {
                     Text("Journal")
                 }
             }
-            .navigationBarTitle("PersonalView", displayMode: .inline) //Personal View
+            .navigationBarTitle("PersonalView", displayMode: .inline) 
             .navigationBarHidden(true)
         }
     }

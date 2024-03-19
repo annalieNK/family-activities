@@ -14,8 +14,8 @@ struct ActivityItemView: View {
     let activity: Activity
     
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack {
+//        ScrollView(.horizontal) {
+//            HStack {
                 NavigationLink(destination: ActivityDetailView(activity: activity)) {
                     HStack {
                         Image(activity.id)
@@ -30,9 +30,11 @@ struct ActivityItemView: View {
                         }
                     }
                 }
-            }
-        }
-        .background(.white)
+//            }
+//        }
+        .navigationBarTitle("Map View", displayMode: .inline)
+        .navigationBarHidden(true)
+//        .background(.white)
     }
 }
 

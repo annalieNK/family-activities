@@ -30,21 +30,26 @@ struct ActivityListView: View {
         VStack {
             Text("\(filteredActivities.count) activities") //filteredActivities //filterLocations
             
-            NavigationStack {
+//            NavigationStack {
                 List(filteredActivities) { activity in //activities //filterLocations
-                    NavigationLink(value: activity) {
+//                    NavigationLink(value: activity) {
+//                        Text(activity.name)
+//                    }
+                    NavigationLink(destination: ActivityDetailView(activity: activity)) {
                         Text(activity.name)
                     }
                 }
+                .navigationBarTitle("List View", displayMode: .inline)
+                .navigationBarHidden(true)
                 //.navigationTitle("Activities")
-                .navigationDestination(for: Activity.self) { activity in
-                    ActivityDetailView(activity: activity)
-                }
+//                .navigationDestination(for: Activity.self) { activity in
+//                    ActivityDetailView(activity: activity)
+//                }
                 .task {
                     await fetchActivities()
                 }
                 //.searchable(text: $searchText, prompt: "Search")
-            }
+//            }
             
             Button("Return to map") {
                     self.showlist = false
