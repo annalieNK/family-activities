@@ -13,6 +13,7 @@ struct ActivityView: View {
     @Environment(\.modelContext) var modelContext
     
     @Query(sort: \Activity.name) private var activities: [Activity]
+    @Query(sort: \NewActivity.name) private var newActivities: [NewActivity]
     
     @State private var offset: CGFloat = UIScreen.main.bounds.height * 0.8
     @State private var dragOffset: CGFloat = 0
@@ -90,12 +91,13 @@ struct ActivityView: View {
                                     }
                                     .annotationTitles(.hidden)
                                 }
+                                
+//                                // add a filter to show these new activities
+//                                ForEach(newActivities) { newActivity in
+//                                    Marker(newActivity.name, coordinate: newActivity.coordinate)
+//                                }
                             }
                             .zIndex(-1)
-                            //                    if let selectedItem = selectedItem {
-                            //                        ActivityItemView(activity: selectedItem)
-                            //                            .frame(height: 200)
-                            //                    }
                             .searchable(text: $searchText, prompt: "Search for a resort") // Here, or at the bottom? Both locations work.
                             .onTapGesture { value in
                                 let coordinate = proxy.convert(value, from: .local)

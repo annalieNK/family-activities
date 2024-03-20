@@ -18,9 +18,6 @@ struct PersonalView: View {
     var body: some View {
         NavigationView { //NavigationStack
             List {
-                NavigationLink(destination: NewActivityListView()) {
-                    Text("Added Activities")
-                }
                 NavigationLink(destination: PersonalActivityListView()) {
                     Text("Activities")
                 }
@@ -29,6 +26,9 @@ struct PersonalView: View {
                 }
                 NavigationLink(destination: JournalView()) { //Text("Add journal here")
                     Text("Journal")
+                }
+                NavigationLink(destination: NewActivityListView()) {
+                    Text("Non Activity Locations")
                 }
             }
             .navigationBarTitle("PersonalView", displayMode: .inline) 
