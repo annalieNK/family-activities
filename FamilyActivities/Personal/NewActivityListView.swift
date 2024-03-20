@@ -14,25 +14,29 @@ struct NewActivityListView: View {
     
     @State private var path = [NewActivity]()
     
+    @State private var isAddActivity = false
+    
     var body: some View {
         List {
             ForEach(newActivities) { newActivity in
-                NavigationLink(destination: AddActivityView(newActivity: newActivity)) {
-                    Text(newActivity.name)
+                NavigationLink(destination: NewActivityDetailView(newActivity: newActivity)) { //AddActivityView(newActivity: newActivity)
+                    Text("\(newActivity.name)")
                 }
             }
             .onDelete(perform: deleteItems)
         }
-        
-        Button("Add Item", systemImage: "plus", action: addItem)
-//        NavigationStack(path: $path) {
-//            NewActivityListingView(sort: sortOrder)
-//                .navigationDestination(for: NewActivity.self, destination: EditNewActivityView.init)
-//                .toolbar {
-//                    Button("Add New Activity", systemImage: "plus", action: addNewActivity)
-//                }
-//        }
-        //Text("Tst")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    isAddActivity = true
+                } label: {
+                    Label("Add Activity", systemImage: "plus")
+                }
+            }
+        }
+        .sheet(isPresented: $isAddActivity) {
+            AddActivityView() //newActivity: NewActivity.example
+        }
     }
     
     func deleteItems(_ indexSet: IndexSet) {
@@ -40,12 +44,6 @@ struct NewActivityListView: View {
             let item = newActivities[index]
             modelContext.delete(item)
         }
-    }
-    
-    func addItem() {
-        let item = NewActivity()
-        modelContext.insert(item)
-        path = [item]
     }
 }
 

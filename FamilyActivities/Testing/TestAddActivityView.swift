@@ -45,7 +45,7 @@ struct TestAddActivityView: View {
 
             .onTapGesture { position in
                 if let coordinate = proxy.convert(position, from: .local) {
-                    let newLocation = NewActivity(id: "new", latitude: coordinate.latitude, longitude: coordinate.longitude)
+                    let newLocation = NewActivity(latitude: coordinate.latitude, longitude: coordinate.longitude) //id: "new", 
                     modelContext.insert(newLocation)
                     path = [newLocation]
                     print("Tapped at \(coordinate)")

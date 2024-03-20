@@ -48,7 +48,7 @@ struct JournalView: View {
     }
     
     func addItem() {
-        let item = Journal()
+        let item = Journal(name: "New Activity")
         modelContext.insert(item)
         path = [item]
     }

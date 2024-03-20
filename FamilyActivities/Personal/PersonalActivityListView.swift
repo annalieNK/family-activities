@@ -46,7 +46,7 @@ struct PersonalActivityListView: View {
                         }
                     }
                 }
-                .navigationDestination(for: NewActivity.self, destination: AddActivityView.init)
+                //.navigationDestination(for: NewActivity.self, destination: AddActivityView.init)
 //                .navigationDestination(for: AddedActivity.self) { addedActivity in
 //                    AddActivityView(addedActivity: addedActivity)
 //                }

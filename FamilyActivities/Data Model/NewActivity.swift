@@ -11,18 +11,21 @@ import SwiftData
 
 @Model
 class NewActivity: Equatable, Identifiable { //: , Codable, Identifiable, ObservableObject
-    let id: String
+    //let id: String
     var name: String
     var type: String
     
     var latitude: Double
     var longitude: Double
-    //var links: [String]
     
-    static let example = NewActivity(id: String(), name: "Test Name", type: "Test Type", latitude: 37.77, longitude: -122.42) //, links: ["swift", "apple"]
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
     
-    init(id: String, name: String = "", type: String = "", latitude: Double, longitude: Double) { //, links: [String]
-        self.id = id
+    static let example = NewActivity(name: "Test Name", type: "Test Type", latitude: 37.77, longitude: -122.42) //id: String(), 
+    
+    init(name: String = "", type: String = "", latitude: Double, longitude: Double) { //id: String = "",
+        //self.id = id
         self.name = name
         self.type = type
         self.latitude = latitude

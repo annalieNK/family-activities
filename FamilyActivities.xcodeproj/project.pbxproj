@@ -13,6 +13,7 @@
 		343C2D072B99741D0083F450 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D062B99741D0083F450 /* JournalView.swift */; };
 		343C2D092B9975440083F450 /* AddJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D082B9975440083F450 /* AddJournalView.swift */; };
 		3456F9AD2B636DAB006368F0 /* LinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456F9AC2B636DAB006368F0 /* LinkRow.swift */; };
+		3470FDBB2BAB7DB800CD9A7D /* NewActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470FDBA2BAB7DB800CD9A7D /* NewActivityDetailView.swift */; };
 		3471ED582B69A97E0007205A /* RecommendationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED572B69A97E0007205A /* RecommendationDetailView.swift */; };
 		3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED592B69A99F0007205A /* ActivityDetailView.swift */; };
 		3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED5B2B6AC4A80007205A /* RecommendationView.swift */; };
@@ -47,6 +48,7 @@
 		343C2D062B99741D0083F450 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		343C2D082B9975440083F450 /* AddJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalView.swift; sourceTree = "<group>"; };
 		3456F9AC2B636DAB006368F0 /* LinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRow.swift; sourceTree = "<group>"; };
+		3470FDBA2BAB7DB800CD9A7D /* NewActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityDetailView.swift; sourceTree = "<group>"; };
 		3471ED572B69A97E0007205A /* RecommendationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailView.swift; sourceTree = "<group>"; };
 		3471ED592B69A99F0007205A /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
 		3471ED5B2B6AC4A80007205A /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				34F442B32B8FD90900C99DB2 /* PersonalView.swift */,
 				34826D452BAA11CA0027BC8F /* NewActivityListView.swift */,
+				3470FDBA2BAB7DB800CD9A7D /* NewActivityDetailView.swift */,
 				34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */,
 				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
 				348021662B9686B6009AC8BA /* AddActivityView.swift */,
@@ -281,6 +284,7 @@
 				3495C7D72B68AD36008862BA /* Recommendation.swift in Sources */,
 				348021672B9686B6009AC8BA /* AddActivityView.swift in Sources */,
 				348021652B968480009AC8BA /* TestAddActivityView.swift in Sources */,
+				3470FDBB2BAB7DB800CD9A7D /* NewActivityDetailView.swift in Sources */,
 				34EAC7982B4F2E8800002B91 /* PersonalView2.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
 				3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */,
