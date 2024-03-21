@@ -13,18 +13,35 @@ struct JournalView: View {
     @Query(sort: \Journal.name) private var journalItems: [Journal]
     
     @State private var path = [Journal]()
+    @State private var isAddJournal = false
     
     var body: some View {
-        List {
-            ForEach(journalItems) { journal in
-                NavigationLink(destination: AddJournalView(journal: journal)) {
-                    Text(journal.name)
+        VStack {
+            List {
+                ForEach(journalItems) { journal in
+                    NavigationLink(destination: Text(journal.name)) { //AddJournalView() //journal: journal
+                        Text(journal.name)
+                    }
+                }
+                .onDelete(perform: deleteItems)
+            }
+            
+            //Button("Add Item", systemImage: "plus", action: addItem)
+        }
+        .navigationBarTitle("JournalView")//, displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    //isAddJournal = true
+                    addItem()
+                } label: {
+                    Label("Add Journal", systemImage: "plus")
                 }
             }
-            .onDelete(perform: deleteItems)
         }
-        Button("Add Item", systemImage: "plus", action: addItem)
-            .navigationBarTitle("JournalView")//, displayMode: .inline)
+        .sheet(isPresented: $isAddJournal) {
+            AddJournalView() //journal: journal
+        }
     }
     
     func deleteItems(_ indexSet: IndexSet) {

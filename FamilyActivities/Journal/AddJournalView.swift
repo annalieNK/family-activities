@@ -9,21 +9,24 @@ import MapKit
 import SwiftData
 import SwiftUI
 
-extension CLLocationCoordinate2D {
-    static let sfZoo = CLLocationCoordinate2D(latitude: 37.73, longitude: -122.50)
-    static let stinsonBeach = CLLocationCoordinate2D(latitude: 37.90, longitude: -122.64)
-}
+//extension CLLocationCoordinate2D {
+//    static let sfZoo = CLLocationCoordinate2D(latitude: 37.73, longitude: -122.50)
+//    static let stinsonBeach = CLLocationCoordinate2D(latitude: 37.90, longitude: -122.64)
+//}
 
 struct AddJournalView: View {
+    @Environment(\.modelContext) var modelContext
     @Query(sort: \Activity.name) private var activities: [Activity]
     
-    @Bindable var journal: Journal
+    //@Bindable var journal: Journal
     
-    //    @State private var newItem = ""
-    //    @State private var latitude: Double
-    //    @State private var longitude: Double
+    @State private var journal: Journal?
+    @State private var newJournalsPath = [Journal]()
+    
     @State private var selectedActivity: Activity?
     @State private var searchText = ""
+    
+    @State private var name: String = ""
     
     let startPosition = MapCameraPosition.region(
         MKCoordinateRegion(
@@ -41,37 +44,33 @@ struct AddJournalView: View {
     }
     
     var body: some View {
+        let locations = journal?.locations ?? []
+        
         VStack {
             Form {
-                TextField("Name", text: $journal.name)
+                TextField("Name", text: $name)
                 
                 Section("Items Visited") {
-                    ForEach(journal.locations) { location in
+                    ForEach(locations) { location in
                         Text(location.name)
                     }
                 }
-                
-                //                HStack {
-                //                    TextField("Add a new item in ", text: $newItem)
-                //                    Button("Add", action: addItem)
-                //                }
             }
             
             Map {
-                ForEach(journal.locations) { location in
+                ForEach(locations) { location in
                     Marker("", coordinate: location.coordinate)
                 }
             }
             
             Map {
                 ForEach(searchActivity) { activity in
-                    Annotation(activity.name, coordinate: activity.coordinate) { //Marker
+                    Annotation(activity.name, coordinate: activity.coordinate) {
                         VStack {
                             ZStack {
                                 Image(systemName: "circle.fill")
                                     .font(selectedActivity == activity ? .largeTitle : .title)
                                     .opacity(selectedActivity == activity ? 1 : 0.5)
-                                //.style(for: activity)
                                 
                                 Image(systemName: activity.symbol)
                                     .font(.caption)
@@ -79,10 +78,10 @@ struct AddJournalView: View {
                             }
                         }
                         .onTapGesture {
-                            withAnimation(.easeInOut) {
-                                selectedActivity = activity
-                                let newLocation = Location(name: activity.name, latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude) //name: activity.name,
-                                journal.locations.append(newLocation)
+                            selectedActivity = activity
+                            if let unwrappedJournal = journal {
+                                let newLocation = Location(name: activity.name, latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude)
+                                unwrappedJournal.locations.append(newLocation)
                             }
                         }
                     }
@@ -90,20 +89,17 @@ struct AddJournalView: View {
                 }
             }
             .searchable(text: $searchText, prompt: "Search for a resort")
+            
+            Button("Save") {
+                guard let selectedActivity = self.selectedActivity else { return }
+                print("Tapped Save Button")
+                let newItem = Journal(name: name)
+                modelContext.insert(newItem)
+                newJournalsPath = [newItem]
+            }
         }
-        //.navigationBarTitle("", displayMode: .automatic)
-        //.navigationBarHidden(true)
     }
-    
-    //        func addItem() {
-    //            guard newItem.isEmpty == false else { return }
-    //
-    //            withAnimation {
-    //                let location = Location(name: newItem)
-    //                journal.locations.append(location)
-    //                newItem = ""
-    //            }
-    //        }
+
 }
 
 //#Preview {
