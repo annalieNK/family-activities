@@ -138,7 +138,6 @@ struct ActivityView: View {
                             .transition(.move(edge: .bottom))
                     }
                 }
-                
 //                .sheet(isPresented: $showList) { // popover //fullScreenCover
 //                    ActivityListView(searchText: $searchText, selectedType: $selectedType)
 //                        .presentationDetents([.fraction(0.85)]) //[.medium, .large] [.large]
