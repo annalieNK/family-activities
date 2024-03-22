@@ -19,17 +19,18 @@ struct PersonalView: View {
         NavigationView { //NavigationStack
             List {
                 NavigationLink(destination: PersonalActivityListView()) {
-                    Text("Activities")
+                    Text("Saved and New Activities")
                 }
                 NavigationLink(destination: PersonalRecommendationListView()) {
-                    Text("Itineraries")
-                }
-                NavigationLink(destination: JournalView()) { //Text("Add journal here")
-                    Text("Journal")
+                    Text("Saved and New Itineraries")
                 }
                 NavigationLink(destination: NewActivityListView()) {
-                    Text("Non Activity Locations")
+                    Text("Random Locations")
                 }
+                NavigationLink(destination: JournalView()) {
+                    Text("Create a Journal")
+                }
+                
             }
             .navigationBarTitle("PersonalView", displayMode: .inline) 
             .navigationBarHidden(true)

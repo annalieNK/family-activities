@@ -18,6 +18,10 @@
 		3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED592B69A99F0007205A /* ActivityDetailView.swift */; };
 		3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3471ED5B2B6AC4A80007205A /* RecommendationView.swift */; };
 		3478A5EF2B682E97009D7E64 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478A5EE2B682E97009D7E64 /* ActivityView.swift */; };
+		3479D68F2BAC9C0B003915F0 /* NewItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479D68E2BAC9C0B003915F0 /* NewItinerary.swift */; };
+		3479D6912BAC9C3F003915F0 /* AddItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479D6902BAC9C3F003915F0 /* AddItineraryView.swift */; };
+		3479D6932BACA633003915F0 /* NewItineraryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479D6922BACA633003915F0 /* NewItineraryDetailView.swift */; };
+		3479D6952BACB10F003915F0 /* SearchActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479D6942BACB10F003915F0 /* SearchActivityView.swift */; };
 		348021652B968480009AC8BA /* TestAddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348021642B968480009AC8BA /* TestAddActivityView.swift */; };
 		348021672B9686B6009AC8BA /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348021662B9686B6009AC8BA /* AddActivityView.swift */; };
 		34826D3E2BAA054A0027BC8F /* AddNewActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34826D3D2BAA054A0027BC8F /* AddNewActivityView.swift */; };
@@ -53,6 +57,10 @@
 		3471ED592B69A99F0007205A /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
 		3471ED5B2B6AC4A80007205A /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		3478A5EE2B682E97009D7E64 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		3479D68E2BAC9C0B003915F0 /* NewItinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItinerary.swift; sourceTree = "<group>"; };
+		3479D6902BAC9C3F003915F0 /* AddItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItineraryView.swift; sourceTree = "<group>"; };
+		3479D6922BACA633003915F0 /* NewItineraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItineraryDetailView.swift; sourceTree = "<group>"; };
+		3479D6942BACB10F003915F0 /* SearchActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchActivityView.swift; sourceTree = "<group>"; };
 		348021642B968480009AC8BA /* TestAddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddActivityView.swift; sourceTree = "<group>"; };
 		348021662B9686B6009AC8BA /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 		34826D3D2BAA054A0027BC8F /* AddNewActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewActivityView.swift; sourceTree = "<group>"; };
@@ -115,11 +123,13 @@
 			children = (
 				34F442B32B8FD90900C99DB2 /* PersonalView.swift */,
 				34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */,
-				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
 				34826D452BAA11CA0027BC8F /* NewActivityListView.swift */,
-				3470FDBA2BAB7DB800CD9A7D /* NewActivityDetailView.swift */,
 				348021662B9686B6009AC8BA /* AddActivityView.swift */,
-				34826D3D2BAA054A0027BC8F /* AddNewActivityView.swift */,
+				3470FDBA2BAB7DB800CD9A7D /* NewActivityDetailView.swift */,
+				34D336572B855F970059D223 /* PersonalRecommendationListView.swift */,
+				3479D6902BAC9C3F003915F0 /* AddItineraryView.swift */,
+				3479D6942BACB10F003915F0 /* SearchActivityView.swift */,
+				3479D6922BACA633003915F0 /* NewItineraryDetailView.swift */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -141,6 +151,7 @@
 				34EAC79D2B4F395500002B91 /* Activity.swift */,
 				3495C7D62B68AD36008862BA /* Recommendation.swift */,
 				34826D412BAA10F50027BC8F /* NewActivity.swift */,
+				3479D68E2BAC9C0B003915F0 /* NewItinerary.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -157,6 +168,7 @@
 		34A636852B91141D00828188 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
+				34826D3D2BAA054A0027BC8F /* AddNewActivityView.swift */,
 				34EAC7972B4F2E8800002B91 /* PersonalView2.swift */,
 				34D3365B2B866BDF0059D223 /* TestView.swift */,
 				348021642B968480009AC8BA /* TestAddActivityView.swift */,
@@ -285,6 +297,8 @@
 				348021672B9686B6009AC8BA /* AddActivityView.swift in Sources */,
 				348021652B968480009AC8BA /* TestAddActivityView.swift in Sources */,
 				3470FDBB2BAB7DB800CD9A7D /* NewActivityDetailView.swift in Sources */,
+				3479D68F2BAC9C0B003915F0 /* NewItinerary.swift in Sources */,
+				3479D6932BACA633003915F0 /* NewItineraryDetailView.swift in Sources */,
 				34EAC7982B4F2E8800002B91 /* PersonalView2.swift in Sources */,
 				34EAC7922B4F281900002B91 /* HomeView.swift in Sources */,
 				3471ED5C2B6AC4A80007205A /* RecommendationView.swift in Sources */,
@@ -296,8 +310,10 @@
 				34826D422BAA10F50027BC8F /* NewActivity.swift in Sources */,
 				34877F0A2B8D7FE600C7883F /* ActivityItemView.swift in Sources */,
 				34EAC79E2B4F395500002B91 /* Activity.swift in Sources */,
+				3479D6952BACB10F003915F0 /* SearchActivityView.swift in Sources */,
 				34D336582B855F970059D223 /* PersonalRecommendationListView.swift in Sources */,
 				343C2D042B9972F80083F450 /* Location.swift in Sources */,
+				3479D6912BAC9C3F003915F0 /* AddItineraryView.swift in Sources */,
 				34826D3E2BAA054A0027BC8F /* AddNewActivityView.swift in Sources */,
 				3456F9AD2B636DAB006368F0 /* LinkRow.swift in Sources */,
 				3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */,

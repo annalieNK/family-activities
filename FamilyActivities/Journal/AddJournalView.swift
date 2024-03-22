@@ -25,6 +25,8 @@ struct AddJournalView: View {
     @State private var selectedActivity: Activity?
     @State private var searchText = ""
     
+    @State private var isAddLocation = false
+    
     let startPosition = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
@@ -55,6 +57,12 @@ struct AddJournalView: View {
                 //                    TextField("Add a new item in ", text: $newItem)
                 //                    Button("Add", action: addItem)
                 //                }
+            }
+            
+            Button {
+                isAddLocation = true
+            } label: {
+                Label("Add Activity", systemImage: "plus")
             }
             
             Map {
@@ -90,6 +98,8 @@ struct AddJournalView: View {
                 }
             }
             .searchable(text: $searchText, prompt: "Search for a resort")
+        }
+        .sheet(isPresented: $isAddLocation) {
         }
         //.navigationBarTitle("", displayMode: .automatic)
         //.navigationBarHidden(true)

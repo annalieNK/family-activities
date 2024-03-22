@@ -35,6 +35,7 @@ struct PersonalActivityListView: View {
                     }
                 }
             }
+            .navigationBarTitle("Activities", displayMode: .inline)
             .toolbar {
                 Button {
                     isAddActivity = true
@@ -43,8 +44,8 @@ struct PersonalActivityListView: View {
                 }
             }
             .sheet(isPresented: $isAddActivity) {
-                //AddActivityView()
-                Text("Add Activity here")
+                AddActivityView()
+                //Text("Add Activity here")
             }
     }
     

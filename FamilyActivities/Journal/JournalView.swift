@@ -23,8 +23,17 @@ struct JournalView: View {
             }
             .onDelete(perform: deleteItems)
         }
-        Button("Add Item", systemImage: "plus", action: addItem)
+        //Button("Add Item", systemImage: "plus", action: addItem)
             .navigationBarTitle("JournalView")//, displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        addItem()
+                    } label: {
+                        Label("Add Activity", systemImage: "plus")
+                    }
+                }
+            }
     }
     
     func deleteItems(_ indexSet: IndexSet) {

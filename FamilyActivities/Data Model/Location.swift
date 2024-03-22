@@ -10,7 +10,7 @@ import MapKit
 import SwiftData
 
 @Model
-class Location { //: Equatable
+class Location: Identifiable, Equatable { //: Equatable
     var name: String
     var latitude: Double
     var longitude: Double
@@ -23,5 +23,9 @@ class Location { //: Equatable
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        return lhs.coordinate.latitude == rhs.coordinate.latitude && lhs.coordinate.longitude == rhs.coordinate.longitude
     }
 }

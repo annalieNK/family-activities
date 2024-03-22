@@ -119,7 +119,7 @@ struct ActivityView: View {
                             // Activity Item View
                             if let selectedItem = selectedItem {
                                 ActivityItemView(activity: selectedItem)
-                                    .frame(height: 200)
+                                    .frame(height: 100)
                             } else {
                                 Button {
                                     withAnimation {
