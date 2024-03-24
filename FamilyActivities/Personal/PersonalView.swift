@@ -17,22 +17,42 @@ struct PersonalView: View {
         
     var body: some View {
         NavigationView { //NavigationStack
-            List {
-                NavigationLink(destination: PersonalActivityListView()) {
-                    Text("Saved and New Activities")
-                }
-                NavigationLink(destination: PersonalRecommendationListView()) {
-                    Text("Saved and New Itineraries")
-                }
-                NavigationLink(destination: NewActivityListView()) {
-                    Text("Random Locations")
-                }
-                NavigationLink(destination: JournalView()) {
-                    Text("Create a Journal")
+            VStack {
+                List {
+                    NavigationLink(destination: PersonalActivityListView()) {
+                        HStack {
+                            Image(systemName: "bookmark")
+                            Spacer()
+                            Text("Saved and New Activities")
+                        }
+                    }
+                    NavigationLink(destination: PersonalRecommendationListView()) {
+                        HStack {
+                            Image(systemName: "bookmark")
+                            Spacer()
+                            Text("Saved and New Itineraries")
+                        }
+                    }
+                    NavigationLink(destination: NewActivityListView()) {
+                        HStack {
+                            Image(systemName: "mappin.and.ellipse")
+                            Spacer()
+                            Text("Random Locations")
+                        }
+                    }
                 }
                 
+                NavigationLink(destination: JournalView()) {
+                    HStack {
+                        Image(systemName: "book.closed")
+                        Spacer()
+                        Text("Create a Journal")
+                    }
+                }
+                
+                Spacer()
             }
-            .navigationBarTitle("PersonalView", displayMode: .inline) 
+            .navigationBarTitle("PersonalView", displayMode: .inline)
             .navigationBarHidden(true)
         }
     }

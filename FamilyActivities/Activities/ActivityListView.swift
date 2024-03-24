@@ -35,9 +35,9 @@ struct ActivityListView: View {
 //                    NavigationLink(value: activity) {
 //                        Text(activity.name)
 //                    }
-                    NavigationLink(destination: ActivityDetailView(activity: activity)) {
-                        Text(activity.name)
-                    }
+                    //NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                        ActivityItemView(activity: activity)//Text(activity.name)
+                    //}
                 }
                 .navigationBarTitle("", displayMode: .inline) //"List View"
                 .navigationBarHidden(true)

@@ -10,43 +10,69 @@ import SwiftUI
 
 struct JournalView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Journal.name) private var journalItems: [Journal]
+    @Query(sort: \NewItinerary.name) private var newItineraries: [NewItinerary]
     
-    @State private var path = [Journal]()
+    @State private var path = [NewItinerary]()
+    @State private var isAddUsedItinerary = false
+    @State private var isNewJournalItem = false
+    
+    @State private var newItinerary: NewItinerary? //@Bindable var newItinerary: NewItinerary
     
     var body: some View {
-        List {
-            ForEach(journalItems) { journal in
-                NavigationLink(destination: AddJournalView(journal: journal)) {
-                    Text(journal.name)
+        VStack {
+            Menu {
+                Button {
+                    //isNewJournalItem = true
+                    addItem()
+                } label: {
+                    Text("New")
                 }
+                Button {
+                    isAddUsedItinerary = true
+                } label: {
+                    Text("Use Itinerary")
+                }
+            } label: {
+                Label("Add New Item", systemImage: "book.closed")
             }
-            .onDelete(perform: deleteItems)
+            
+            List {
+                ForEach(newItineraries) { itinerary in
+                    NavigationLink(destination: AddItineraryView(newItinerary: itinerary)) {
+                        Text(itinerary.name)
+                    }
+                }
+                .onDelete(perform: deleteItems)
+            }
         }
-        //Button("Add Item", systemImage: "plus", action: addItem)
-            .navigationBarTitle("JournalView")//, displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        addItem()
-                    } label: {
-                        Label("Add Activity", systemImage: "plus")
+        .navigationBarTitle("JournalView")//, displayMode: .inline)
+        .sheet(isPresented: $isAddUsedItinerary) {
+            NavigationView {
+                List {
+                    ForEach(newItineraries) { itinerary in
+                        NavigationLink(destination: AddItineraryView(newItinerary: itinerary)) {
+                            Text(itinerary.name)
+                        }
                     }
                 }
             }
-    }
-    
-    func deleteItems(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let item = journalItems[index]
-            modelContext.delete(item)
+        }
+        .sheet(isPresented: $isNewJournalItem) {
+            Text("Create a new Journal Item here")
         }
     }
     
     func addItem() {
-        let item = Journal(name: "New Activity")
+        let item = NewItinerary(name: "New Itinerary")
         modelContext.insert(item)
         path = [item]
+    }
+    
+    func deleteItems(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let item = newItineraries[index]
+            modelContext.delete(item)
+        }
     }
 }
 

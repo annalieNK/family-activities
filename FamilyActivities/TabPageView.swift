@@ -26,10 +26,10 @@ struct TabPageView: View {
                 .tabItem {
                     Image(systemName: "ellipsis")
                 }
-            TestView()
-                .tabItem {
-                    Image(systemName: "questionmark.app")
-                }
+//            TestView()
+//                .tabItem {
+//                    Image(systemName: "questionmark.app")
+//                }
         }
     }
 }
