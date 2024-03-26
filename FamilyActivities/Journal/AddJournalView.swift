@@ -15,24 +15,109 @@ extension CLLocationCoordinate2D {
 }
 
 struct AddJournalView: View {
-    @Query(sort: \Activity.name) private var activities: [Activity]
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
     
-    @Bindable var journal: Journal
-    
-    //    @State private var newItem = ""
-    //    @State private var latitude: Double
-    //    @State private var longitude: Double
-    @State private var selectedActivity: Activity?
-    @State private var searchText = ""
+    @State private var journalItemsPath = [Journal]()
+    @Bindable var journal: Journal //@State private var journal: Journal?
     
     @State private var isAddLocation = false
     
-    let startPosition = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
-            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        )
-    )
+    @State private var name: String = ""
+    
+    @State private var selectedActivity: Activity? = nil
+    
+    @Query(sort: \Activity.name) private var activities: [Activity]
+    @State private var searchText: String = ""
+    
+    var body: some View {
+        VStack {
+            Section {
+                TextField("Name", text: $journal.name)
+            }
+            
+            //if let newItinerary = newItinerary, !newItinerary.locations.isEmpty {
+            ZStack(alignment: .bottom) {
+                MapReader { proxy in
+                    Map {
+                        ForEach(journal.locations) { location in
+                            //Marker("", coordinate: location.coordinate)
+                            Annotation(location.name, coordinate: location.coordinate) {
+                                Button(action: {
+                                    let selectedActivity = activities.first(where: { $0.name == location.name})
+                                    self.selectedActivity = selectedActivity
+                                }) {
+                                    Image(systemName: "mappin.circle.fill")
+                                        .contextMenu {
+                                            Button("Delete") {
+                                                deleteLocations(withName: location.name)
+                                            }
+                                        }
+                                }
+                            }
+                        }
+                    }
+                    .onTapGesture { value in
+                        let coordinate = proxy.convert(value, from: .local)
+                        print("\(coordinate!)")
+                        
+                        let tappedOnActivity = activities.contains { activity in
+                            // Check if tap location falls within a certain range of any data point
+                            let distance = CLLocation(latitude: coordinate!.latitude, longitude: coordinate!.longitude).distance(from: CLLocation(latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude))
+                            return distance < 500 // Adjust this threshold as needed
+                        }
+                        print(tappedOnActivity)
+                        
+                        if !tappedOnActivity {
+                            selectedActivity = nil
+                            print("\(String(describing: selectedActivity?.coordinate))")
+                        }
+                    }
+                    
+                    if let selectedActivity = selectedActivity {
+                        ActivityItemView(activity: selectedActivity)
+                            .frame(height: 200)
+                    }
+                }
+            }
+            
+            Button {
+                isAddLocation = true
+            } label: {
+                Text("Add Location") //Label("Add Location", systemImage: "plus")
+            }
+        }
+        .sheet(isPresented: $isAddLocation) {
+            //SearchActivityView()
+            NavigationView {
+                Form {
+                    Section {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.gray)
+                            TextField("Search for activity", text: $searchText)
+                                .onChange(of: searchText) { newSearch in
+                                    activities.filter { $0.name.localizedCaseInsensitiveContains(newSearch) }
+                                }
+                        }
+                        List(searchActivity) { activity in
+                            Button {
+                                //if let newItinerary = newItinerary, !newItinerary.locations.isEmpty {
+                                selectedActivity = activity
+                                print(selectedActivity!.name)
+                                let newLocation = Location(name: activity.name, latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude)
+                                journal.locations.append(newLocation)
+                                //}
+                            } label: {
+                                Text(activity.name)
+                            }
+                        }
+                    }
+                }
+            }
+            .presentationDetents([.medium]) //, .medium //[.height(400), .fraction(0.8)]
+        }
+    }
     
     var searchActivity: [Activity] {
         if searchText.isEmpty {
@@ -42,78 +127,10 @@ struct AddJournalView: View {
         }
     }
     
-    var body: some View {
-        VStack {
-            Form {
-                TextField("Name", text: $journal.name)
-                
-                Section("Items Visited") {
-                    ForEach(journal.locations) { location in
-                        Text(location.name)
-                    }
-                }
-                
-                //                HStack {
-                //                    TextField("Add a new item in ", text: $newItem)
-                //                    Button("Add", action: addItem)
-                //                }
-            }
-            
-            Button {
-                isAddLocation = true
-            } label: {
-                Label("Add Activity", systemImage: "plus")
-            }
-            
-            Map {
-                ForEach(journal.locations) { location in
-                    Marker("", coordinate: location.coordinate)
-                }
-            }
-            
-            Map {
-                ForEach(searchActivity) { activity in
-                    Annotation(activity.name, coordinate: activity.coordinate) { //Marker
-                        VStack {
-                            ZStack {
-                                Image(systemName: "circle.fill")
-                                    .font(selectedActivity == activity ? .largeTitle : .title)
-                                    .opacity(selectedActivity == activity ? 1 : 0.5)
-                                //.style(for: activity)
-                                
-                                Image(systemName: activity.symbol)
-                                    .font(.caption)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        .onTapGesture {
-                            withAnimation(.easeInOut) {
-                                selectedActivity = activity
-                                let newLocation = Location(name: activity.name, latitude: activity.coordinate.latitude, longitude: activity.coordinate.longitude) //name: activity.name,
-                                journal.locations.append(newLocation)
-                            }
-                        }
-                    }
-                    .annotationTitles(.hidden)
-                }
-            }
-            .searchable(text: $searchText, prompt: "Search for a resort")
-        }
-        .sheet(isPresented: $isAddLocation) {
-        }
-        //.navigationBarTitle("", displayMode: .automatic)
-        //.navigationBarHidden(true)
+    //newItinerary.locations.removeAll(where: {$0.name == location.name })
+    func deleteLocations(withName name: String) {
+        journal.locations.removeAll { $0.name == name }
     }
-    
-    //        func addItem() {
-    //            guard newItem.isEmpty == false else { return }
-    //
-    //            withAnimation {
-    //                let location = Location(name: newItem)
-    //                journal.locations.append(location)
-    //                newItem = ""
-    //            }
-    //        }
 }
 
 //#Preview {

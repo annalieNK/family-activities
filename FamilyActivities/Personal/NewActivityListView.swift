@@ -59,6 +59,7 @@ struct NewActivityListView: View {
         .sheet(isPresented: $isAddActivity) {
             AddActivityView() //newActivity: NewActivity.example
         }
+        .navigationBarTitle("Random Locations", displayMode: .inline)
     }
     
     func deleteItems(_ indexSet: IndexSet) {

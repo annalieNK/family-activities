@@ -18,13 +18,15 @@ struct PersonalView: View {
     var body: some View {
         NavigationView { //NavigationStack
             VStack {
-                List {
+//                List {
+                
                     NavigationLink(destination: PersonalActivityListView()) {
                         HStack {
                             Image(systemName: "bookmark")
                             Spacer()
                             Text("Saved and New Activities")
                         }
+                        .padding()
                     }
                     NavigationLink(destination: PersonalRecommendationListView()) {
                         HStack {
@@ -32,6 +34,7 @@ struct PersonalView: View {
                             Spacer()
                             Text("Saved and New Itineraries")
                         }
+                        .padding()
                     }
                     NavigationLink(destination: NewActivityListView()) {
                         HStack {
@@ -39,8 +42,10 @@ struct PersonalView: View {
                             Spacer()
                             Text("Random Locations")
                         }
+                        .padding()
                     }
-                }
+//                }
+                Spacer()
                 
                 NavigationLink(destination: JournalView()) {
                     HStack {
@@ -48,6 +53,7 @@ struct PersonalView: View {
                         Spacer()
                         Text("Create a Journal")
                     }
+                    .padding()
                 }
                 
                 Spacer()

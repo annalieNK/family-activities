@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34008FC92B85510E00EA77D9 /* PersonalActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */; };
+		3423ECEF2BB279B90018B2B4 /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423ECEE2BB279B90018B2B4 /* JournalDetailView.swift */; };
 		343C2D022B99727F0083F450 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D012B99727E0083F450 /* Journal.swift */; };
 		343C2D042B9972F80083F450 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D032B9972F80083F450 /* Location.swift */; };
 		343C2D072B99741D0083F450 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2D062B99741D0083F450 /* JournalView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		34008FC82B85510E00EA77D9 /* PersonalActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalActivityListView.swift; sourceTree = "<group>"; };
+		3423ECEE2BB279B90018B2B4 /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
 		343C2D012B99727E0083F450 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		343C2D032B9972F80083F450 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		343C2D062B99741D0083F450 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				343C2D062B99741D0083F450 /* JournalView.swift */,
 				343C2D082B9975440083F450 /* AddJournalView.swift */,
+				3423ECEE2BB279B90018B2B4 /* JournalDetailView.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				3471ED5A2B69A99F0007205A /* ActivityDetailView.swift in Sources */,
 				34D3365C2B866BDF0059D223 /* TestView.swift in Sources */,
 				34826D462BAA11CA0027BC8F /* NewActivityListView.swift in Sources */,
+				3423ECEF2BB279B90018B2B4 /* JournalDetailView.swift in Sources */,
 				34EAC7832B4F24D300002B91 /* FamilyActivitiesApp.swift in Sources */,
 				343C2D022B99727F0083F450 /* Journal.swift in Sources */,
 				34F442B42B8FD90900C99DB2 /* PersonalView.swift in Sources */,

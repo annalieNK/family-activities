@@ -79,7 +79,7 @@ struct AddItineraryView: View {
             Button {
                 isAddLocation = true
             } label: {
-                Text("Add Location") //Label("Add Location", systemImage: "plus")
+                Text("Search Activity") //Label("Add Location", systemImage: "plus")
             }
         }
         .sheet(isPresented: $isAddLocation) {
